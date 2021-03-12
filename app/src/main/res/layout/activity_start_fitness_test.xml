@@ -136,7 +136,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/bluee"
-            android:textSize="@dimen/font_14"
+            android:textSize="@dimen/font_13"
             android:text="@string/_01_20"/>
         <TextView
             android:id="@+id/tv5"
@@ -145,7 +145,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textColor="@color/bluee"
-            android:textSize="@dimen/font_14"
+            android:textSize="@dimen/font_13"
             android:text="@string/_05"/>
         <TextView
             android:id="@+id/tvlevel9"
@@ -153,7 +153,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@color/bluee"
-            android:textSize="@dimen/font_14"
+            android:textSize="@dimen/font_13"
             android:gravity="center"
             android:text="@string/_9_10"/>
     </LinearLayout>
