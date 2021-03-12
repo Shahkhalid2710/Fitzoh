@@ -1,0 +1,812 @@
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:id="@+id/llHomeScreen"
+    tools:context=".ui.home.activities.HomeScreenFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvHomeScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/home_screen"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18"
+            tools:ignore="RelativeOverlap" />
+
+        <ImageView
+            android:id="@+id/ivnotification"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:src="@drawable/ic_notification"
+            android:contentDescription="@string/todo" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvConnectwith"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10" />
+
+    <TextView
+        android:id="@+id/tvUpcomingSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="start"
+        android:text="@string/upcoming_sessions"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_15" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvUpcomingSessions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:layout_margin="@dimen/spacing_10"
+        app:cardCornerRadius="@dimen/spacing_5">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="start"
+                android:text="@string/today"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_13" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/trainer"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@+id/ivPic"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/spacing_5"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/tvtrainerName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textSize="@dimen/font_13"
+                        android:text="@string/trainer_name_ayesha_billimoria"/>
+                    <TextView
+                        android:id="@+id/tvTrainerStrength"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textcolorgray"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="@dimen/font_10"
+                        android:text="@string/ayesha_billimoria_for_a_power_pack_strength_and_conditioning_workshop"/>
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/textcolorgray"
+                        android:fontFamily="@font/poppins_regular"
+                        android:textSize="@dimen/font_10"
+                        android:text="@string/_3_30_pm_live_at_home"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginTop="@dimen/spacing_5"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/trainer_profile"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/general_counsellor"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_5"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_5"
+                android:id="@+id/cvTrainerProfile"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="@dimen/spacing_5">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/ivTrainerProfile"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/spacing_10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/trainerprofile"
+                        android:contentDescription="@string/todo" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ivTrainerProfile"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_5">
+
+                        <TextView
+                            android:id="@+id/tvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/jessica_mortensen"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_13" />
+
+                        <TextView
+                            android:id="@+id/tvId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/id_abc435378"
+                            android:textColor="@color/textcolorgray"
+                            android:textSize="@dimen/font_10" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvgeneralCounsellor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_5"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="@dimen/spacing_5">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:id="@+id/ivCounceller"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/spacing_10"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/counceller"
+                        android:contentDescription="@string/todo" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ivCounceller"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_5">
+
+                        <TextView
+                            android:id="@+id/tvCouncellerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/jessica_mortensen"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_13" />
+
+                        <TextView
+                            android:id="@+id/tvCouncellerId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/id_abc435378"
+                            android:textColor="@color/textcolorgray"
+                            android:textSize="@dimen/font_10" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:baselineAligned="false">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivFitnessTest"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_fitnesstest"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvFitnesstest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/take_a_fitness_test"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_13" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivPersonalitytest"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_personality"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvPersonalityTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/take_a_personality_test"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_13" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivFindplan"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_findplan"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvFindplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/find_my_plan"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_13" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginTop="@dimen/spacing_5"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/track_nutrition"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/track_workout"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_margin="@dimen/spacing_10"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="7dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/ll"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/custom_meal_layout"
+                        android:padding="@dimen/spacing_10">
+
+                        <ImageView
+                            android:id="@+id/ivDiet"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/diet"
+                            android:contentDescription="@string/todo" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ll"
+                        android:orientation="vertical"
+                        android:padding="@dimen/spacing_10">
+
+                        <TextView
+                            android:id="@+id/tvMeal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/_2_of_6_meals_tracked"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_12" />
+
+                        <TextView
+                            android:id="@+id/tvCalory"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/_99_calories_tracked"
+                            android:textColor="@color/textcolorgray"
+                            android:textSize="@dimen/font_10" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:layout_margin="@dimen/spacing_10"
+                android:backgroundTint="@color/white"
+                app:cardCornerRadius="7dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:id="@+id/ll2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/custom_layout_consult"
+                        android:padding="@dimen/spacing_10">
+
+                        <ImageView
+                            android:id="@+id/ivWorkout"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/gym"
+                            android:contentDescription="@string/todo" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tvWorkout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/ll2"
+                        android:fontFamily="@font/poppins_medium"
+                        android:padding="@dimen/spacing_10"
+                        android:text="@string/no_workout_track_yet"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_12" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/fitzoh_video_library"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <TextView
+            android:id="@+id/tvViewmore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="end"
+            android:text="@string/view_more"
+            android:textColor="@color/bluee"
+            android:textSize="@dimen/font_16" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvFitzohvideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:baselineAligned="false">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivWollesti"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_wholestic"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvWholisticWellness"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/wholistic_health_and_wellness"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_13" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivConsulation"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_consulation"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvOneTimeConsulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/one_time_consulation"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_13" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivTrainer"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_onlinetrainer"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvOnlineTrainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_5"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="@string/online_trainer"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_13" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvBooklivesession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="start"
+        android:text="@string/book_live_session"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_15" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivStrength"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_strength"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/tvStrength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/strength"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivYoga"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_yoga"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/tvYoga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/yoga"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivMeditation"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_meditation"
+                    android:contentDescription="@string/todo"
+                    tools:ignore="TooManyViews" />
+
+                <TextView
+                    android:id="@+id/tvMeditation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/meditation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivedurance"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_endurance"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/tvndusrance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_5"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/endurance"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/blog"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <TextView
+            android:id="@+id/tvBlogViewmore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="end"
+            android:text="@string/view_more"
+            android:textColor="@color/bluee"
+            android:textSize="@dimen/font_16" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvBlog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp" />
+
+</LinearLayout>
+</ScrollView>

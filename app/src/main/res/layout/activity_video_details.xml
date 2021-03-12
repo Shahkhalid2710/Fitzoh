@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".VideoDetailsActivity">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivVideo"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_mikitavideo"
+                android:contentDescription="@string/todo" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_margin="@dimen/spacing_10"
+                android:scaleType="fitXY"
+                android:src="@drawable/leftarrow"
+                android:contentDescription="@string/todo" />
+
+            <ImageView
+                android:id="@+id/ivVideoPlay"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:src="@drawable/play_button"
+                android:contentDescription="@string/todo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10">
+
+                    <TextView
+                        android:id="@+id/tvTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="@string/_02_30_04_00"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/font_10"
+                        tools:ignore="RelativeOverlap" />
+
+                    <ImageView
+                        android:id="@+id/ivFullscreen"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/tvtime"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/fullscreen"
+                        tools:ignore="UnknownIdInLayout"
+                        android:contentDescription="@string/todo" />
+                </RelativeLayout>
+
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/seekbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="@dimen/spacing_10"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/red"
+                    android:progressTint="@color/red"
+                    android:thumbTint="@color/red" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adip"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_16" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/hypnosis_for_instant_freedom_from_stress_anxiety"
+            android:textColor="@color/textcolorgray"
+            android:textSize="@dimen/font_13" />
+    </LinearLayout>
+</ScrollView>

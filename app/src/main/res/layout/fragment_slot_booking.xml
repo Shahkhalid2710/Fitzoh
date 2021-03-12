@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.home.activities.SlotBookingFragment">
+
+    <TextView
+        android:id="@+id/tvChooseyourSlot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/choose_your_slot"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_15" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvslotbooking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/spacing_5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                app:mcv_calendarMode="week"
+                app:mcv_headerTextAppearance="@style/MyTextStyle"
+                app:mcv_selectionColor="@color/bluee"
+                app:mcv_weekDayTextAppearance="@style/MyTextStyle" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.4dp"
+                android:layout_margin="@dimen/spacing_10"
+                android:background="@color/textcolorgray" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:id="@+id/llStrengthSession"
+    android:orientation="vertical"
+    tools:context=".ui.home.activities.StrengthSessionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/leftarrow" />
+
+        <TextView
+            android:id="@+id/tvStartFitnessTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/strength_session"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvBookSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/strength"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_15" />
+
+    <ImageView
+        android:id="@+id/ivStrength"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="@dimen/spacing_10"
+        android:scaleType="centerCrop"
+        android:src="@drawable/strength"
+        android:contentDescription="@string/todo" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvUpcomingSessions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/spacing_5">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_10">
+
+            <ImageView
+                android:id="@+id/ivPic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ena" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/ivPic"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:id="@+id/tvLivePersonalTrainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/live_personal_trainer"
+                    android:textColor="@color/bluee"
+                    android:textSize="@dimen/font_11" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/henna_hopper"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_15" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/_05th_may_today_08_30_pm"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_11" />
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/tvWhatIncluded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/what_s_included"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_15" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginEnd="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/these_sessions_will_help_you_get_strong_the_workouts_in_this_pack_will_begin_with_warm_ups_move_into_the_main_movements_and_end_with_cooldowns_these_sessions_will_help_you_improve_your_overall_strength"
+        android:textColor="@color/textcolorgray"
+        android:textSize="@dimen/font_11" />
+    <TextView
+        android:id="@+id/tvHowItWorked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/how_it_works"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_15" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginEnd="@dimen/spacing_10">
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"/>
+        <TextView
+            android:id="@+id/tvStep1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_toEndOf="@+id/ll"
+            android:padding="@dimen/spacing_5"
+            android:layout_centerVertical="true"
+            android:text="@string/to_begin_simply_click_start_now_below"
+            android:textColor="@color/textcolorgray"
+            android:textSize="@dimen/font_13" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginEnd="@dimen/spacing_10">
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"/>
+        <TextView
+            android:id="@+id/tvStep2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_toEndOf="@+id/ll2"
+            android:padding="@dimen/spacing_5"
+            android:layout_centerVertical="true"
+            android:text="@string/click_schedule_to_plan_your_session_days_and_time"
+            android:textColor="@color/textcolorgray"
+            android:textSize="@dimen/font_13" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginEnd="@dimen/spacing_10">
+        <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"/>
+        <TextView
+            android:id="@+id/tvStep3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_toEndOf="@+id/ll3"
+            android:padding="@dimen/spacing_5"
+            android:layout_centerVertical="true"
+            android:text="@string/just_follow_along_and_complete_a_session_every_day_to_ensure_you_get_the_most_out_of_this_workout_pack"
+            android:textColor="@color/textcolorgray"
+            android:textSize="@dimen/font_13" />
+    </RelativeLayout>
+</LinearLayout>
+    </ScrollView>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/linearlayout"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.signin.activities.SignInActivity">
+
+    <ImageView
+        android:id="@+id/ivlogo"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:src="@drawable/fitzohlogo"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="@string/welcome"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_20" />
+
+    <TextView
+        android:id="@+id/tvsignupcontinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/signincontinue"
+        android:textColor="@color/textcolorgray"
+        android:textSize="@dimen/font_17" />
+
+    <TextView
+        android:id="@+id/tvsignInWithNoEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginTop="@dimen/spacing_30"
+        android:layout_marginEnd="@dimen/spacing_20"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/signinwithnoandemail"
+        android:textColor="@color/textcolorgray"
+        android:textSize="@dimen/font_14" />
+
+    <EditText
+        android:id="@+id/etEmailNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_20"
+        android:fontFamily="@font/poppins_medium"
+        android:backgroundTint="@color/white"
+        android:hint="@string/hint_emailNo"
+        android:textColor="@color/black"
+        android:textColorHint="@color/textcolorgray"
+        tools:ignore="LabelFor,TextFields"
+        android:autofillHints="0"
+        android:inputType="textPersonName" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/textcolorgray"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_20"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:background="@drawable/btn_continue"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/btn_continue"
+        android:textSize="@dimen/font_20" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/spacing_45">
+
+        <TextView
+            android:id="@+id/tvDontHaveAccont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/donthaveaccount"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_16" />
+
+        <TextView
+            android:id="@+id/tvsignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:padding="@dimen/spacing_5"
+            android:text="@string/signup"
+            android:textColor="@color/signincolor"
+            android:textSize="@dimen/font_16" />
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:id="@+id/myLayout"
+        tools:context=".ui.goal.activities.GoalSettingActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/leftarrow" />
+
+            <TextView
+                android:id="@+id/tvStartFitnessTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/goal_setting"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/custom_weightlayout"
+                    tools:ignore="UselessParent">
+
+                    <ImageView
+                        android:id="@+id/ivOverWeight"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/overweight"
+                        android:contentDescription="@string/todo" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/custom_weightlayout"
+                    tools:ignore="UselessParent">
+
+                    <ImageView
+                        android:id="@+id/ivWeight"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/weight"
+                        android:contentDescription="@string/todo" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginTop="@dimen/spacing_5"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvBmi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/your_bmi_27_0"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_13" />
+
+            <TextView
+                android:id="@+id/tvWeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/idea_weight_range"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_13" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:orientation="horizontal"
+
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tvOverWeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@string/overweight"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_13" />
+
+            <TextView
+                android:id="@+id/tvkg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:text="@string/_48_58_kg"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_13" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/set_target_weight"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_15" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_10">
+
+                    <ImageView
+                        android:id="@+id/ivMinus"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/minus" />
+
+                    <EditText
+                        android:id="@+id/etKg"
+                        android:layout_width="100dp"
+                        android:layout_toEndOf="@+id/ivMinus"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:padding="@dimen/spacing_5"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_11"
+                        android:text="@string/_0"
+                        android:textColorHint="@color/black"
+                        android:focusable="false"
+                        android:gravity="center"
+                        tools:ignore="LabelFor"
+                        android:autofillHints="0"
+                        android:layout_margin="@dimen/spacing_10"
+                        android:background="@drawable/custom_weight_layout"/>
+
+                    <ImageView
+                        android:id="@+id/ivPlus"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/etKg"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/plus" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvFitnessGoals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_10"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/fitness_goals"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_15" />
+
+                    <ImageView
+                        android:id="@+id/ivInfo"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_toEndOf="@+id/tvFitnessGoals"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/info" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:background="@drawable/custom_weight_layout">
+
+                    <EditText
+                        android:id="@+id/etSelectFitnessgoal"
+                        android:layout_width="210dp"
+                        android:layout_height="@dimen/spacing_50"
+                        android:backgroundTint="@color/white"
+                        android:drawableEnd="@drawable/ic_listtt"
+                        android:focusable="false"
+                        android:fontFamily="@font/poppins_regular"
+                        android:hint="@string/select_your_fitness_goal_level"
+                        android:padding="@dimen/spacing_5"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/textcolorgray"
+                        android:textSize="@dimen/font_12"
+                        tools:ignore="LabelFor,TextFields"
+                        android:autofillHints="0"/>
+
+                    <ImageView
+                        android:id="@+id/ivDroplistgoal"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_toEndOf="@+id/etSelectFitnessgoal"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/dropdown_list" />
+                </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPositiveHabits"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/which_positive_habits_would_you_want_to_build"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_15" />
+
+                <CheckBox
+                    android:id="@+id/cbWakeup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/develop_a_consistent_wake_up_routine"
+                    android:textColor="@color/textcolorgray"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:padding="@dimen/spacing_5"
+                    android:button="@drawable/custom_habit_checkbox"
+                    android:textSize="@dimen/font_12" />
+
+                <CheckBox
+                    android:id="@+id/cbSelfConfidence"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/develop_self_confidence"
+                    android:textColor="@color/textcolorgray"
+                    android:padding="@dimen/spacing_5"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:button="@drawable/custom_habit_checkbox"
+                    android:textSize="@dimen/font_12" />
+
+                <CheckBox
+                    android:id="@+id/cbSickness"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/sickness_hygiene"
+                    android:textColor="@color/textcolorgray"
+                    android:padding="@dimen/spacing_5"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:button="@drawable/custom_habit_checkbox"
+                    android:textSize="@dimen/font_12" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnCommit"
+            android:background="@drawable/btn_continue"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:layout_gravity="center"
+            android:text="@string/i_commit"
+            android:textSize="@dimen/font_15"/>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    android:layout_margin="@dimen/spacing_10"
+    app:cardCornerRadius="@dimen/spacing_5">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivConnect"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/todo" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ivConnect"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/spacing_5"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/font_12"
+                android:padding="@dimen/spacing_5"
+                android:text="@string/connect_with"/>
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/font_15"
+                android:padding="@dimen/spacing_5"
+                android:text="@string/the_best_online_trainers_andarchieve_your_fitness_goals"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_continue">
+                <TextView
+                    android:id="@+id/tvSearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:padding="@dimen/spacing_10"
+                    android:text="@string/search"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_10" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

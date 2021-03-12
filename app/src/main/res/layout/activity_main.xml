@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mainscreen.activities.MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/gradient_background">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:layout_margin="@dimen/spacing_10"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/todo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvstayAccountable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/stayAccountable"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_23" />
+
+            <TextView
+                android:id="@+id/tvPushNotifivation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:text="@string/tvTurnOnNotifivcation"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_15" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:tabBackground="@drawable/tab_selector"
+                app:tabGravity="center"
+                app:tabIndicatorHeight="0dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_20"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/spacing_80"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSignup"
+                    style="@style/ButtonStyle"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_5"
+                    android:layout_gravity="center"
+                    android:text="@string/signup"
+                    android:textSize="@dimen/font_20" />
+
+                <Button
+                    android:id="@+id/btnSignin"
+                    style="@style/ButtonDefaultStyle"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_5"
+                    android:layout_gravity="center"
+                    android:text="@string/signin"
+                    android:textSize="@dimen/font_20" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
+

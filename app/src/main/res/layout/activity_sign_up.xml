@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearlayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    tools:context=".ui.signup.activities.SignUpActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivlogo"
+                android:layout_width="150dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@drawable/fitzohlogo"
+                android:contentDescription="@string/todo" />
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/welcome"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_20" />
+
+            <TextView
+                android:id="@+id/tvsignupcontinue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/signupcontinue"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_17" />
+
+            <TextView
+                android:id="@+id/tvusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/username"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_13" />
+
+            <EditText
+                android:id="@+id/etusername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/username"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"/>
+
+            <EditText
+                android:id="@+id/etemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/hint_email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"/>
+
+            <EditText
+                android:id="@+id/etMobileno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/hint_no"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"/>
+
+            <EditText
+                android:id="@+id/etDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:drawableEnd="@drawable/ic_calender"
+                android:focusable="false"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/hint_DOB"
+                android:imeOptions="actionNext"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/etgender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:drawableEnd="@drawable/ic_baseline_expand_more_24"
+                android:focusable="false"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/hint_gender"
+                android:imeOptions="actionNext"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"
+                android:inputType="text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <EditText
+                    android:id="@+id/etheight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_list"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/height_cm"
+                    android:imeOptions="actionNext"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/textcolorgray"
+                    tools:ignore="LabelFor,TextFields"
+                    android:autofillHints="0"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/etweight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:layout_weight="1"
+                    android:drawableEnd="@drawable/ic_list"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_regular"
+                    android:hint="@string/hint_weight"
+                    android:imeOptions="actionNext"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/textcolorgray"
+                    tools:ignore="LabelFor,TextFields"
+                    android:autofillHints="0"
+                    android:inputType="text" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etdailyactivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:inputType="number"
+                android:drawableEnd="@drawable/ic_list"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/hint_dailyactivity"
+                android:imeOptions="actionNext"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"/>
+
+            <EditText
+                android:id="@+id/etmealType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:drawableEnd="@drawable/ic_list"
+                android:focusable="false"
+                android:fontFamily="@font/poppins_regular"
+                android:hint="@string/hint_mealtype"
+                android:imeOptions="actionNext"
+                android:textColor="@color/black"
+                android:textColorHint="@color/textcolorgray"
+                tools:ignore="LabelFor"
+                android:autofillHints="0"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tvCurrentbodyfat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/currentbodyfat"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_15" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivfit1"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/fit"
+                        android:contentDescription="@string/todo" />
+
+                    <CheckBox
+                        android:id="@+id/cb1"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_margin="@dimen/spacing_10"
+                        android:background="@drawable/custom_checkbox"
+                        android:button="@color/black"
+                        android:layout_gravity="top|end"/>
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivfit2"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/fit"
+                        android:contentDescription="@string/todo" />
+
+                    <CheckBox
+                        android:id="@+id/cb2"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_margin="@dimen/spacing_10"
+                        android:background="@drawable/custom_checkbox"
+                        android:button="@color/black"
+                        android:layout_gravity="top|end"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivfit3"
+                        android:layout_width="110dp"
+                        android:layout_height="110dp"
+                        android:src="@drawable/fit"
+                        android:contentDescription="@string/todo" />
+
+                    <CheckBox
+                        android:id="@+id/cb3"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_margin="@dimen/spacing_10"
+                        android:background="@drawable/custom_checkbox"
+                        android:button="@color/black"
+                        android:layout_gravity="top|end"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnsignup"
+                style="@style/ButtonStyle"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="@dimen/spacing_20"
+                android:text="@string/signup"
+                android:textSize="@dimen/font_20" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_alraccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/alreadyaccount"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_16" />
+
+                <TextView
+                    android:id="@+id/tvsignin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:padding="@dimen/spacing_5"
+                    android:text="@string/signin"
+                    android:textColor="@color/signincolor"
+                    android:textSize="@dimen/font_16" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvagree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/agree"
+                android:textColor="#333333"
+                android:textSize="@dimen/font_15" />
+
+            <TextView
+                android:id="@+id/tvTerms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/spacing_5"
+                android:layout_marginBottom="@dimen/spacing_20"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/termsconditions"
+                android:textColor="@color/signincolor"
+                android:textSize="@dimen/font_15" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

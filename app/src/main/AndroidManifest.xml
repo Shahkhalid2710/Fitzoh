@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.applocum.fitzoh">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Fitzoh">
+        <activity android:name=".ui.home.activities.TestDetailsActivity"></activity>
+        <activity android:name=".ui.home.activities.ListOfTestActivity" />
+        <activity android:name=".ui.home.activities.CounsellorActivity" />
+        <activity android:name=".ui.home.activities.AboutTrainerActivity" />
+        <activity android:name=".ui.home.activities.StrengthSessionActivity" />
+        <activity android:name=".ui.splashscreen.activities.SpalshScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.goal.activities.GoalSettingActivity" />
+        <activity android:name=".VideoDetailsActivity" />
+        <activity android:name=".FitnessPlanActivity" />
+        <activity android:name=".ui.home.activities.StartFitnessTestActivity" />
+        <activity android:name=".SelectPlanActivity" />
+        <activity android:name=".ui.bottomnavigation.activities.HomeActivity" />
+        <activity android:name=".ui.otpscreen.activities.OTPActivity" />
+        <activity android:name=".ui.signin.activities.SignInActivity" />
+        <activity android:name=".ui.signup.activities.SignUpActivity" />
+        <activity android:name=".ui.mainscreen.activities.MainActivity" />
+    </application>
+
+</manifest>

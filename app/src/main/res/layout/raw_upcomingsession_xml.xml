@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/white"
+    android:layout_margin="@dimen/spacing_10"
+    app:cardCornerRadius="@dimen/spacing_5">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_5"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="start"
+            android:text="@string/today"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivTrainer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/todo" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/ivTrainer"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/spacing_5"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvtrainerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="@dimen/font_13"
+                android:text="@string/trainer_name_ayesha_billimoria"/>
+            <TextView
+                android:id="@+id/tvStrength"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textcolorgray"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/font_10"
+                android:text="@string/ayesha_billimoria_for_a_power_pack_strength_and_conditioning_workshop"/>
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textcolorgray"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="@dimen/font_10"
+                android:text="@string/_3_30_pm_live_at_home"/>
+        </LinearLayout>
+    </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
