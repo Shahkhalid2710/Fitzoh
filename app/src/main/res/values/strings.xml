@@ -253,5 +253,9 @@
     <string name="monday">Monday</string>
     <string name="_10_10">10/10</string>
     <string name="start_test">START TEST</string>
+    <string name="nutrition_plan">Nutrition Plan</string>
+    <string name="female_fat_loss_high_fat">Female Fat Loss: High Fat</string>
+    <string name="calories_35_protein_3gm_carbs_5gm_fat_10gm">Calories: 35 | Protein: 3gm | Carbs: 5gm | Fat: 10gm</string>
+    <string name="break_fast_08_30_am">Break Fast - 08:30 am</string>
 
 </resources>

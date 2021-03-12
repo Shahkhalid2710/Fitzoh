@@ -129,6 +129,10 @@ class HomeScreenFragment : Fragment() {
             val intent=Intent(activity, CounsellorActivity::class.java)
             startActivity(intent)
         }
+        v.cvTrackNutrition.setOnClickListener {
+            val intent=Intent(activity, NutritionPlanActivity::class.java)
+            startActivity(intent)
+        }
         v.ivFitnessTest.setOnClickListener {
             val intent=Intent(activity, ListOfTestActivity::class.java)
             startActivity(intent)

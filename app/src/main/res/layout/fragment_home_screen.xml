@@ -416,6 +416,7 @@
             android:layout_weight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvTrackNutrition"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 android:layout_margin="@dimen/spacing_10"
@@ -480,6 +481,7 @@
             android:layout_weight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cvTrackWorkout"
                 android:layout_width="wrap_content"
                 android:layout_height="90dp"
                 android:layout_margin="@dimen/spacing_10"
@@ -675,7 +677,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="TooManyViews">
 
                 <ImageView
                     android:id="@+id/ivStrength"
