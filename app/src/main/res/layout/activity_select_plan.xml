@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".SelectPlanActivity">
+    tools:context=".ui.home.activities.SelectPlanActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
           android:layout_width="match_parent"
           android:layout_height="130dp"
           android:src="@drawable/image_beginner"
-          android:scaleType="fitXY"
+          android:scaleType="centerCrop"
           android:contentDescription="@string/todo" />
       <TextView
           android:id="@+id/tvBeginner"
@@ -49,7 +49,7 @@
           android:layout_height="wrap_content"
           android:fontFamily="@font/poppins_bold"
           android:textColor="@color/white"
-          android:textSize="@dimen/font_25"
+          android:textSize="@dimen/font_22"
           android:text="@string/beginner"
           android:layout_gravity="center"/>
   </FrameLayout>
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:src="@drawable/image_intermedeter"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/todo" />
         <TextView
             android:id="@+id/tvIntermediate"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_25"
+            android:textSize="@dimen/font_22"
             android:text="@string/intermediate"
             android:layout_gravity="center"/>
     </FrameLayout>
@@ -83,7 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="130dp"
             android:src="@drawable/image_advance"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/todo" />
         <TextView
             android:id="@+id/tvAdvance"
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/white"
-            android:textSize="@dimen/font_25"
+            android:textSize="@dimen/font_22"
             android:text="@string/advance"
             android:layout_gravity="center"/>
     </FrameLayout>

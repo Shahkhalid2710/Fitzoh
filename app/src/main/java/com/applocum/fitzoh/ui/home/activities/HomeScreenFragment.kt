@@ -133,6 +133,10 @@ class HomeScreenFragment : Fragment() {
             val intent=Intent(activity, ListOfTestActivity::class.java)
             startActivity(intent)
         }
+        v.ivFindplan.setOnClickListener {
+            val intent=Intent(activity, SelectPlanActivity::class.java)
+            startActivity(intent)
+        }
 
         return v
     }
