@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="250dp">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:background="@color/white"
+        android:backgroundTint="@color/white">
+
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:backgroundTint="@color/black" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/play_button"
+            android:contentDescription="@string/todo" />
+    </FrameLayout>
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textcolorgray"
+        android:layout_gravity="start"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="@dimen/font_10"
+        android:text="@string/bewell_b"/>
+
+
+</LinearLayout>

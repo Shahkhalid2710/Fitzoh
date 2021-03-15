@@ -89,7 +89,19 @@ class HomeScreenFragment : Fragment() {
         v.rvFitzohvideo.adapter= activity?.let {
             RecyclerAdapterVideoLibrary(
                 it,
-                mList3
+                mList3,object :RecyclerAdapterVideoLibrary.CellClickListener
+                {
+                    override fun onCellClickistener(myobject: Fitzohvideo, position: Int) {
+                        val intent = Intent(
+                            activity,
+                            FitzohVideoLibraryActivity::class.java
+                        )
+                        intent.putExtra("fitzohvideo", myobject)
+                        intent.putExtra("position", position)
+                        startActivity(intent)
+                    }
+
+                }
             )
         }
 
@@ -131,6 +143,10 @@ class HomeScreenFragment : Fragment() {
         }
         v.cvTrackNutrition.setOnClickListener {
             val intent=Intent(activity, NutritionPlanActivity::class.java)
+            startActivity(intent)
+        }
+        v.cvTrackWorkout.setOnClickListener {
+            val intent=Intent(activity, CheckWorkOutActivity::class.java)
             startActivity(intent)
         }
         v.ivFitnessTest.setOnClickListener {

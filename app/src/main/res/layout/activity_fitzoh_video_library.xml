@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.home.activities.FitzohVideoLibraryActivity">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/leftarrow" />
+
+            <TextView
+                android:id="@+id/tvFitzohVideoLibrary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/fitzoh_video_library"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18" />
+        </RelativeLayout>
+
+
+       <androidx.cardview.widget.CardView
+           android:layout_width="match_parent"
+           android:layout_height="50dp"
+           android:backgroundTint="@color/white"
+           android:layout_margin="@dimen/spacing_10"
+           app:cardCornerRadius="@dimen/spacing_5">
+
+       <EditText
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/search_for_the_video"
+           android:drawableEnd="@drawable/ic_search"
+           android:fontFamily="@font/poppins_medium"
+           android:textColorHint="@color/textcolorgray"
+           style="@style/EdittextStyle"
+           android:inputType="text"
+           android:layout_gravity="center"
+           android:textSize="@dimen/font_12"
+           android:padding="@dimen/spacing_5"
+           android:autofillHints="@string/_0" />
+       </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFitzohLibrary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/ivVideoLibrary"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_videolibrary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/spacing_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvEveryday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/alegreya_extrabold"
+                    android:text="@string/every_day_blish"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_25" />
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/alegreya_medium"
+                    android:text="@string/hypnosis_for_instant_freedom_from_stress_anxiety"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_12" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvcategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -114,7 +114,6 @@
     <string name="_13_march_2020">13 March 2020</string>
     <string name="badass_chest">Badass Chest</string>
     <string name="barbell_bench_press">Barbell Bench Press</string>
-    <string name="_05_rounds_x_50_25_12_10_10">05 rounds X 50 / 25 / 12 / 10 / 10</string>
     <string name="dumbell_press">Dumbell Press</string>
     <string name="_05_rounds_x_10_10_10_10">05 rounds X 10 / 10 / 10 / 10</string>
     <string name="how_to_dumbbell_chest_pre">How To: Dumbbell Chest Pre..</string>
@@ -146,7 +145,7 @@
     <string name="no_workout_track_yet">No workout track yet</string>
     <string name="fitzoh_video_library">Fitzoh Video Library</string>
     <string name="view_more">View More</string>
-    <string name="every_day_blish">EVERY DAY BLISH</string>
+    <string name="every_day_blish">Every day Blish</string>
     <string name="book_live_session">Book Live Session</string>
     <string name="wholistic_health_and_wellness">Wholistic Health and Wellness</string>
     <string name="one_time_consulation">One time Consulation</string>
@@ -257,5 +256,17 @@
     <string name="female_fat_loss_high_fat">Female Fat Loss: High Fat</string>
     <string name="calories_35_protein_3gm_carbs_5gm_fat_10gm">Calories: 35 | Protein: 3gm | Carbs: 5gm | Fat: 10gm</string>
     <string name="break_fast_08_30_am">Break Fast - 08:30 am</string>
+    <string name="check_workout">Check Workout</string>
+    <string name="select_all">Select All</string>
+    <string name="_05_rounds_x_50_25_12_10_10">05 rounds X 50 / 25 / 12 / 10 / 10</string>
+    <string name="all">All</string>
+    <string name="consectetur_adipiscing_elit_vestibulum_fringi">Consectetur adipiscing elit. Vestibulum fringi</string>
+    <string name="quisque_ut_placerat_massa_nam_accumsan">Quisque ut placerat massa. Nam accumsan.</string>
+    <string name="mind">Mind</string>
+    <string name="relationships">Relationships</string>
+    <string name="search_for_the_video">Search for the video</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_iaculis_quis_tellus_sed_commodo_sed_dignissim_neque_eget">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis quis tellus sed commodo. Sed dignissim neque eget.</string>
+    <string name="all_episodes">All Episodes</string>
+    <string name="cancel">Cancel</string>
 
 </resources>

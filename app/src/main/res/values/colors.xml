@@ -21,4 +21,6 @@
     <color name="lightbluelight">#C5EDF3</color>
     <color name="bluee">#3AD1BE</color>
     <color name="red">#DD0E0E</color>
+    <color name="layoutred">#F44242</color>
+    <color name="tp">#7F000000</color>
 </resources>

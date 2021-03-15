@@ -11,7 +11,10 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fitzoh">
-        <activity android:name=".ui.home.activities.NutritionPlanActivity"></activity>
+        <activity android:name=".ui.home.activities.EveryDayBllishActivity"></activity>
+        <activity android:name=".ui.home.activities.FitzohVideoLibraryActivity" />
+        <activity android:name=".ui.home.activities.CheckWorkOutActivity" />
+        <activity android:name=".ui.home.activities.NutritionPlanActivity" />
         <activity android:name=".ui.home.activities.TestDetailsActivity" />
         <activity android:name=".ui.home.activities.ListOfTestActivity" />
         <activity android:name=".ui.home.activities.CounsellorActivity" />

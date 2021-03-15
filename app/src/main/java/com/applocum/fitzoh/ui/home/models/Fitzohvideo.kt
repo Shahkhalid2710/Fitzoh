@@ -1,6 +1,8 @@
 package com.applocum.fitzoh.ui.home.models
 
-class Fitzohvideo(image: Int, name:String, description:String) {
+import java.io.Serializable
+
+class Fitzohvideo(image: Int, name:String, description:String) :Serializable{
 
     var fimage=image
     var fname=name

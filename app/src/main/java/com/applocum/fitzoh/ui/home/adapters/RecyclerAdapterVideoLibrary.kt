@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Fitzohvideo
+import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_fitzohvideo_xml.view.*
 
-class RecyclerAdapterVideoLibrary(context: Context,list:ArrayList<Fitzohvideo>):RecyclerView.Adapter<RecyclerAdapterVideoLibrary.VideolibraryHolder>(){
+class RecyclerAdapterVideoLibrary(context: Context,list:ArrayList<Fitzohvideo>, var cellClickListener:CellClickListener):RecyclerView.Adapter<RecyclerAdapterVideoLibrary.VideolibraryHolder>(){
     private var mContext=context
     private var mList=list
 
@@ -32,7 +33,14 @@ class RecyclerAdapterVideoLibrary(context: Context,list:ArrayList<Fitzohvideo>):
         holder.itemView.tvDescription.text=fitzohvideo.fdescription
 
        Glide.with(mContext).load(fitzohvideo.fimage).into(holder.itemView.ivVideoLibrary)
+        holder.itemView.setOnClickListener {
+             cellClickListener.onCellClickistener(fitzohvideo,position)
+        }
 
 
+    }
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: Fitzohvideo, position: Int)
     }
 }

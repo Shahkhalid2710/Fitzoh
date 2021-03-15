@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterNutritionplan
 import com.applocum.fitzoh.ui.home.models.NutritionPlan
+import com.daimajia.swipe.SwipeLayout
 import kotlinx.android.synthetic.main.activity_nutrition_plan.*
 import kotlinx.android.synthetic.main.activity_select_plan.*
 import kotlinx.android.synthetic.main.activity_select_plan.ivBack
+import kotlinx.android.synthetic.main.raw_nutritionplan_xml.*
 
 class NutritionPlanActivity : AppCompatActivity() {
     var mList:ArrayList<NutritionPlan> = ArrayList()
@@ -31,5 +33,7 @@ class NutritionPlanActivity : AppCompatActivity() {
 
         rvNutritionplan.layoutManager=LinearLayoutManager(this)
         rvNutritionplan.adapter=RecyclerAdapterNutritionplan(this,mList)
+
+
     }
 }

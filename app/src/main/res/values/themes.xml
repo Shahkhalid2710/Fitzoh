@@ -45,4 +45,9 @@
         <item name="android:textColor">@color/bluee</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
+
+    <style name="MyLayoutStyle">
+        <item name="background">@android:color/transparent</item>
+
+    </style>
 </resources>

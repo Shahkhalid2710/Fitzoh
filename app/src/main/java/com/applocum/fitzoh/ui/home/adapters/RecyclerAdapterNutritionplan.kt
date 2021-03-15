@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.NutritionPlan
+import com.daimajia.swipe.SwipeLayout
 import kotlinx.android.synthetic.main.raw_nutritionplan_xml.view.*
 
 class RecyclerAdapterNutritionplan(context: Context,list: ArrayList<NutritionPlan>):RecyclerView.Adapter<RecyclerAdapterNutritionplan.NutritionPlanHolder>() {
@@ -29,6 +30,6 @@ class RecyclerAdapterNutritionplan(context: Context,list: ArrayList<NutritionPla
         holder.itemView.tvTime.text=nutritionplan.nTime
         holder.itemView.tvCalories.text=nutritionplan.nCalories
 
-    }
 
+    }
 }
