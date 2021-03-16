@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.home.activities.SummaryActivity">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/spacing_5"
+        android:backgroundTint="@color/white"
+        android:layout_margin="@dimen/spacing_10">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:src="@drawable/leftarrow"
+            android:contentDescription="@string/todo" />
+
+        <TextView
+            android:id="@+id/tvSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/summary"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_10">
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/tvBPD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_toEndOf="@+id/ll"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/_150_home_workout_routines"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_10">
+
+        <LinearLayout
+            android:id="@+id/ll2"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/tvUST"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_toEndOf="@+id/ll2"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/unlimited_sleep_tracking"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_10">
+
+        <LinearLayout
+            android:id="@+id/ll3"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/tvWPR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_toEndOf="@+id/ll3"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/weekly_progress_reports"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:layout_marginEnd="@dimen/spacing_10">
+
+        <LinearLayout
+            android:id="@+id/ll4"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/custom_layout_details"
+            android:orientation="vertical" />
+
+        <TextView
+            android:id="@+id/tvMt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_toEndOf="@+id/ll4"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/micronutrient_tracking"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+        </RelativeLayout>
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_20"
+                android:layout_marginTop="@dimen/spacing_10"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:layout_marginBottom="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_medium"
+                android:ellipsize="marquee"
+                android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_imperdiet_tortor_libero_id_facilisis_urna_mollis_eget_aenean_tortor_purus_vestibulum_vitae_augue_at_maximus_dictum_est"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_11" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_10">
+
+                <ImageView
+                    android:id="@+id/ivPic"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="@string/todo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ena" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/ivPic"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_5">
+
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/jenna_hopper"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_15" />
+
+                    <TextView
+                        android:id="@+id/tvExperince"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/experience_05_years"
+                        android:textColor="@color/textcolorgray"
+                        android:textSize="@dimen/font_11" />
+
+                    <TextView
+                        android:id="@+id/tvLanguage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text="@string/view_profile"
+                        android:textColor="@color/bluee"
+                        android:textSize="@dimen/font_10" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/textcolorgray"
+                android:layout_margin="@dimen/spacing_10"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/spacing_10">
+
+        <TextView
+            android:id="@+id/tvPayMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/total_payable"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_14" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/_499"
+            android:textColor="@color/bluee"
+            android:textSize="@dimen/font_14"
+            tools:ignore="RelativeOverlap" />
+        </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnCheckOut"
+        android:background="@drawable/btn_continue"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/check_out"
+        android:layout_margin="@dimen/spacing_10"
+        android:textSize="@dimen/font_15"/>
+
+</LinearLayout>

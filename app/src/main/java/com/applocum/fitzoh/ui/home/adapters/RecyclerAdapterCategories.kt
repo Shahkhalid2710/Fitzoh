@@ -52,7 +52,7 @@ class RecyclerAdapterCategories(context: Context,list: ArrayList<Categories>) :R
 
             dialog.videoview.setVideoURI(Uri.parse("android.resource://" + mContext.packageName + "/" + categories.cVideo))
             dialog.videoview.start()
-            dialog.btncancel.setOnClickListener {
+            dialog.ivCancel.setOnClickListener {
                 dialog.cancel()
             }
             dialog.show()

@@ -157,6 +157,10 @@ class HomeScreenFragment : Fragment() {
             val intent=Intent(activity, SelectPlanActivity::class.java)
             startActivity(intent)
         }
+        v.ivWollesti.setOnClickListener {
+            val intent=Intent(activity, HolisticHealthTransferActivity::class.java)
+            startActivity(intent)
+        }
 
         return v
     }

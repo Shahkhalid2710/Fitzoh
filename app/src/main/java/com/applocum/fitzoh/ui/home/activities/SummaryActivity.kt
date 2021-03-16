@@ -4,19 +4,20 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.applocum.fitzoh.R
-import kotlinx.android.synthetic.main.activity_counsellor.*
+import kotlinx.android.synthetic.main.activity_summary.*
 
-class CounsellorActivity : AppCompatActivity() {
+class SummaryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_counsellor)
+        setContentView(R.layout.activity_summary)
 
         ivBack.setOnClickListener {
             finish()
         }
-       btnSelectNutritionist.setOnClickListener {
-           val intent=Intent(this,SummaryActivity::class.java)
-           startActivity(intent)
-       }
+      btnCheckOut.setOnClickListener {
+          val intent=Intent(this,SelectCalenderActivity::class.java)
+          startActivity(intent)
+      }
+
     }
 }

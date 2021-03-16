@@ -37,6 +37,7 @@ class RecyclerAdapterBlog(context: Context,list: ArrayList<Blog>) :RecyclerView.
         val blog= mList[position]
         holder.itemView.tvLevel.text=blog.bLevel
         holder.itemView.tvDescription.text=blog.bDescription
+        holder.itemView.ivNext.visibility=View.GONE
         addReadMore("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pellentesque lacus, sagittis interdum…",holder.itemView.tvDescription)
 
         Glide.with(mContext).load(blog.bImage).into(holder.itemView.ivLevel)

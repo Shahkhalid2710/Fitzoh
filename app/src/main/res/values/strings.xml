@@ -268,5 +268,26 @@
     <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_iaculis_quis_tellus_sed_commodo_sed_dignissim_neque_eget">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis iaculis quis tellus sed commodo. Sed dignissim neque eget.</string>
     <string name="all_episodes">All Episodes</string>
     <string name="cancel">Cancel</string>
+    <string name="holistic_health_transformar">Holistic Health Transformar</string>
+    <string name="basic_package_details">Basic Package Details:</string>
+    <string name="_150_home_workout_routines">150+ Home Workout Routines</string>
+    <string name="unlimited_sleep_tracking">Unlimited Sleep Tracking</string>
+    <string name="weekly_progress_reports">Weekly Progress Reports</string>
+    <string name="micronutrient_tracking">Micronutrient Tracking</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_imperdiet_tortor_libero_id_facilisis_urna_mollis_eget_aenean_tortor_purus_vestibulum_vitae_augue_at_maximus_dictum_est">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc imperdiet tortor libero, id facilisis urna mollis eget. Aenean tortor purus, vestibulum vitae augue at, maximus dictum est.</string>
+    <string name="pay_1_month">Pay 1 Month</string>
+    <string name="_499">$499</string>
+    <string name="buy_more">BUY MORE</string>
+    <string name="pay_2_month">Pay 2 Month</string>
+    <string name="_599">$599</string>
+    <string name="pay_3_month">Pay 3 Month</string>
+    <string name="_799">$799</string>
+    <string name="nutritionist_counsellors">Nutritionist Counsellors</string>
+    <string name="basic_package">Basic Package</string>
+    <string name="summary">Summary</string>
+    <string name="view_profile">View Profile</string>
+    <string name="total_payable">Total Payable</string>
+    <string name="check_out">CHECK OUT</string>
+    <string name="create_your_calendar">Create Your Calendar</string>
 
 </resources>

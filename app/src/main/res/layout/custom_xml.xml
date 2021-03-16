@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/MyLayoutStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<LinearLayout
+<FrameLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
+    android:layout_height="wrap_content"
+    android:layout_centerVertical="true"
     android:orientation="vertical">
     <VideoView
         android:id="@+id/videoview"
         android:layout_width="match_parent"
+        android:layout_marginEnd="@dimen/spacing_10"
+        android:layout_marginStart="@dimen/spacing_10"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:layout_gravity="center"
         android:layout_height="200dp"/>
-    <Button
-        android:id="@+id/btncancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel"
+    <ImageView
+        android:id="@+id/ivCancel"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_gravity="end"
-        android:layout_margin="@dimen/spacing_10"
-        android:background="@drawable/btn_continue" />
-</LinearLayout>
+        android:src="@drawable/ic_video_cancel"
+        android:contentDescription="@string/todo" />
 
-</LinearLayout>
+</FrameLayout>
+
+</RelativeLayout>
