@@ -87,7 +87,8 @@
                     android:layout_margin="@dimen/spacing_5"
                     android:layout_gravity="center"
                     android:text="@string/signin"
-                    android:textSize="@dimen/font_20" />
+                    android:textSize="@dimen/font_20"
+                    android:textColor="@color/white"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

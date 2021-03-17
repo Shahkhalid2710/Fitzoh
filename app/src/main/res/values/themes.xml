@@ -48,6 +48,11 @@
 
     <style name="MyLayoutStyle">
         <item name="background">@android:color/transparent</item>
-
     </style>
+
+    <style name="spinnerstyle">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+    </style>
+
 </resources>

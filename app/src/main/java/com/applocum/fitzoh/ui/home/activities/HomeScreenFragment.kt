@@ -8,19 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.*
-import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterBlog
-import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterConnect
-import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterVideoLibrary
+import com.applocum.fitzoh.ui.home.adapters.*
 import com.applocum.fitzoh.ui.home.models.Blog
 import com.applocum.fitzoh.ui.home.models.ConnectWith
 import com.applocum.fitzoh.ui.home.models.Fitzohvideo
+import com.applocum.fitzoh.ui.home.models.Session
 import kotlinx.android.synthetic.main.fragment_home_screen.view.*
+import kotlinx.android.synthetic.main.fragment_home_screen.view.cvUpcomingSessions
 
 
 class HomeScreenFragment : Fragment() {
     private var mList:ArrayList<ConnectWith> = ArrayList()
     private var mList3:ArrayList<Fitzohvideo> = ArrayList()
     private var mList4:ArrayList<Blog> = ArrayList()
+    private var mListSession:ArrayList<Session> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -161,6 +162,21 @@ class HomeScreenFragment : Fragment() {
             val intent=Intent(activity, HolisticHealthTransferActivity::class.java)
             startActivity(intent)
         }
+
+        val session1= Session(R.drawable.img_strength,"Strength")
+        val session2= Session(R.drawable.img_yoga,"Yoga")
+        val session3= Session(R.drawable.img_meditation,"Meditation")
+        val session4= Session(R.drawable.img_endurance,"Endurance")
+
+
+        mListSession.add(session1)
+        mListSession.add(session2)
+        mListSession.add(session3)
+        mListSession.add(session4)
+
+        v.rvBooklivesession.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
+        v.rvBooklivesession.adapter= activity?.let { RecyclerAdapterBookLiveSession(it,mListSession) }
+
 
         return v
     }

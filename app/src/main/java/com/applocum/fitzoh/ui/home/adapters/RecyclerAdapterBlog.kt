@@ -1,6 +1,7 @@
 package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.text.SpannableString
 import android.text.Spanned
@@ -14,6 +15,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
+import com.applocum.fitzoh.ui.home.activities.BlogActivity
 import com.applocum.fitzoh.ui.home.models.Blog
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
@@ -38,6 +40,12 @@ class RecyclerAdapterBlog(context: Context,list: ArrayList<Blog>) :RecyclerView.
         holder.itemView.tvLevel.text=blog.bLevel
         holder.itemView.tvDescription.text=blog.bDescription
         holder.itemView.ivNext.visibility=View.GONE
+        holder.itemView.setOnClickListener {
+            val intent=Intent(mContext,BlogActivity::class.java)
+            mContext.startActivity(intent)
+        }
+
+
         addReadMore("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pellentesque lacus, sagittis interdum…",holder.itemView.tvDescription)
 
         Glide.with(mContext).load(blog.bImage).into(holder.itemView.ivLevel)

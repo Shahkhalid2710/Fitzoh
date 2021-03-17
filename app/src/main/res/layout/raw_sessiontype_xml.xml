@@ -8,18 +8,20 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_margin="@dimen/spacing_5"
             tools:ignore="UselessParent">
 
             <ImageView
                 android:id="@+id/ivType"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_endurance" />
@@ -28,7 +30,6 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/spacing_5"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/endurance"
                 android:textColor="@color/black"

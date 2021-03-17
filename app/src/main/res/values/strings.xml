@@ -289,5 +289,30 @@
     <string name="total_payable">Total Payable</string>
     <string name="check_out">CHECK OUT</string>
     <string name="create_your_calendar">Create Your Calendar</string>
+    <string name="live_session">Live Session</string>
+    <string name="exisitng_previous_trainer">Exisitng / Previous Trainer</string>
+    <string name="trainer_listing">Trainer Listing</string>
+    <string name="filter">Filter</string>
+    <string name="select_category">Select Category</string>
+    <string name="select_sub_category">Select Sub category</string>
+    <string name="language">Language</string>
+    <string name="by_nina_anderson_may_13_2020">By: Nina Anderson | May 13, 2020</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.</string>
+    <string name="vivamus_ut_tristique_ante_proin_auctor_risus_et_blandit_ornare_duis_ante_mauris_ultricies_nec_egestas_nec_commodo_non_turpis_vivamus_porttitor_lacus_in_velit_vest_ibulum_euismod">Vivamus ut tristique ante. Proin auctor risus et blandit ornare. Duis ante mauris, ultricies nec egestas nec, commodo non turpis. Vivamus porttitor lacus in velit vest ibulum euismod.</string>
 
+    <string-array name="categorylist">
+        <item>Strength &amp;Condition - Strength</item>
+        <item>Speed</item>
+        <item>Power</item>
+        <item>Flexibility</item>
+    </string-array>
+    <string-array name="subcategorylist">
+        <item>Yoga</item>
+        <item>Gym</item>
+    </string-array>
+    <string-array name="languagelist">
+        <item>English</item>
+        <item>Gujarati</item>
+        <item>Hindi</item>
+    </string-array>
 </resources>

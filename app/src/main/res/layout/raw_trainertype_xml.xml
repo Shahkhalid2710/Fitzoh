@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/spacing_5"
+    android:backgroundTint="@color/white"
+    android:layout_margin="@dimen/spacing_10">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="UselessParent">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_10">
+
+        <ImageView
+            android:id="@+id/ivPic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ena" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ivPic"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_5">
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/jenna_hopper"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_15" />
+
+            <TextView
+                android:id="@+id/tvExperince"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/experience_05_years"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_11" />
+
+        </LinearLayout>
+    </RelativeLayout>
+    <CheckBox
+        android:id="@+id/cb3"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_margin="@dimen/spacing_10"
+        android:background="@drawable/custom_trainer_checkbox"
+        android:button="@color/black"
+        android:layout_gravity="top|end"/>
+</FrameLayout>
+ </androidx.cardview.widget.CardView>

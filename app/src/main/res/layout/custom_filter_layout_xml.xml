@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvExistinPreviousTrainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/filter"
+        android:textColor="@color/bluee"
+        android:textSize="@dimen/font_15" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/textcolorgray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvSelectCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/select_category"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:background="@drawable/custom_weight_layout"
+            tools:ignore="UselessParent">
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_5"
+                style="@style/spinnerstyle"
+                android:spinnerMode="dialog"
+                android:entries="@array/categorylist" />
+
+            <ImageView
+                android:id="@+id/ivListCategory"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_drop_down_button" />
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/tvSelectSubCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/select_sub_category"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:background="@drawable/custom_weight_layout"
+            tools:ignore="UselessParent">
+
+            <Spinner
+                android:id="@+id/spinnerSubCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_5"
+                style="@style/spinnerstyle"
+                android:spinnerMode="dialog"
+                android:entries="@array/subcategorylist" />
+
+            <ImageView
+                android:id="@+id/ivListSubCategory"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_drop_down_button" />
+        </RelativeLayout>
+
+        <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/language"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_13" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:background="@drawable/custom_weight_layout"
+            tools:ignore="UselessParent">
+
+            <Spinner
+                android:id="@+id/spinnerLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_5"
+                style="@style/spinnerstyle"
+                android:spinnerMode="dialog"
+                android:entries="@array/languagelist" />
+
+            <ImageView
+                android:id="@+id/ivListLanguage"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/ic_drop_down_button" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_20"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSubmit"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/spacing_5"
+                android:layout_gravity="center"
+                android:text="@string/submit"
+                android:padding="@dimen/spacing_10"
+                android:textSize="@dimen/font_15" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                style="@style/ButtonDefaultStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/spacing_10"
+                android:layout_gravity="center"
+                android:text="@string/cancel"
+                android:textColor="@color/bluee"
+                android:padding="@dimen/spacing_10"
+                android:textSize="@dimen/font_15" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

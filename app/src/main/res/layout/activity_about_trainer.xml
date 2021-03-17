@@ -145,8 +145,11 @@
             android:id="@+id/cvSessiondetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/spacing_10"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:layout_marginTop="@dimen/spacing_10"
             android:backgroundTint="@color/white"
+            android:layout_marginBottom="@dimen/spacing_20"
             app:cardCornerRadius="@dimen/spacing_5">
 
             <LinearLayout
@@ -165,93 +168,11 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/font_13" />
 
-                <RelativeLayout
-                    android:id="@+id/rl"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10">
-
-                    <LinearLayout
-                        android:id="@+id/ll1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/default_layout"
-                        tools:ignore="UselessParent">
-
-                        <TextView
-                            android:id="@+id/tvSession1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:padding="@dimen/spacing_5"
-                            android:text="@string/session_01"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/font_11" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_5"
-                        android:layout_toEndOf="@+id/ll1"
-                        android:background="@drawable/default_layout"
-                        tools:ignore="UselessParent">
-
-                        <TextView
-                            android:id="@+id/tvSession2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:padding="@dimen/spacing_5"
-                            android:text="@string/session_02"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/font_11" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/ll3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_5"
-                        android:layout_toEndOf="@+id/ll2"
-                        android:background="@drawable/customlayout"
-                        tools:ignore="UselessParent">
-
-                        <TextView
-                            android:id="@+id/tvSession3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:padding="@dimen/spacing_5"
-                            android:text="@string/session_03"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/font_11" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/spacing_5"
-                        android:layout_toEndOf="@+id/ll3"
-                        android:background="@drawable/customlayout"
-                        tools:ignore="UselessParent">
-
-                        <TextView
-                            android:id="@+id/tvSession4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:fontFamily="@font/poppins_medium"
-                            android:padding="@dimen/spacing_5"
-                            android:text="@string/session_04"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/font_11" />
-                    </LinearLayout>
-                </RelativeLayout>
+                    android:layout_margin="@dimen/spacing_10" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

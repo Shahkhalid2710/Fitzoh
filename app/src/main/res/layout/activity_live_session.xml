@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.home.activities.LiveSessionActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/leftarrow" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/live_session"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvExistinPreviousTrainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/exisitng_previous_trainer"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExistingPreviousTrainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTrainerListing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/trainer_listing"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_15" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:gravity="end"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/ivFilter"
+                    android:layout_width="17dp"
+                    android:layout_height="17dp"
+                    android:layout_marginEnd="@dimen/spacing_5"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/ic_filter" />
+
+                <TextView
+                    android:id="@+id/tvFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/filter"
+                    android:textColor="@color/bluee"
+                    android:textSize="@dimen/font_15" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTrainerList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSessiondetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            android:layout_marginBottom="@dimen/spacing_20"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNoofsessionCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/no_of_session_completed"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvSession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

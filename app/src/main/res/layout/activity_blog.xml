@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.home.activities.BlogActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/leftarrow" />
+
+        <TextView
+            android:id="@+id/tvBlog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/blog"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_18" />
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/spacing_5"
+        android:layout_margin="@dimen/spacing_10">
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical">
+         <ImageView
+             android:id="@+id/ivBlog"
+             android:layout_width="match_parent"
+             android:layout_height="250dp"
+             android:src="@drawable/blogimage"
+             android:scaleType="centerCrop"
+             android:contentDescription="@string/todo" />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:fontFamily="@font/poppins_medium"
+             android:text="@string/beginner"
+             android:layout_marginStart="@dimen/spacing_10"
+             android:layout_marginTop="@dimen/spacing_10"
+             android:layout_marginEnd="@dimen/spacing_10"
+             android:textColor="@color/black"
+             android:textSize="@dimen/font_15" />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:fontFamily="@font/poppins_regular"
+             android:text="@string/by_nina_anderson_may_13_2020"
+             android:textColor="@color/black"
+             android:layout_marginStart="@dimen/spacing_10"
+             android:textSize="@dimen/font_10" />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:fontFamily="@font/poppins_regular"
+             android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris"
+             android:textColor="@color/textcolorgray"
+             android:layout_margin="@dimen/spacing_10"
+             android:textSize="@dimen/font_10" />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:fontFamily="@font/poppins_regular"
+             android:text="@string/vivamus_ut_tristique_ante_proin_auctor_risus_et_blandit_ornare_duis_ante_mauris_ultricies_nec_egestas_nec_commodo_non_turpis_vivamus_porttitor_lacus_in_velit_vest_ibulum_euismod"
+             android:textColor="@color/textcolorgray"
+             android:layout_margin="@dimen/spacing_10"
+             android:textSize="@dimen/font_10" />
+     </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.applocum.fitzoh.ui.home.models.SessionRequest
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
@@ -20,12 +21,30 @@ class HomeFragment : Fragment() {
 
 
 
-        val sessionRequest1 = SessionRequest(R.drawable.bewell,"Bewell B.")
-        val sessionRequest2 = SessionRequest(R.drawable.bewell,"Bewell B.")
-        val sessionRequest3 = SessionRequest(R.drawable.bewell,"Bewell B.")
-        val sessionRequest4 = SessionRequest(R.drawable.bewell,"Bewell B.")
-        val sessionRequest5 = SessionRequest(R.drawable.bewell,"Bewell B.")
-        val sessionRequest6 = SessionRequest(R.drawable.bewell,"Bewell B.")
+        val sessionRequest1 = SessionRequest(
+            R.drawable.bewell,
+            "Bewell B."
+        )
+        val sessionRequest2 = SessionRequest(
+            R.drawable.bewell,
+            "Bewell B."
+        )
+        val sessionRequest3 = SessionRequest(
+            R.drawable.bewell,
+            "Bewell B."
+        )
+        val sessionRequest4 = SessionRequest(
+            R.drawable.bewell,
+            "Bewell B."
+        )
+        val sessionRequest5 = SessionRequest(
+            R.drawable.bewell,
+            "Bewell B."
+        )
+        val sessionRequest6 = SessionRequest(
+            R.drawable.bewell,
+            "Bewell B."
+        )
         mList.add(sessionRequest1)
         mList.add(sessionRequest2)
         mList.add(sessionRequest3)
