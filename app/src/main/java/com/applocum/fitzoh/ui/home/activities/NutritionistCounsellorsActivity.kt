@@ -17,10 +17,10 @@ class NutritionistCounsellorsActivity : AppCompatActivity() {
         ivBack.setOnClickListener {
             finish()
         }
-        val blog1=Blog(R.drawable.ena,"Jenna Hopper","Experience: 05 years")
-        val blog2=Blog(R.drawable.amelia,"Amelia Freer","Experience: 03 years")
-        val blog3=Blog(R.drawable.enablatner,"Enaa blatner","Experience: 02 years")
-        val blog4=Blog(R.drawable.bewell,"Bewell Bykelly","Experience: 02 years")
+        val blog1=Blog(R.drawable.ena.toString(),"Jenna Hopper","Experience: 05 years")
+        val blog2=Blog(R.drawable.amelia.toString(),"Amelia Freer","Experience: 03 years")
+        val blog3=Blog(R.drawable.enablatner.toString(),"Enaa blatner","Experience: 02 years")
+        val blog4=Blog(R.drawable.bewell.toString(),"Bewell Bykelly","Experience: 02 years")
 
         mListNutritionist.add(blog1)
         mListNutritionist.add(blog2)
@@ -29,5 +29,6 @@ class NutritionistCounsellorsActivity : AppCompatActivity() {
 
         rvNutritionist.layoutManager=LinearLayoutManager(this)
         rvNutritionist.adapter=RecyclerAdapterNutritionists(this,mListNutritionist)
+
     }
 }

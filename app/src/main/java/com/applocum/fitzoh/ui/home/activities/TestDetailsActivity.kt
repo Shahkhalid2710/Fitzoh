@@ -1,16 +1,26 @@
 package com.applocum.fitzoh.ui.home.activities
 
+import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.Window
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterTestHistory
+import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.applocum.fitzoh.ui.home.models.TestHistory
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_test_details.*
+import kotlinx.android.synthetic.main.custom_xml.*
+import kotlinx.android.synthetic.main.raw_listoftest_xml.*
 
 class TestDetailsActivity : AppCompatActivity() {
        var mList:ArrayList<TestHistory> = ArrayList()
+       var currentposition=0
+       var listOfTest:ListOfTest?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +28,38 @@ class TestDetailsActivity : AppCompatActivity() {
         ivBack.setOnClickListener {
             finish()
         }
-       val testHistory1= TestHistory(
+
+        listOfTest = intent.getSerializableExtra("listoftest") as ListOfTest?
+        currentposition= intent.getIntExtra("position",0)
+
+        tvListName.text=listOfTest?.Listname
+        tvListAbout.text=listOfTest?.Listdescription
+       Glide.with(this).load(listOfTest?.Listimage).into(ivVideo)
+
+       // vvList.setVideoPath(listOfTest?.Listvideo)
+        //vvList.start()
+         ivVideo.setOnClickListener {
+             val metrics: DisplayMetrics = resources.displayMetrics
+
+             val DeviceTotalWidth = metrics.widthPixels
+             val DeviceTotalHeight = metrics.heightPixels
+
+             val dialog = Dialog(this)
+             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+             dialog.setContentView(R.layout.custom_xml)
+             dialog.window!!.setLayout(DeviceTotalWidth, DeviceTotalHeight)
+             dialog.window?.setBackgroundDrawableResource(R.color.tp)
+
+          //   dialog.videoview.setVideoURI(Uri.parse("android.resource://" + packageName + "/" + listOfTest?.Listvideo))
+             dialog.videoview.setVideoPath(listOfTest?.Listvideo)
+             dialog.videoview.start()
+             dialog.ivCancel.setOnClickListener {
+                 dialog.cancel()
+             }
+             dialog.show()
+         }
+
+        val testHistory1= TestHistory(
            "Monday",
            "May 11, 2020",
            "01:20",

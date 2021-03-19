@@ -8,6 +8,7 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +18,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.BlogActivity
 import com.applocum.fitzoh.ui.home.models.Blog
+import com.applocum.fitzoh.ui.home.models.Category
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 
-class RecyclerAdapterBlog(context: Context,list: ArrayList<Blog>) :RecyclerView.Adapter<RecyclerAdapterBlog.BlogHolder>(){
+class RecyclerAdapterBlog(context: Context,list: ArrayList<Blog>, var cellClickListener: RecyclerAdapterBlog.CellClickListener) :RecyclerView.Adapter<RecyclerAdapterBlog.BlogHolder>(){
     var mContext=context
     private var mList=list
 
@@ -40,17 +42,25 @@ class RecyclerAdapterBlog(context: Context,list: ArrayList<Blog>) :RecyclerView.
         holder.itemView.tvLevel.text=blog.bLevel
         holder.itemView.tvDescription.text=blog.bDescription
         holder.itemView.ivNext.visibility=View.GONE
+        Glide.with(mContext).load(blog.bImage).into(holder.itemView.ivLevel)
+
         holder.itemView.setOnClickListener {
             val intent=Intent(mContext,BlogActivity::class.java)
             mContext.startActivity(intent)
         }
+        holder.itemView.setOnClickListener{
 
+            cellClickListener.onCellClickistener(blog,position)
+        }
 
         addReadMore("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae pellentesque lacus, sagittis interdum…",holder.itemView.tvDescription)
 
-        Glide.with(mContext).load(blog.bImage).into(holder.itemView.ivLevel)
-    }
 
+    }
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: Blog, position: Int)
+    }
     private fun addReadMore(text: String, textView: TextView) {
         val ss = SpannableString(text.substring(0,70) + "... Read more")
         val clickableSpan: ClickableSpan = object : ClickableSpan() {

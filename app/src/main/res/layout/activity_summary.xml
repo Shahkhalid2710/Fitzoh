@@ -150,7 +150,7 @@
             android:textSize="@dimen/font_13" />
         </RelativeLayout>
             <TextView
-                android:id="@+id/tvDescription"
+                android:id="@+id/tvCounsellorabout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_20"
@@ -185,7 +185,7 @@
                     android:padding="@dimen/spacing_5">
 
                     <TextView
-                        android:id="@+id/tvName"
+                        android:id="@+id/tvCounsellorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
@@ -194,7 +194,7 @@
                         android:textSize="@dimen/font_15" />
 
                     <TextView
-                        android:id="@+id/tvExperince"
+                        android:id="@+id/tvCounsellorExperince"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -203,7 +203,7 @@
                         android:textSize="@dimen/font_11" />
 
                     <TextView
-                        android:id="@+id/tvLanguage"
+                        android:id="@+id/tvCounsellorViewProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -235,7 +235,7 @@
             android:textSize="@dimen/font_14" />
 
         <TextView
-            android:id="@+id/tvPrice"
+            android:id="@+id/tvCounsellorPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"

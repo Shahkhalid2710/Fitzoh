@@ -48,9 +48,19 @@
                 android:background="@color/textcolorgray" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv"
+                android:id="@+id/rvSlotbooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+           <Button
+                android:id="@+id/btnSubmit"
+                android:background="@drawable/btn_continue"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:layout_gravity="center"
+               android:visibility="gone"
+                android:text="@string/submit"
+                android:textSize="@dimen/font_15"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -38,6 +38,7 @@ class RecyclerAdapterCategories(context: Context,list: ArrayList<Categories>) :R
 
         holder.itemView.tvDescription.text=categories.cDescription
         Glide.with(mContext).load(categories.cImage).into(holder.itemView.ivCategory)
+
         holder.itemView.setOnClickListener {
             val metrics: DisplayMetrics = mContext.getResources().getDisplayMetrics()
 

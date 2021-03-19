@@ -4,9 +4,10 @@
     android:layout_width="wrap_content"
     android:background="@color/white"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/llFitzoh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_5"
@@ -22,5 +23,4 @@
             android:textColor="@color/bluee"
             android:textSize="@dimen/font_10" />
     </LinearLayout>
-
 </LinearLayout>

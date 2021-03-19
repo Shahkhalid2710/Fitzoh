@@ -201,7 +201,7 @@
                         android:padding="@dimen/spacing_5">
 
                         <TextView
-                            android:id="@+id/tvName"
+                            android:id="@+id/tvTrainerName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
@@ -210,7 +210,7 @@
                             android:textSize="@dimen/font_13" />
 
                         <TextView
-                            android:id="@+id/tvId"
+                            android:id="@+id/tvTrainerId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
@@ -263,7 +263,7 @@
                         android:padding="@dimen/spacing_5">
 
                         <TextView
-                            android:id="@+id/tvCouncellerName"
+                            android:id="@+id/tvCounsellorName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
@@ -272,7 +272,7 @@
                             android:textSize="@dimen/font_13" />
 
                         <TextView
-                            android:id="@+id/tvCouncellerId"
+                            android:id="@+id/tvCounsellorId"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
@@ -553,10 +553,50 @@
             android:textSize="@dimen/font_16" />
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <!--<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFitzohvideo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_10"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivVideoLibrary"
+            android:layout_width="match_parent"
+            android:layout_height="190dp"
+            android:src="@drawable/image_videolibrary"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/todo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="@dimen/spacing_10"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvEveryday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_extrabold"
+                android:text="@string/every_day_blish"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="@dimen/font_25" />
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/alegreya_medium"
+                android:text="@string/hypnosis_for_instant_freedom_from_stress_anxiety"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:textSize="@dimen/font_12" />
+        </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

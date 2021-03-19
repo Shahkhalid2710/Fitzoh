@@ -40,7 +40,7 @@
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/tvCardiovasularEndurance"
+            android:id="@+id/tvListName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_10"
@@ -68,12 +68,20 @@
                     android:backgroundTint="@color/white"
                     tools:ignore="UselessParent">
 
-                    <VideoView
-                        android:id="@+id/vv"
+                  <!--  <VideoView
+                        android:id="@+id/vvList"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:backgroundTint="@color/black" />
-
+                        android:layout_gravity="center"
+                        android:backgroundTint="@color/black" />-->
+                    <ImageView
+                        android:id="@+id/ivVideo"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/image_respirateryandstamina" />
                     <ImageView
                         android:id="@+id/ivPlay"
                         android:layout_width="40dp"
@@ -84,7 +92,7 @@
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/tvDescription"
+                    android:id="@+id/tvListAbout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_10"

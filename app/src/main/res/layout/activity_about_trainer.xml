@@ -117,7 +117,7 @@
                     android:textSize="@dimen/font_15" />
 
                 <TextView
-                    android:id="@+id/tvDescription"
+                    android:id="@+id/tvTrainerAbout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/spacing_10"
@@ -141,7 +141,7 @@
             android:textSize="@dimen/font_15" />
 
 
-        <androidx.cardview.widget.CardView
+       <!-- <androidx.cardview.widget.CardView
             android:id="@+id/cvSessiondetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -175,7 +175,7 @@
                     android:layout_margin="@dimen/spacing_10" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
+-->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="250dp"
@@ -186,6 +186,6 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="500dp" />
+            android:layout_height="600dp" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

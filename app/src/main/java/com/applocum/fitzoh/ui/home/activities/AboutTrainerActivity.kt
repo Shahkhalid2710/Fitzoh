@@ -3,14 +3,16 @@ package com.applocum.fitzoh.ui.home.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterSessionNumber
 import com.applocum.fitzoh.ui.home.adapters.ViewPagerFragmentAdapter
 import com.applocum.fitzoh.ui.home.models.Sessionnumber
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_about_trainer.*
 import kotlinx.android.synthetic.main.activity_about_trainer.ivBack
-import kotlinx.android.synthetic.main.activity_about_trainer.rvSession
 import kotlinx.android.synthetic.main.activity_live_session.*
+import kotlinx.android.synthetic.main.raw_xml_time.*
 
 class AboutTrainerActivity : AppCompatActivity() {
     var mListSessionNumbber:ArrayList<Sessionnumber> = ArrayList()
@@ -31,7 +33,7 @@ class AboutTrainerActivity : AppCompatActivity() {
 
         viewPager.adapter=viewPagerFragmentAdapter
         tablayout.setupWithViewPager(viewPager)
-
+/*
         val sessionnumber1 = Sessionnumber("Session -01")
         val sessionnumber2 = Sessionnumber("Session -02")
         val sessionnumber3 = Sessionnumber("Session -03")
@@ -49,7 +51,17 @@ class AboutTrainerActivity : AppCompatActivity() {
         mListSessionNumbber.add(sessionnumber7)
 
         rvSession.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvSession.adapter = RecyclerAdapterSessionNumber(this, mListSessionNumbber)
+        rvSession.adapter = RecyclerAdapterSessionNumber(this, mListSessionNumbber)*/
+
+        val dbhelper=Dbhelper(this)
+        val trainer=dbhelper.gettrainer()
+
+        tvName.setText(trainer.trainername)
+        tvExperince.setText(trainer.trainerexperince)
+        tvLanguage.setText(trainer.trainerlanguage)
+        tvTrainerAbout.setText(trainer.trainerabout)
+
+        Glide.with(this).load(trainer.trainerimage).into(ivPic)
 
 
     }

@@ -1,6 +1,7 @@
 package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Category
 import kotlinx.android.synthetic.main.raw_fitzohlibrary_xml.view.*
-import kotlinx.android.synthetic.main.raw_nutritionplan_xml.view.*
 
-class RecyclerAdapterCategory(context: Context,list: ArrayList<Category>) :RecyclerView.Adapter<RecyclerAdapterCategory.CategoryHolder>(){
+class RecyclerAdapterCategory(context: Context, list: ArrayList<Category>, private var cellClickListener: CellClickListener) :RecyclerView.Adapter<RecyclerAdapterCategory.CategoryHolder>(){
     var mContext=context
     var mList=list
+    private var selectedItem = 1
 
     inner class CategoryHolder(itemView:View):RecyclerView.ViewHolder(itemView){}
 
@@ -26,8 +27,26 @@ class RecyclerAdapterCategory(context: Context,list: ArrayList<Category>) :Recyc
     }
 
     override fun onBindViewHolder(holder: CategoryHolder, position: Int) {
-        val category=mList.get(position)
-        holder.itemView.tvCategories.text=category.cName
+        val category= mList[position]
+       holder.itemView.tvCategories.text=category.cName
 
+
+        holder.itemView.setOnClickListener{
+            cellClickListener.onCellClickistener(category,position)
+            selectedItem = category.id
+            notifyDataSetChanged()
+        }
+        if (selectedItem == category.id) {
+            holder.itemView.llFitzoh.setBackgroundResource(R.drawable.btn_background)
+            holder.itemView.tvCategories.setTextColor(Color.parseColor("#FFFFFFFF"))
+        }
+         else {
+             holder.itemView.llFitzoh.setBackgroundResource(R.drawable.btn_default)
+             holder.itemView.tvCategories.setTextColor(Color.parseColor("#3AD1BE"))
+         }
+    }
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: Category, position: Int)
     }
 }

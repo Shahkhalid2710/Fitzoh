@@ -2,29 +2,23 @@ package com.applocum.fitzoh.ui.home.activities
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
-import android.view.Window
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.RecyclerAdapterSessionRequest
 import com.applocum.fitzoh.ui.home.models.SessionRequest
-import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterNutritionists
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterSessionNumber
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterTrainerListing
 import com.applocum.fitzoh.ui.home.models.Blog
 import com.applocum.fitzoh.ui.home.models.Sessionnumber
 import kotlinx.android.synthetic.main.activity_live_session.*
 import kotlinx.android.synthetic.main.activity_live_session.ivBack
-import kotlinx.android.synthetic.main.custom_filter_layout_xml.*
 import kotlinx.android.synthetic.main.custom_filter_layout_xml.view.*
-import kotlinx.android.synthetic.main.fragment_slot_booking.*
 
 class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var mListTrainer: ArrayList<SessionRequest> = ArrayList()
@@ -70,10 +64,10 @@ class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvExistingPreviousTrainer.adapter = RecyclerAdapterSessionRequest(this, mListTrainer)
 
-        val blog1 = Blog(R.drawable.ena, "Jenna Hopper", "Experience: 05 years")
-        val blog2 = Blog(R.drawable.amelia, "Amelia Freer", "Experience: 03 years")
-        val blog3 = Blog(R.drawable.enablatner, "Enaa blatner", "Experience: 02 years")
-        val blog4 = Blog(R.drawable.bewell, "Bewell Bykelly", "Experience: 02 years")
+        val blog1 = Blog(R.drawable.ena.toString(), "Jenna Hopper", "Experience: 05 years")
+        val blog2 = Blog(R.drawable.amelia.toString(), "Amelia Freer", "Experience: 03 years")
+        val blog3 = Blog(R.drawable.enablatner.toString(), "Enaa blatner", "Experience: 02 years")
+        val blog4 = Blog(R.drawable.bewell.toString(), "Bewell Bykelly", "Experience: 02 years")
 
         mListTrainerList.add(blog1)
         mListTrainerList.add(blog2)

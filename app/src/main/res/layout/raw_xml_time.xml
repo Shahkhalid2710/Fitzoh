@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white">
@@ -13,50 +13,9 @@
       android:orientation="horizontal"
       tools:ignore="UselessParent">
 
-      <TextView
-          android:id="@+id/tvBaseTime"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="@string/_12pm_03pm"
-          android:fontFamily="@font/poppins_medium"
-          android:textSize="@dimen/font_11"
-          android:textColor="@color/black"/>
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
-
-      <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:weightSum="3"
-          android:orientation="horizontal"
-          android:baselineAligned="false">
           <LinearLayout
-              android:id="@+id/ll1"
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:gravity="center"
-              android:layout_marginStart="@dimen/spacing_10"
-              android:background="@drawable/default_layout"
-              tools:ignore="UselessParent">
-
-              <TextView
-                  android:id="@+id/tvTime1"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:fontFamily="@font/poppins_medium"
-                  android:padding="@dimen/spacing_5"
-                  android:text="@string/_12_00"
-                  android:textColor="@color/white"
-                  android:textSize="@dimen/font_11" />
-          </LinearLayout>
-          <LinearLayout
-              android:id="@+id/ll2"
-              android:layout_width="0dp"
-              android:layout_weight="1"
+              android:id="@+id/ll"
+              android:layout_width="80dp"
               android:layout_height="wrap_content"
               android:gravity="center"
               android:layout_marginStart="@dimen/spacing_10"
@@ -64,7 +23,7 @@
               tools:ignore="UselessParent">
 
               <TextView
-                  android:id="@+id/tvTime2"
+                  android:id="@+id/tvTime"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_gravity="center"
@@ -74,102 +33,6 @@
                   android:textColor="@color/black"
                   android:textSize="@dimen/font_11" />
           </LinearLayout>
-          <LinearLayout
-              android:id="@+id/ll3"
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_weight="1"
-              android:gravity="center"
-              android:layout_marginStart="@dimen/spacing_10"
-              android:background="@drawable/customlayout"
-              tools:ignore="UselessParent">
 
-              <TextView
-                  android:id="@+id/tvTime3"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center"
-                  android:fontFamily="@font/poppins_medium"
-                  android:padding="@dimen/spacing_5"
-                  android:text="@string/_01_00"
-                  android:textColor="@color/black"
-                  android:textSize="@dimen/font_11" />
           </LinearLayout>
       </LinearLayout>
-
-          <LinearLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:weightSum="3"
-              android:layout_marginTop="@dimen/spacing_10"
-              android:orientation="horizontal"
-              android:baselineAligned="false">
-              <LinearLayout
-                  android:id="@+id/ll4"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:gravity="center"
-                  android:layout_marginStart="@dimen/spacing_10"
-                  android:background="@drawable/customlayout"
-                  tools:ignore="UselessParent">
-
-                  <TextView
-                      android:id="@+id/tvTime4"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="center"
-                      android:fontFamily="@font/poppins_medium"
-                      android:padding="@dimen/spacing_5"
-                      android:text="@string/_01_30"
-                      android:textColor="@color/black"
-                      android:textSize="@dimen/font_11" />
-              </LinearLayout>
-              <LinearLayout
-                  android:id="@+id/ll5"
-                  android:layout_width="0dp"
-                  android:layout_weight="1"
-                  android:layout_height="wrap_content"
-                  android:gravity="center"
-                  android:layout_marginStart="@dimen/spacing_10"
-                  android:background="@drawable/customlayout"
-                  tools:ignore="UselessParent">
-
-                  <TextView
-                      android:id="@+id/tvTime5"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="center"
-                      android:fontFamily="@font/poppins_medium"
-                      android:padding="@dimen/spacing_5"
-                      android:text="@string/_02_00"
-                      android:textColor="@color/black"
-                      android:textSize="@dimen/font_11" />
-              </LinearLayout>
-              <LinearLayout
-                  android:id="@+id/ll6"
-                  android:layout_width="0dp"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:gravity="center"
-                  android:layout_marginStart="@dimen/spacing_10"
-                  android:background="@drawable/customlayout"
-                  tools:ignore="UselessParent">
-
-                  <TextView
-                      android:id="@+id/tvTime6"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_gravity="center"
-                      android:fontFamily="@font/poppins_medium"
-                      android:padding="@dimen/spacing_5"
-                      android:text="@string/_02_30"
-                      android:textColor="@color/black"
-                      android:textSize="@dimen/font_11" />
-              </LinearLayout>
-          </LinearLayout>
-      </LinearLayout>
-  </LinearLayout>
-
-
-</LinearLayout>

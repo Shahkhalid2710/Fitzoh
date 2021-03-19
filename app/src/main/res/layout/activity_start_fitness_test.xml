@@ -64,100 +64,10 @@
         android:layout_gravity="center"
         android:text="@string/start"
         android:layout_marginTop="@dimen/spacing_25"
-        android:textSize="@dimen/font_20"/>
+        android:textSize="@dimen/font_15"/>
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/result"
-        android:textColor="@color/black"
-        android:fontFamily="@font/poppins_medium"
-        android:textSize="@dimen/font_13"
-        android:layout_marginTop="@dimen/spacing_20"
-        android:layout_marginStart="@dimen/spacing_10"/>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/layout_result"
-    android:layout_margin="@dimen/spacing_10"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:layout_margin="@dimen/spacing_10"
-        android:orientation="horizontal">
-        
-        <TextView
-            android:id="@+id/tvTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/bluee"
-            android:textSize="@dimen/font_14"
-            android:text="@string/time"/>
-        <TextView
-            android:id="@+id/result"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/bluee"
-            android:textSize="@dimen/font_14"
-            android:text="@string/tvresult"/>
-        <TextView
-            android:id="@+id/tvLevel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/bluee"
-            android:textSize="@dimen/font_14"
-            android:gravity="center"
-            android:text="@string/level"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/bluee"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:layout_margin="@dimen/spacing_10"
-        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvtime1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/bluee"
-            android:textSize="@dimen/font_13"
-            android:text="@string/_01_20"/>
-        <TextView
-            android:id="@+id/tv5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="@color/bluee"
-            android:textSize="@dimen/font_13"
-            android:text="@string/_05"/>
-        <TextView
-            android:id="@+id/tvlevel9"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/bluee"
-            android:textSize="@dimen/font_13"
-            android:gravity="center"
-            android:text="@string/_9_10"/>
-    </LinearLayout>
-</LinearLayout>
     <TextView
         android:id="@+id/tvEnterResult"
         android:layout_width="wrap_content"
@@ -173,10 +83,11 @@
         android:id="@+id/etEnterResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enterresulthere"
+        android:hint="@string/select_result"
         android:background="@drawable/layout_result"
         android:textColorHint="@color/textcolorgray"
         android:padding="@dimen/spacing_10"
+        android:focusable="false"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/black"
         android:layout_margin="@dimen/spacing_10"

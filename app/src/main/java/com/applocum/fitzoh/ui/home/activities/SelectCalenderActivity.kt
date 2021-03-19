@@ -53,8 +53,8 @@ class SelectCalenderActivity : AppCompatActivity() {
         rvTrainer.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         rvTrainer.adapter=RecyclerAdapterSessionTrainer(this,mListSessionTrainer)
 
-        val slotbooking1= Slotbooking(
-            "12pm - 03pm",
+       /* val slotbooking1= Slotbooking(
+          //  "12pm - 03pm",
             "12:00",
             "12:30",
             "01:00",
@@ -63,19 +63,19 @@ class SelectCalenderActivity : AppCompatActivity() {
             "02:30"
         )
         val slotbooking2= Slotbooking(
-            "06pm-09pm",
+          //  "06pm-09pm",
             "06:00",
             "06:30",
             "07:00",
             "07:30",
             "08:00",
             "08:30"
-        )
+        )*/
 
-        mListSessionTime.add(slotbooking1)
+      /*  mListSessionTime.add(slotbooking1)
         mListSessionTime.add(slotbooking2)
 
         rvTime.layoutManager=LinearLayoutManager(this)
-        rvTime.adapter=RecyclerAdapterSlotBookingTime(this,mListSessionTime)
+        rvTime.adapter=RecyclerAdapterSlotBookingTime(this,mListSessionTime)*/
     }
 }

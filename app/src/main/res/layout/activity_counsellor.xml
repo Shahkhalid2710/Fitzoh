@@ -51,7 +51,7 @@
                 android:padding="@dimen/spacing_10">
 
                 <ImageView
-                    android:id="@+id/ivPic"
+                    android:id="@+id/ivCounsellorPic"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:contentDescription="@string/todo"
@@ -62,12 +62,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toEndOf="@+id/ivPic"
+                    android:layout_toEndOf="@+id/ivCounsellorPic"
                     android:orientation="vertical"
                     android:padding="@dimen/spacing_5">
 
                     <TextView
-                        android:id="@+id/tvName"
+                        android:id="@+id/tvCounselllorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_medium"
@@ -76,7 +76,7 @@
                         android:textSize="@dimen/font_15" />
 
                     <TextView
-                        android:id="@+id/tvExperince"
+                        android:id="@+id/tvCOunsellorExperince"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -85,7 +85,7 @@
                         android:textSize="@dimen/font_11" />
 
                     <TextView
-                        android:id="@+id/tvLanguage"
+                        android:id="@+id/tvCounsellorLanguage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_regular"
@@ -106,7 +106,7 @@
                 android:textSize="@dimen/font_15" />
 
             <TextView
-                android:id="@+id/tvDescription"
+                android:id="@+id/tvCOunsellorDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/spacing_10"
