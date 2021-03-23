@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,8 +35,12 @@ class RecyclerAdapterRawCategory(context: Context,list:ArrayList<CategoryRaw>) :
 
     override fun onBindViewHolder(holder: CategoriesHolder, position: Int) {
          val categoryRaw=mList.get(position)
+
         holder.itemView.rvRaw.layoutManager= LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
         holder.itemView.rvRaw.adapter=RecyclerAdapterCategories(mContext,categoryRaw.mylist)
+
+        Log.d("callled","-"+categoryRaw.cName)
+
         holder.itemView.tvCategoryname.text=categoryRaw.cName
 
 
@@ -45,7 +50,6 @@ class RecyclerAdapterRawCategory(context: Context,list:ArrayList<CategoryRaw>) :
            intent.putExtra("position",position)
            mContext.startActivity(intent)
        }
-
     }
 
 }

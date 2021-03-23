@@ -163,6 +163,10 @@ class HomeScreenFragment : Fragment() {
             val intent=Intent(activity, HolisticHealthTransferActivity::class.java)
             startActivity(intent)
         }
+        v.tvViewmore.setOnClickListener {
+            val intent=Intent(activity, FitzohVideoLibraryActivity::class.java)
+            startActivity(intent)
+        }
 
         val session1= Session(R.drawable.img_strength,"Strength")
         val session2= Session(R.drawable.img_yoga,"Yoga")

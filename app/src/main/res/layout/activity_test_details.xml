@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -128,41 +129,15 @@
                 android:textSize="@dimen/font_16" />
         </LinearLayout>
 
-        <LinearLayout
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+            android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:id="@+id/ivPrevious"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center"
-                android:layout_marginEnd="@dimen/spacing_20"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/previous" />
-
-            <TextView
-                android:id="@+id/tvDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:gravity="center"
-                android:text="@string/may_2020"
-                android:textColor="@color/bluee"
-                android:textSize="@dimen/font_15" />
-
-            <ImageView
-                android:id="@+id/ivNext"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/spacing_20"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/next" />
-        </LinearLayout>
+            android:layout_margin="@dimen/spacing_10"
+            app:mcv_calendarMode="week"
+            app:mcv_weekDayTextAppearance="@style/MyTextStyle"
+            app:mcv_headerTextAppearance="@style/MyTextStyle"
+            app:mcv_selectionColor="@color/bluee"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTestHistory"
@@ -171,7 +146,7 @@
             android:layout_margin="@dimen/spacing_10" />
 
 
-        <TextView
+      <!--  <TextView
             android:id="@+id/tvBestPerfomance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -225,7 +200,7 @@
                 android:textColor="@color/bluee"
                 android:textSize="@dimen/font_14" />
         </LinearLayout>
-
+-->
         <Button
             android:id="@+id/btnStartTest"
             android:background="@drawable/btn_continue"

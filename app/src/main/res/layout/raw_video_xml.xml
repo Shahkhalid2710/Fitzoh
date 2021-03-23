@@ -12,11 +12,19 @@
         android:background="@color/white"
         android:backgroundTint="@color/white">
 
-        <VideoView
+       <!-- <VideoView
             android:id="@+id/videoview"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:backgroundTint="@color/black" />
+            android:backgroundTint="@color/black" />-->
+        <ImageView
+            android:id="@+id/ivVideo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/image_respirateryandstamina" />
 
         <ImageView
             android:layout_width="40dp"

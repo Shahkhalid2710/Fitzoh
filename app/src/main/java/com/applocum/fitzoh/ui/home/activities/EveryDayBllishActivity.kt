@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -16,9 +17,9 @@ import kotlinx.android.synthetic.main.activity_fitzoh_video_library.ivBack
 
 
 class EveryDayBllishActivity : AppCompatActivity() {
-    var mList3:ArrayList<Categories> = ArrayList()
+    var mListCategories: ArrayList<Categories> = ArrayList()
 
-    lateinit var categories:CategoryRaw
+    lateinit var categories: CategoryRaw
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +29,11 @@ class EveryDayBllishActivity : AppCompatActivity() {
             finish()
         }
 
-      categories= intent.getSerializableExtra("categories") as CategoryRaw
+        categories = intent.getSerializableExtra("categories") as CategoryRaw
+        mListCategories = categories.mylist
 
-        mList3=categories.mylist
-        rvVideos.layoutManager=GridLayoutManager(this,2)
-        rvVideos.adapter=RecyclerAdapterVideo(this,mList3)
+        rvVideos.layoutManager = GridLayoutManager(this, 2)
+        rvVideos.adapter = RecyclerAdapterVideo(this, mListCategories)
 
     }
 }

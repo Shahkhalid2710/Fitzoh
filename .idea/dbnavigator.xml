@@ -12,8 +12,8 @@
       <quote-values-containing-separator value="true" />
       <quote-all-values value="false" />
       <value-separator value="" />
-      <file-name value="" />
-      <file-location value="" />
+      <file-name value="blog.xls" />
+      <file-location value="C:\Users\admin\Documents\AndroidStudio\DeviceExplorer\realme-rmx1833-SOBYZSOJ79VC8SD6\data\data\com.applocum.fitzoh\databases" />
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
@@ -26,7 +26,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea">
-        <schema name="main" object-types="constraint, view, table, dataset trigger, column, index" />
+        <schema name="main" object-types="table, view" />
       </connection>
     </loaded-nodes>
   </component>
@@ -41,7 +41,9 @@
       <console name="Connection 2" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="9add59f0-82c6-438e-b498-b7c35f4f19ea">
-      <console name="MyConnection" type="STANDARD" schema="main" session="Main"><![CDATA[select * from subcategory]]></console>
+      <console name="MyConnection" type="STANDARD" schema="main" session="Main">select  * from subcategory
+
+insert into subcategory(subcategoryame,subcategoryimage,subcategoryvideo,subcategoryabout,cid) values ('Relationships','ccccc','ccccc','gffggfdgfg',1)</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -61,18 +63,13 @@
     </filter-actions>
     <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.Signup" active-filter-id="" />
     <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.sqlite_sequence" active-filter-id="" />
+    <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.counsellor" active-filter-id="" />
     <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.subcategory" active-filter-id="7e0797d5-f79b-4fb4-b85b-0b81b2619334">
       <filter id="7e0797d5-f79b-4fb4-b85b-0b81b2619334" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="subcategoryame" operator="=" value="abcd" active="false" />
       </filter>
     </filter-actions>
-    <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.blog" active-filter-id="EMPTY_FILTER">
-      <filter id="e17f40eb-3c19-4773-9fcd-f087bdf770cb" name="jsdvhsvhvcjvcvjcvjjjcvjcjv &amp; ddddddd &amp; A..." temporary="false" custom-name="false" type="basic" join-type="AND">
-        <condition column="blogabout" operator="=" value="jsdvhsvhvcjvcvjcvjjjcvjcjv" active="true" />
-        <condition column="blogimage" operator="=" value="ddddddd" active="true" />
-        <condition column="blogname" operator="=" value="Abc" active="true" />
-      </filter>
-    </filter-actions>
+    <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.blog" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea" dataset="main.Goal" active-filter-id="EMPTY_FILTER">
       <filter id="b3dd83f7-6f8b-49a1-821a-7b599b563296" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="goal_id" operator="=" value="" active="true" />
@@ -387,7 +384,7 @@
           <deprecated-pwd value="" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />

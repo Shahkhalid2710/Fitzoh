@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.Dbhelper
@@ -23,11 +25,9 @@ import kotlinx.android.synthetic.main.activity_list_of_test.*
 class FitzohVideoLibraryActivity : AppCompatActivity() {
 
     var mListmainCategory: ArrayList<Category> = ArrayList()
-    var mList2: ArrayList<Categories> = ArrayList()
-    var mList3: ArrayList<Categories> = ArrayList()
-    var mListPerfomance: ArrayList<Categories> = ArrayList()
 
     var mainList: ArrayList<CategoryRaw> = ArrayList()
+    var mainList2: ArrayList<CategoryRaw> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,109 +38,110 @@ class FitzohVideoLibraryActivity : AppCompatActivity() {
 
         rvFitzohLibrary.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvFitzohLibrary.adapter = RecyclerAdapterCategory(this, mListmainCategory,object :RecyclerAdapterCategory.CellClickListener{
-            override fun onCellClickistener(myobject: Category, position: Int) {
+        rvFitzohLibrary.adapter = RecyclerAdapterCategory(
+            this,
+            mListmainCategory,
+            object : RecyclerAdapterCategory.CellClickListener {
+                override fun onCellClickistener(myobject: Category, position: Int) {
+                    when (myobject.id) {
+                        1-> allData()
+                        2 -> getallmind()
+                        3 -> getallrelationships()
+                        4 -> getallperfomance()
+                        5 -> getallfriendships()
+                        else -> Toast.makeText(
+                            this@FitzohVideoLibraryActivity,
+                            "Error",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    Log.d("position", "-->" + myobject.id)
+                }
+            })
 
-            }
-
-        })
-
-
-
-
-        val categories1 = Categories(
-            R.drawable.mindimage1,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.abc
-        )
-        val categories2 = Categories(
-            R.drawable.mindimage2,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.one
-        )
-        val categories3 = Categories(
-            R.drawable.mindimage3,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.two
-        )
-        val categories8 = Categories(
-            R.drawable.mindimage1,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.three
-        )
-
-        mList2.add(categories1)
-        mList2.add(categories2)
-        mList2.add(categories3)
-        mList2.add(categories8)
-
-        val categories4 = Categories(
-            R.drawable.relationshipimage1,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.abc
-        )
-        val categories5 = Categories(
-            R.drawable.relationshipimage2,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.one
-        )
-        val categories6 = Categories(
-            R.drawable.relationshipimage3,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.two
-        )
-        val categories7 = Categories(
-            R.drawable.relationshipimage1,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.three
-        )
-
-        mList3.add(categories4)
-        mList3.add(categories5)
-        mList3.add(categories6)
-        mList3.add(categories7)
-
-
-        val categories9 = Categories(
-            R.drawable.mindimage1,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.abc
-        )
-        val categories10 = Categories(
-            R.drawable.mindimage2,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.abc
-        )
-        val categories11 = Categories(
-            R.drawable.mindimage3,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.abc
-        )
-        val categories12 = Categories(
-            R.drawable.mindimage1,
-            "Lorem ipsum dolor sit amet, consectetur adip.",
-            R.raw.abc
-        )
-
-        mListPerfomance.add(categories9)
-        mListPerfomance.add(categories10)
-        mListPerfomance.add(categories11)
-        mListPerfomance.add(categories12)
-
-
-        val categoryRaw1 = CategoryRaw("Mind", mList2)
-        val categoryRaw2 = CategoryRaw("Relationships", mList3)
-        val categoryRaw3 = CategoryRaw("Perfomance", mListPerfomance)
-
-        mainList.add(categoryRaw1)
-        mainList.add(categoryRaw2)
-        mainList.add(categoryRaw3)
-
-        rvcategories.layoutManager = LinearLayoutManager(this)
-        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList)
+        mainList = dbhelper.getAll()
+        allData()
+      /*  rvcategories.layoutManager = LinearLayoutManager(this)
+        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList2)*/
 
         ivBack.setOnClickListener {
             finish()
         }
+    }
+
+    fun allData() {
+        mainList2.clear()
+
+        val dbhelper = Dbhelper(this)
+        if (mainList.get(0).cName.equals("MIND")) {
+            val categoryRawMind = CategoryRaw(mainList.get(0).cName, dbhelper.getMind())
+            mainList2.add(categoryRawMind)
+        }
+        if (mainList.get(1).cName.equals("RELATIONSHIPS")) {
+            val categoryRawRealtionships =
+                CategoryRaw(mainList.get(1).cName, dbhelper.getRelationships())
+            mainList2.add(categoryRawRealtionships)
+        }
+        if (mainList.get(2).cName.equals("PERFORMANCE")) {
+            val categoryRawPerfomance = CategoryRaw(mainList.get(2).cName, dbhelper.getPerfomance())
+            mainList2.add(categoryRawPerfomance)
+        }
+        if (mainList.get(3).cName.equals("FRIENDSHIPS")) {
+            val categoryRawFriendships =
+                CategoryRaw(mainList.get(3).cName, dbhelper.getFriendships())
+            mainList2.add(categoryRawFriendships)
+        }
+
+
+        rvcategories.layoutManager = LinearLayoutManager(this)
+        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList2)
+    }
+
+    fun getallmind() {
+        mainList2.clear()
+        val dbhelper = Dbhelper(this)
+        if (mainList.get(0).cName.equals("MIND")) {
+            val categoryRawMind = CategoryRaw(mainList.get(0).cName, dbhelper.getMind())
+            mainList2.add(categoryRawMind)
+        }
+        rvcategories.layoutManager = LinearLayoutManager(this)
+        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList2)
+    }
+
+    fun getallrelationships() {
+        mainList2.clear()
+
+        val dbhelper = Dbhelper(this)
+        if (mainList.get(1).cName.equals("RELATIONSHIPS")) {
+            val categoryRawRealtionships =
+                CategoryRaw(mainList.get(1).cName, dbhelper.getRelationships())
+            mainList2.add(categoryRawRealtionships)
+        }
+        rvcategories.layoutManager = LinearLayoutManager(this)
+        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList2)
+    }
+
+    fun getallperfomance() {
+        mainList2.clear()
+        val dbhelper = Dbhelper(this)
+        if (mainList.get(2).cName.equals("PERFORMANCE")) {
+            val categoryRawPerfomance = CategoryRaw(mainList.get(2).cName, dbhelper.getPerfomance())
+            mainList2.add(categoryRawPerfomance)
+        }
+        rvcategories.layoutManager = LinearLayoutManager(this)
+        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList2)
+    }
+
+    fun getallfriendships() {
+        mainList2.clear()
+        Log.d("listmy","->"+mainList2)
+        val dbhelper = Dbhelper(this)
+        if (mainList.get(3).cName.equals("FRIENDSHIPS")) {
+            val categoryRawFriendships =
+                CategoryRaw(mainList.get(3).cName, dbhelper.getFriendships())
+            mainList2.add(categoryRawFriendships)
+        }
+        rvcategories.layoutManager = LinearLayoutManager(this)
+        rvcategories.adapter = RecyclerAdapterRawCategory(this, mainList2)
     }
 }

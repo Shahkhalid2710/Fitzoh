@@ -1,5 +1,6 @@
 package com.applocum.fitzoh
 
+import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -68,15 +69,14 @@ class Dbhelper(context: Context) :
         private const val KEY_FITNESS_LIST_NAME = "fitnesstestlistname"
         private const val KEY_FITNESS_LIST_IMAGE = "fitnesstestlistimage"
         private const val KEY_FITNESS_LIST_ABOUT = "fitnesstestlistabout"
-        private const val KEY_FITNESS_LIST_VIDEO= "fitnesstestlistvideo"
+        private const val KEY_FITNESS_LIST_VIDEO = "fitnesstestlistvideo"
 
         private const val TABLE_MAIN_CATEGORY = "maincategory"
         private const val KEY_MAIN_CATEGORY_ID = "maincategoryid"
-        private const val KEY_MAIN_CATEGORY_NAME= "maincategoryname"
+        private const val KEY_MAIN_CATEGORY_NAME = "maincategoryname"
 
         private const val TABLE_SUB_CATEGORY = "subcategory"
         private const val KEY_SUB_CATEGORY_ID = "subcategoryid"
-        private const val KEY_SUB_CATEGORY_NAME = "subcategoryame"
         private const val KEY_SUB_CATEGORY_IMAGE = "subcategoryimage"
         private const val KEY_SUB_CATEGORY_VIDEO = "subcategoryvideo"
         private const val KEY_SUB_CATEGORY_ABOUT = "subcategoryabout"
@@ -88,7 +88,16 @@ class Dbhelper(context: Context) :
         private const val KEY_BLOG_IMAGE = "blogimage"
         private const val KEY_BLOG_ABOUT = "blogabout"
 
+        private const val TABLE_FITNESS_TEST = "startfitnesstest"
+        private const val KEY_FITNESS_TEST_ID = "startfitnesstestid"
+        private const val KEY_FITNESS_TEST_TIME= "startfitnesstesttime"
+        private const val KEY_FITNESS_TEST_RESULT= "startfitnesstestresult"
+        private const val KEY_FITNESS_TEST_COMMENT = "startfitnesstestcomment"
 
+        private const val TABLE_NUTRITION_MEAL= "nutritionmeal"
+        private const val KEY_NUTRITION_MEAL_ID = "nutritionmealid"
+        private const val KEY_NUTRITION_MEAL_NAME = "nutritionmealname"
+        private const val KEY_NUTRITION_MEAL_TIME = "nutritionmealtime"
 
     }
 
@@ -101,8 +110,10 @@ class Dbhelper(context: Context) :
         db?.execSQL("create table slotbooking(slotid INTEGER PRIMARY KEY AUTOINCREMENT,slotdate TEXT,slotstarttime TEXT,slotendtime TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES trainer(trainerid))")
         db?.execSQL("create table fitnesstest(fitnesstestlistid INTEGER PRIMARY KEY AUTOINCREMENT,fitnesstestlistname TEXT,fitnesstestlistimage TEXT,fitnesstestlistabout TEXT,fitnesstestlistvideo TEXT)")
         db?.execSQL("create table maincategory(maincategoryid INTEGER PRIMARY KEY AUTOINCREMENT,maincategoryname TEXT)")
-        db?.execSQL("create table subcategory(subcategoryid INTEGER PRIMARY KEY AUTOINCREMENT,subcategoryame TEXT,subcategoryimage TEXT,subcategoryvideo TEXT,subcategoryabout TEXT,cid INTEGER NOT NULL,FOREIGN KEY(cid) REFERENCES maincategory(maincategoryid))")
+        db?.execSQL("create table subcategory(subcategoryid INTEGER PRIMARY KEY AUTOINCREMENT,subcategoryimage TEXT,subcategoryvideo TEXT,subcategoryabout TEXT,cid INTEGER NOT NULL,FOREIGN KEY(cid) REFERENCES maincategory(maincategoryid))")
         db?.execSQL("create table blog(blogid INTEGER PRIMARY KEY AUTOINCREMENT,blogname TEXT,blogimage TEXT,blogabout TEXT)")
+        db?.execSQL("create table startfitnesstest(startfitnesstestid INTEGER PRIMARY KEY AUTOINCREMENT,startfitnesstesttime TEXT,startfitnesstestresult TEXT,startfitnesstestcomment TEXT)")
+        db?.execSQL("create table nutritionmeal(nutritionmealid INTEGER PRIMARY KEY AUTOINCREMENT,nutritionmealname TEXT,nutritionmealtime TEXT)")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -115,6 +126,8 @@ class Dbhelper(context: Context) :
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_MAIN_CATEGORY")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_SUB_CATEGORY")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_BLOG")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_FITNESS_TEST")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_NUTRITION_MEAL")
         onCreate(db)
     }
 
@@ -125,28 +138,223 @@ class Dbhelper(context: Context) :
         db.close()
     }
 
-    fun maincategory()
-    {
-        val db=this.writableDatabase
+    fun maincategory() {
+        val db = this.writableDatabase
 
+        db.execSQL("insert into maincategory(maincategoryname)" + "values('ALL')")
         db.execSQL("insert into maincategory(maincategoryname)" + "values('MIND')")
-        db.execSQL("insert into maincategory(maincategoryname)" + "values('REALTIONSHIPS')")
+        db.execSQL("insert into maincategory(maincategoryname)" + "values('RELATIONSHIPS')")
         db.execSQL("insert into maincategory(maincategoryname)" + "values('PERFORMANCE')")
         db.execSQL("insert into maincategory(maincategoryname)" + "values('FRIENDSHIPS')")
         db.close()
     }
-    fun subcategory()
-    {
-        val db=this.writableDatabase
 
+    fun subcategory() {
+        val db = this.writableDatabase
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/abc','Mind Video 1','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','android.resource://com.applocum.fitzoh/raw/one','Mind Video 2','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage3','android.resource://com.applocum.fitzoh/raw/two','Mind Video 3','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/three','Mind Video 4','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/three','Relationship Video 1','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage2','android.resource://com.applocum.fitzoh/raw/abc','Relationship Video 2','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage3','android.resource://com.applocum.fitzoh/raw/one','Relationship Video 3','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/two','Relationship Video 4','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/abc','Perfomance Video 1','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','android.resource://com.applocum.fitzoh/raw/one','Perfomance Video 2','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage3','android.resource://com.applocum.fitzoh/raw/two','Perfomance Video 3','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/three','Perfomance Video 4','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/abc','Friendships Video 1','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage2','android.resource://com.applocum.fitzoh/raw/one','Friendships Video 2','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage3','android.resource://com.applocum.fitzoh/raw/three','Friendships Video 3','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/two','Friendships Video 4','5')")
         db.close()
+    }
+
+    fun getAll(): ArrayList<CategoryRaw> {
+        val db = this.readableDatabase
+        val query =
+            "select distinct maincategory.maincategoryid,maincategory.maincategoryname,subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid order by subcategory.subcategoryvideo"
+        val mList: ArrayList<CategoryRaw> = ArrayList()
+        val mListCategory: ArrayList<Categories> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+
+        var categoryRaw = CategoryRaw()
+
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    categoryRaw = CategoryRaw(
+                        cursor.getString(cursor.getColumnIndex(KEY_MAIN_CATEGORY_NAME))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_MAIN_CATEGORY_ID))
+                    categoryRaw.id = a
+                    Log.d(
+                        "nameeee",
+                        "-->" + cursor.getString(cursor.getColumnIndex(KEY_MAIN_CATEGORY_NAME))
+                    )
+                    mList.add(categoryRaw)
+
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
+    }
+
+    fun getMind(): ArrayList<Categories> {
+        val db = this.readableDatabase
+        val query =
+            "select subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid WHERE maincategory.maincategoryid=2"
+        val mListCategory: ArrayList<Categories> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+        var categories = Categories()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    categories = Categories(
+                        cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_IMAGE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_ABOUT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_VIDEO)))
+
+                    /* val b=cursor.getInt(cursor.getColumnIndex(KEY_SUB_CATEGORY_ID))
+                     categories.id=b
+ */
+                    mListCategory.add(categories)
+                    Log.d("videooooo","--->"+cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_VIDEO)))
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mListCategory
+    }
+
+    fun getRelationships(): ArrayList<Categories> {
+        val db = this.readableDatabase
+        val query =
+            "select subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid WHERE maincategory.maincategoryid=3"
+        val mListCategory: ArrayList<Categories> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+        var categories = Categories()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    categories = Categories(
+                        cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_IMAGE
+                            )
+                        ), cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_ABOUT
+                            )
+                        ), cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_VIDEO
+                            )
+                        )
+                    )
+
+
+                    /*   val b=cursor.getInt(cursor.getColumnIndex(KEY_SUB_CATEGORY_ID))
+                       categories.id=b*/
+
+                    mListCategory.add(categories)
+
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mListCategory
+    }
+
+    fun getPerfomance(): ArrayList<Categories> {
+        val db = this.readableDatabase
+        val query =
+            "select subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid WHERE maincategory.maincategoryid=4"
+        val mListCategory: ArrayList<Categories> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+        var categories = Categories()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    categories = Categories(
+                        cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_IMAGE
+                            )
+                        ), cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_ABOUT
+                            )
+                        ), cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_VIDEO
+                            )
+                        )
+                    )
+
+
+                    /*val b=cursor.getInt(cursor.getColumnIndex(KEY_SUB_CATEGORY_ID))
+                    categories.id=b*/
+
+                    mListCategory.add(categories)
+
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mListCategory
+    }
+
+    fun getFriendships(): ArrayList<Categories> {
+        val db = this.readableDatabase
+        val query =
+            "select subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid WHERE maincategory.maincategoryid=5"
+        val mListCategory: ArrayList<Categories> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+        var categories = Categories()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    categories = Categories(
+                        cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_IMAGE
+                            )
+                        ), cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_ABOUT
+                            )
+                        ), cursor.getString(
+                            cursor.getColumnIndex(
+                                KEY_SUB_CATEGORY_VIDEO
+                            )
+                        )
+                    )
+
+
+                    /* val b=cursor.getInt(cursor.getColumnIndex(KEY_SUB_CATEGORY_ID))
+                     categories.id=b*/
+
+                    mListCategory.add(categories)
+
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mListCategory
     }
 
     fun getmaincategory(): ArrayList<Category> {
         val db = this.readableDatabase
         val query = "select * from maincategory"
-        val mList:ArrayList<Category> = ArrayList()
-        val cursor = db.rawQuery(query,null)
+        val mList: ArrayList<Category> = ArrayList()
+        val cursor = db.rawQuery(query, null)
 
         var category = Category()
 
@@ -169,8 +377,8 @@ class Dbhelper(context: Context) :
     fun getblog(): ArrayList<Blog> {
         val db = this.readableDatabase
         val query = "select * from blog"
-        val mList:ArrayList<Blog> = ArrayList()
-        val cursor = db.rawQuery(query,null)
+        val mList: ArrayList<Blog> = ArrayList()
+        val cursor = db.rawQuery(query, null)
 
         var blog = Blog()
 
@@ -235,6 +443,87 @@ class Dbhelper(context: Context) :
 
     }
 
+    fun fitnesstest(fitnessTest: FitnessTest) {
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(KEY_FITNESS_TEST_TIME,fitnessTest.fTime)
+        cv.put(KEY_FITNESS_TEST_RESULT,fitnessTest.fResult)
+        cv.put(KEY_FITNESS_TEST_COMMENT,fitnessTest.fComment)
+        db.insert(TABLE_FITNESS_TEST, null, cv)
+        db.close()
+
+    }
+
+    fun nutritionMeal(nutritionMeal: NutritionMeal)
+    {
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(KEY_NUTRITION_MEAL_NAME,nutritionMeal.nName)
+        cv.put(KEY_NUTRITION_MEAL_TIME,nutritionMeal.nTime)
+        db.insert(TABLE_NUTRITION_MEAL, null, cv)
+        db.close()
+    }
+
+    fun getNutritionMeal(): ArrayList<NutritionMeal> {
+        val db = this.readableDatabase
+        val query = "select * from nutritionmeal"
+        val mList: ArrayList<NutritionMeal> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+
+        var nutritionMeal = NutritionMeal()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    nutritionMeal = NutritionMeal(
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NAME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_TIME)))
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_NUTRITION_MEAL_ID))
+                    nutritionMeal.id = a
+                    mList.add(nutritionMeal)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
+    }
+
+  fun deletenutritionmeal(id: Int):NutritionMeal
+  {
+      val db=this.writableDatabase
+      val nutritionMeal=NutritionMeal()
+     // val query= "DELETE FROM nutritionmeal WHERE nutritionmealid=$id"
+      db.delete(TABLE_NUTRITION_MEAL, KEY_NUTRITION_MEAL_ID + "=" + id, null)
+      db.close()
+      return nutritionMeal
+  }
+    fun getFitnesstest(): ArrayList<FitnessTest> {
+        val db = this.readableDatabase
+        val query = "select * from startfitnesstest"
+        val mList: ArrayList<FitnessTest> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+
+        var fitnessTest = FitnessTest()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    fitnessTest = FitnessTest(
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_TIME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_RESULT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_COMMENT))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_FITNESS_TEST_ID))
+                    fitnessTest.id = a
+                    mList.add(fitnessTest)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
+    }
+
+
     fun trainerprofile() {
         val db = this.writableDatabase
         db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('Jhon Martin','android.resource://com.applocum.fitzoh/drawable/jhonmartin','5 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
@@ -247,9 +536,8 @@ class Dbhelper(context: Context) :
         db.close()
     }
 
-    fun blog()
-    {
-        val db=this.writableDatabase
+    fun blog() {
+        val db = this.writableDatabase
         db.execSQL("insert into blog(blogname,blogimage,blogabout)" + "values('Beginners','android.resource://com.applocum.fitzoh/drawable/img_beginner','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.')")
         db.execSQL("insert into blog(blogname,blogimage,blogabout)" + "values('Intermediate','android.resource://com.applocum.fitzoh/drawable/img_intermedeter','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.')")
         db.execSQL("insert into blog(blogname,blogimage,blogabout)" + "values('Advance','android.resource://com.applocum.fitzoh/drawable/jhondoi','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.')")
@@ -283,9 +571,8 @@ class Dbhelper(context: Context) :
         return trainer
     }
 
-    fun fitnesslist()
-    {
-        val db=this.writableDatabase
+    fun fitnesslist() {
+        val db = this.writableDatabase
         db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Respiratory & Stamina','android.resource://com.applocum.fitzoh/drawable/image_respirateryandstamina','Respiratory & Stamina','android.resource://com.applocum.fitzoh/raw/abc')")
         db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Cardiovasular Endurance','android.resource://com.applocum.fitzoh/drawable/image_cardiovasularendurance','Cardiovasular Endurance','android.resource://com.applocum.fitzoh/raw/one')")
         db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Strength - Upper Body','android.resource://com.applocum.fitzoh/drawable/image_strength_upperbody','Strength - Upper Body','android.resource://com.applocum.fitzoh/raw/two')")
@@ -298,7 +585,7 @@ class Dbhelper(context: Context) :
     fun getfitnesslist(): ArrayList<ListOfTest> {
         val db = this.readableDatabase
         val query = "select * from fitnesstest"
-        val mList:ArrayList<ListOfTest> = ArrayList()
+        val mList: ArrayList<ListOfTest> = ArrayList()
         val cursor = db.rawQuery(query, null)
 
         var listOfTest = ListOfTest()

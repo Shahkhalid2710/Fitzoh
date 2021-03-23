@@ -28,6 +28,7 @@ class SpalshScreen : AppCompatActivity() {
             dbhelper.slotbooking()
             dbhelper.fitnesslist()
             dbhelper.maincategory()
+            dbhelper.subcategory()
             dbhelper.blog()
             // mark first time has ran.
             val editor = prefs.edit()

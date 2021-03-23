@@ -45,11 +45,27 @@
         tools:ignore="UselessParent">
 
         <TextView
-            android:id="@+id/tvTime"
+            android:id="@+id/tvMealName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_medium"
-            android:text="@string/break_fast_08_30_am"
+            android:text="@string/breakfast"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_13" />
+        <TextView
+            android:id="@+id/tvDesh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/i"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_16" />
+        <TextView
+            android:id="@+id/tvMealTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/_80kg"
             android:textColor="@color/black"
             android:textSize="@dimen/font_13" />
         <LinearLayout
@@ -65,7 +81,7 @@
                 android:src="@drawable/edit"
                 android:contentDescription="@string/todo" />
             <ImageView
-                android:id="@+id/ivEye"
+                android:id="@+id/ivAdd"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:layout_marginEnd="@dimen/spacing_10"

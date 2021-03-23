@@ -5,6 +5,7 @@
     xmlns:seekarc="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:id="@+id/testlayout"
     android:orientation="vertical"
     tools:context=".ui.home.activities.StartFitnessTestActivity">
     <RelativeLayout
@@ -56,17 +57,30 @@
        android:layout_gravity="center"
        android:textSize="@dimen/font_28"/>
 </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <Button
-        android:id="@+id/btnVerify"
+        android:id="@+id/btnStop"
         android:background="@drawable/btn_continue"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/start"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stop"
         android:layout_marginTop="@dimen/spacing_25"
+        android:visibility="gone"
         android:textSize="@dimen/font_15"/>
-
-
+        <Button
+            android:id="@+id/btnStart"
+            android:background="@drawable/btn_continue"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/start"
+            android:layout_marginTop="@dimen/spacing_25"
+            android:textSize="@dimen/font_15"/>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/tvEnterResult"
@@ -80,18 +94,44 @@
         android:layout_marginStart="@dimen/spacing_10"/>
 
     <EditText
-        android:id="@+id/etEnterResult"
+        android:id="@+id/etSelectResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/select_result"
         android:background="@drawable/layout_result"
         android:textColorHint="@color/textcolorgray"
-        android:padding="@dimen/spacing_10"
+        android:padding="@dimen/spacing_5"
         android:focusable="false"
         android:fontFamily="@font/poppins_regular"
         android:textColor="@color/black"
         android:layout_margin="@dimen/spacing_10"
         tools:ignore="LabelFor"
+        android:textSize="@dimen/font_16"
         android:autofillHints="0"
         android:inputType="text" />
+    <EditText
+        android:id="@+id/etComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_your_comment"
+        android:background="@drawable/layout_result"
+        android:textColorHint="@color/textcolorgray"
+        android:padding="@dimen/spacing_5"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
+        android:layout_margin="@dimen/spacing_10"
+        tools:ignore="LabelFor"
+        android:textSize="@dimen/font_16"
+        android:autofillHints="0"
+        android:inputType="text" />
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/spacing_20"
+        android:background="@drawable/btn_continue"
+        android:text="@string/submit"
+        android:textSize="@dimen/font_15" />
+
 </LinearLayout>

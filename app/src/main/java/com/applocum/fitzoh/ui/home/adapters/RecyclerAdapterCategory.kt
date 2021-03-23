@@ -30,7 +30,6 @@ class RecyclerAdapterCategory(context: Context, list: ArrayList<Category>, priva
         val category= mList[position]
        holder.itemView.tvCategories.text=category.cName
 
-
         holder.itemView.setOnClickListener{
             cellClickListener.onCellClickistener(category,position)
             selectedItem = category.id

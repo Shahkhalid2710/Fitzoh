@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.util.DisplayMetrics
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,11 +52,15 @@ class RecyclerAdapterCategories(context: Context,list: ArrayList<Categories>) :R
             dialog.window!!.setLayout(DeviceTotalWidth, DeviceTotalHeight)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
 
-            dialog.videoview.setVideoURI(Uri.parse("android.resource://" + mContext.packageName + "/" + categories.cVideo))
+            dialog.videoview.setVideoURI(Uri.parse(categories.cVideo))
+
+            Log.d("myvideo","-->"+categories.cVideo)
             dialog.videoview.start()
+
             dialog.ivCancel.setOnClickListener {
                 dialog.cancel()
             }
+
             dialog.show()
 
         }
