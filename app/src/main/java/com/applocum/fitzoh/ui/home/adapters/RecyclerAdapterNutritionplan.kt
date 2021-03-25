@@ -13,6 +13,7 @@ import com.applocum.fitzoh.ui.home.activities.AddFoodItemActivity
 import com.applocum.fitzoh.ui.home.models.NutritionMeal
 import com.applocum.fitzoh.ui.home.models.NutritionPlan
 import com.daimajia.swipe.SwipeLayout
+import kotlinx.android.synthetic.main.activity_add_food_item.view.*
 import kotlinx.android.synthetic.main.raw_nutritionplan_xml.view.*
 
 class RecyclerAdapterNutritionplan(context: Context,list: ArrayList<NutritionMeal>):RecyclerView.Adapter<RecyclerAdapterNutritionplan.NutritionPlanHolder>() {
@@ -34,13 +35,21 @@ class RecyclerAdapterNutritionplan(context: Context,list: ArrayList<NutritionMea
         val nutritionMeal=mList.get(position)
         holder.itemView.tvMealName.text=nutritionMeal.nName
         holder.itemView.tvMealTime.text=nutritionMeal.nTime
+        holder.itemView.tvNoofserving.text=nutritionMeal.nNoofserving
+        holder.itemView.tvtotalpiece.text=nutritionMeal.nServingsize
+        holder.itemView.tvFoodname.text=nutritionMeal.nFood
+        Log.d("itemmmmmm","->"+nutritionMeal.nNoofserving)
+
+
         holder.itemView.ivAdd.setOnClickListener {
             val intent=Intent(mContext,AddFoodItemActivity::class.java)
             intent.putExtra("nutritionMeal",nutritionMeal)
             intent.putExtra("position",position)
             mContext.startActivity(intent)
         }
-
+        holder.itemView.ivList.setOnClickListener {
+            holder.itemView.llCalories.visibility=View.VISIBLE
+        }
         holder.itemView.ivDelete.setOnClickListener {
             val dbhelper=Dbhelper(mContext)
             dbhelper.deletenutritionmeal(nutritionMeal.id)

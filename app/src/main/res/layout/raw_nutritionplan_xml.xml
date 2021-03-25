@@ -1,105 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<com.daimajia.swipe.SwipeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipelayout"
-    android:background="@color/white">
-<LinearLayout
-    android:layout_width="70dp"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_margin="@dimen/spacing_10"
-    android:background="@color/layoutred">
-    <ImageView
-        android:id="@+id/ivDelete"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:src="@drawable/delete"
-        android:contentDescription="@string/todo" />
-</LinearLayout>
-
-<LinearLayout
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white"
-    android:layout_height="wrap_content">
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/spacing_5"
-        android:backgroundTint="@color/white"
-        android:layout_margin="@dimen/spacing_10">
+    android:layout_height="wrap_content"
+    android:background="@color/white">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_10"
-        android:orientation="horizontal"
-        tools:ignore="UselessParent">
+        android:background="@color/layoutred"
+        android:gravity="center">
 
-        <TextView
-            android:id="@+id/tvMealName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/breakfast"
-            android:textColor="@color/black"
-            android:textSize="@dimen/font_13" />
-        <TextView
-            android:id="@+id/tvDesh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/i"
-            android:textColor="@color/black"
-            android:textSize="@dimen/font_16" />
-        <TextView
-            android:id="@+id/tvMealTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="@string/_80kg"
-            android:textColor="@color/black"
-            android:textSize="@dimen/font_13" />
-        <LinearLayout
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/delete" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="end"
-            android:orientation="horizontal">
-            <ImageView
-                android:id="@+id/ivMenu"
-                android:layout_width="21dp"
-                android:layout_height="21dp"
-                android:layout_marginEnd="@dimen/spacing_20"
-                android:src="@drawable/edit"
-                android:contentDescription="@string/todo" />
-            <ImageView
-                android:id="@+id/ivAdd"
-                android:layout_width="21dp"
-                android:layout_height="21dp"
-                android:layout_marginEnd="@dimen/spacing_10"
-                android:src="@drawable/blueplus"
-                android:contentDescription="@string/todo" />
-        </LinearLayout>
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:id="@+id/tvMealName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/breakfast"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+
+                    <TextView
+                        android:id="@+id/tvDesh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/i"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_16" />
+
+                    <TextView
+                        android:id="@+id/tvMealTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/_80kg"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ivMenu"
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:layout_marginEnd="@dimen/spacing_20"
+                            android:contentDescription="@string/todo"
+                            android:src="@drawable/edit" />
+
+                        <ImageView
+                            android:id="@+id/ivAdd"
+                            android:layout_width="21dp"
+                            android:layout_height="21dp"
+                            android:layout_marginEnd="@dimen/spacing_10"
+                            android:contentDescription="@string/todo"
+                            android:src="@drawable/blueplus" />
+                    </LinearLayout>
+                </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/tvCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginBottom="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/calories_35_protein_3gm_carbs_5gm_fat_10gm"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_10"
+                    tools:ignore="RelativeOverlap" />
+                    <ImageView
+                        android:id="@+id/ivList"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/spacing_10"
+                        android:src="@drawable/ic_drop_down_button"
+                        android:contentDescription="@string/todo" />
+
+                </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/llCalories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.3dp"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/spacing_10"
+                        tools:ignore="UselessParent">
+
+                        <TextView
+                            android:id="@+id/tvFoodname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/baked_beans_with_pork"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_12" />
+
+                        <TextView
+                            android:id="@+id/tv2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/i"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_12" />
+
+                        <TextView
+                            android:id="@+id/tvNoofserving"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/_1_cup"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_12" />
+                        <TextView
+                            android:id="@+id/tvdesh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/i"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_12" />
+
+                        <TextView
+                            android:id="@+id/tvtotalpiece"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/_2_piece"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/font_12" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tvcalories"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/calories_35_protein_3gm"
+                            android:textColor="@color/textcolorgray"
+                            android:textSize="@dimen/font_10" />
+
+                        <TextView
+                            android:id="@+id/tvcubs"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_medium"
+                            android:text="@string/carbs_5gm_fat_10gm"
+                            android:textColor="@color/textcolorgray"
+                            android:textSize="@dimen/font_10" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
-        <TextView
-            android:id="@+id/tvCalories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_marginStart="@dimen/spacing_10"
-            android:layout_marginBottom="@dimen/spacing_10"
-            android:text="@string/calories_35_protein_3gm_carbs_5gm_fat_10gm"
-            android:textColor="@color/textcolorgray"
-            android:textSize="@dimen/font_10" />
-    </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</LinearLayout>
 </com.daimajia.swipe.SwipeLayout>

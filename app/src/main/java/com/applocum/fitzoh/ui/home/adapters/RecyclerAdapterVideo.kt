@@ -52,8 +52,6 @@ class RecyclerAdapterVideo(context: Context, list: ArrayList<Categories>) :
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
 
             dialog.videoview.setVideoURI(Uri.parse(video.cVideo))
-
-            Log.d("myvideo", "-->" + video.cVideo)
             dialog.videoview.start()
 
             dialog.ivCancel.setOnClickListener {

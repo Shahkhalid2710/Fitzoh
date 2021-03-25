@@ -24,11 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="9add59f0-82c6-438e-b498-b7c35f4f19ea">
-        <schema name="main" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="54e310be-fd2e-44ef-a717-b43b2eadf2a9">
@@ -41,9 +37,9 @@
       <console name="Connection 2" type="STANDARD" schema="" session="Main" />
     </connection>
     <connection id="9add59f0-82c6-438e-b498-b7c35f4f19ea">
-      <console name="MyConnection" type="STANDARD" schema="main" session="Main">select  * from subcategory
+      <console name="MyConnection" type="STANDARD" schema="main" session="Main"><![CDATA[select  * from subcategory
 
-insert into subcategory(subcategoryame,subcategoryimage,subcategoryvideo,subcategoryabout,cid) values ('Relationships','ccccc','ccccc','gffggfdgfg',1)</console>
+insert into subcategory(subcategoryame,subcategoryimage,subcategoryvideo,subcategoryabout,cid) values ('Relationships','ccccc','ccccc','gffggfdgfg',1)]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

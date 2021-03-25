@@ -47,7 +47,7 @@ class SlotBookingFragment : Fragment(), OnDateSelectedListener {
     @SuppressLint("SimpleDateFormat")
     override fun onDateSelected(
         widget: MaterialCalendarView,
-        date: CalendarDay,
+        date1: CalendarDay,
         selected: Boolean
     ) {
         if (!mList.isNullOrEmpty())
@@ -55,7 +55,7 @@ class SlotBookingFragment : Fragment(), OnDateSelectedListener {
             mList.clear()
         }
 
-        var date=Date()
+        var date=date1.date
         val formatter =
             SimpleDateFormat("EEE MMM dd HH:mm:ss zzzz yyyy")
         val temp:String =date.date.toString()
@@ -70,36 +70,46 @@ class SlotBookingFragment : Fragment(), OnDateSelectedListener {
 
         val dbhelper= activity?.let { Dbhelper(it) }
         val slotbooking=dbhelper?.getslotbooking(formateDate)
+        Log.d("slotbookinggendtime","-->"+slotbooking?.slotstarttime)
 
-        var a:String=""
-        var b:String=""
-        if (slotbooking != null) a=slotbooking.slotstarttime
-        if (slotbooking != null) b=slotbooking.slotendtime
+         if (!slotbooking?.slotstarttime.isNullOrBlank())
+         {
+             //Log.d("slotbookinggidd","-->"+slotbooking?.id)
 
-        val format = "hh:mm aaa"
-        val sdf = SimpleDateFormat(format)
+             var a:String=""
+             var b:String=""
+             if (slotbooking != null) a=slotbooking.slotstarttime
+             if (slotbooking != null) b=slotbooking.slotendtime
 
-        val date1=sdf.parse(a)
-        val date2=sdf.parse(b)
+             val format = "hh:mm aaa"
+             val sdf = SimpleDateFormat(format)
+
+             val date1=sdf.parse(a)
+             val date2=sdf.parse(b)
 
 
 
-        var dif: Long = date1.time
-        while (dif < date2.time) {
-            val slot = Date(dif)
-            dif += 3600000
-            val formateDate2 = SimpleDateFormat("hh:mm a").format(slot)
+             var dif: Long = date1.time
+             while (dif < date2.time) {
+                 val slot = Date(dif)
+                 dif += 3600000
+                 val formateDate2 = SimpleDateFormat("hh:mm a").format(slot)
 
-            mList.add(formateDate2)
-        }
-        rvSlotbooking.layoutManager=GridLayoutManager(activity,3)
-        rvSlotbooking.adapter= activity?.let { RecyclerAdapterSlotBookingTime(it,mList,object :RecyclerAdapterSlotBookingTime.CellClickListener{
-            override fun onCellClickistener(myobject: String, position: Int) {
-               btnSubmit.visibility=View.VISIBLE
+                 mList.add(formateDate2)
+             }
+             rvSlotbooking.layoutManager=GridLayoutManager(activity,3)
+             rvSlotbooking.adapter= activity?.let { RecyclerAdapterSlotBookingTime(it,mList,object :RecyclerAdapterSlotBookingTime.CellClickListener{
+                 override fun onCellClickistener(myobject: String, position: Int) {
+                     btnSubmit.visibility=View.VISIBLE
 
-            }
+                 }
 
-        }) }
+             }) }
+         }
+        else
+         {
+             Toast.makeText(activity,"Slot not available",Toast.LENGTH_SHORT).show()
+         }
 
     }
 }

@@ -30,9 +30,9 @@ class RecyclerAdapterBookLiveSession(
     }
 
     override fun onBindViewHolder(holder: BookliveSessionHolder, position: Int) {
-       val session=mList.get(position)
+       val session= mList[position]
         holder.itemView.tvTitle.text=session.sTitle
-        holder.itemView.cb3.visibility=View.GONE
+        holder.itemView.cbSession.visibility=View.GONE
 
         holder.itemView.setOnClickListener {
             val intent=Intent(mContext,LiveSessionActivity::class.java)

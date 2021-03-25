@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="@dimen/spacing_5"
+    android:id="@+id/cvTrainerProfile"
     android:backgroundTint="@color/white"
     android:layout_margin="@dimen/spacing_10">
 <FrameLayout

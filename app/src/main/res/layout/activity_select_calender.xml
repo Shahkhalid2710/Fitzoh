@@ -74,10 +74,21 @@
             app:cardCornerRadius="@dimen/spacing_5">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTime"
+                android:id="@+id/rvSessionBooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:background="@drawable/btn_continue"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:text="@string/submit"
+            android:textSize="@dimen/font_15"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

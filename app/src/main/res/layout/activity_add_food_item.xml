@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+    android:id="@+id/llfoodlayout"
     tools:context=".ui.home.activities.AddFoodItemActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -60,7 +61,7 @@
         android:layout_marginEnd="@dimen/spacing_10"
         app:cardCornerRadius="@dimen/spacing_5">
 
-        <EditText
+       <!-- <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/search_food_drink"
@@ -72,7 +73,21 @@
             android:layout_gravity="center"
             android:textSize="@dimen/font_12"
             android:padding="@dimen/spacing_5"
-            android:autofillHints="@string/_0" />
+            android:autofillHints="@string/_0" />-->
+        <AutoCompleteTextView
+            android:id="@+id/actv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text=""
+            android:layout_gravity="center"
+            android:hint="@string/search_food_drink"
+            android:textColorHint="@color/textcolorgray"
+            style="@style/EdittextStyle"
+            android:textSize="@dimen/font_12"
+            android:drawableEnd="@drawable/ic_search"
+            tools:ignore="LabelFor" />
+
     </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/tvNutritionFacts"
@@ -102,29 +117,25 @@
         android:text="@string/no_of_servings"
         android:textColor="@color/black"
         android:textSize="@dimen/font_15" />
-    <androidx.cardview.widget.CardView
+    <EditText
+        android:id="@+id/etNoofServing"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/white"
+        android:layout_height="wrap_content"
+        android:hint="@string/add_servings"
         android:layout_marginStart="@dimen/spacing_10"
         android:layout_marginEnd="@dimen/spacing_10"
-        app:cardCornerRadius="@dimen/spacing_5">
+        android:drawableEnd="@drawable/ic_itemlist"
+        android:fontFamily="@font/poppins_medium"
+        android:textColorHint="@color/textcolorgray"
+        style="@style/EdittextStylespinner"
+        android:inputType="text"
+        android:focusable="false"
+        android:layout_gravity="center"
+        android:textSize="@dimen/font_12"
+        android:padding="@dimen/spacing_10"
+        android:autofillHints="@string/_0"
+        tools:ignore="TextFields" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/add_servings"
-            android:drawableEnd="@drawable/ic_itemlist"
-            android:fontFamily="@font/poppins_medium"
-            android:textColorHint="@color/textcolorgray"
-            style="@style/EdittextStyle"
-            android:inputType="text"
-            android:focusable="false"
-            android:layout_gravity="center"
-            android:textSize="@dimen/font_12"
-            android:padding="@dimen/spacing_5"
-            android:autofillHints="@string/_0" />
-    </androidx.cardview.widget.CardView>
     <TextView
         android:id="@+id/tvServingsize"
         android:layout_width="wrap_content"
@@ -134,29 +145,26 @@
         android:text="@string/serving_size"
         android:textColor="@color/black"
         android:textSize="@dimen/font_15" />
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/white"
-        android:layout_marginStart="@dimen/spacing_10"
-        android:layout_marginEnd="@dimen/spacing_10"
-        app:cardCornerRadius="@dimen/spacing_5">
 
-        <EditText
+
+      <EditText
+            android:id="@+id/etServingSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/serving_size"
             android:drawableEnd="@drawable/ic_itemlist"
             android:fontFamily="@font/poppins_medium"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:layout_marginEnd="@dimen/spacing_10"
             android:textColorHint="@color/textcolorgray"
-            style="@style/EdittextStyle"
+            style="@style/EdittextStylespinner"
             android:inputType="text"
             android:focusable="false"
             android:layout_gravity="center"
             android:textSize="@dimen/font_12"
-            android:padding="@dimen/spacing_5"
-            android:autofillHints="@string/_0" />
-    </androidx.cardview.widget.CardView>
+            android:padding="@dimen/spacing_10"
+            android:autofillHints="@string/_0"
+            tools:ignore="TextFields" />
 
     <Button
         android:id="@+id/btnAddItem"

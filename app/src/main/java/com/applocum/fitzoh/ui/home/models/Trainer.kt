@@ -2,7 +2,7 @@ package com.applocum.fitzoh.ui.home.models
 
 import java.io.Serializable
 
-class Trainer(name:String="",image:String="",experience:String="",language:String="",about:String="",sessions:String="") :Serializable {
+class Trainer(name:String="",image:String="",experience:String="",language:String="",about:String="",sessions:String="",status:Int=0) :Serializable {
 
     var id:Int=0
     var trainername=name
@@ -11,5 +11,6 @@ class Trainer(name:String="",image:String="",experience:String="",language:Strin
     var trainerlanguage=language
     var trainerabout=about
     var trainersessions=sessions
+    var trainerstatus=status
 
 }

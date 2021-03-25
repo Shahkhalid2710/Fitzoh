@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
         v.rvRequest.adapter = activity?.let { RecyclerAdapterUpcomingRequest(it, mList2) }
 
         v.recyclerview.layoutManager = LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
-        v.recyclerview.adapter = activity?.let { RecyclerAdapterSessionRequest(it, mList) }
+      //  v.recyclerview.adapter = activity?.let { RecyclerAdapterSessionRequest(it, mList) }
       return v
     }
 

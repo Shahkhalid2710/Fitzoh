@@ -32,7 +32,7 @@ class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<BasicPackages
         holder.itemView.tvPayMonth.text=basicPackages.bName
         holder.itemView.tvPrice.text=basicPackages.bPrice
 
-        holder.itemView.tvBuymore.setOnClickListener {
+        holder.itemView.cvBuy.setOnClickListener {
             val intent=Intent(mContext,NutritionistCounsellorsActivity::class.java)
             intent.putExtra("basicpackages",basicPackages)
             intent.putExtra("position",position)

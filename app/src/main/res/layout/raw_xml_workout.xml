@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/spacing_10"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="@dimen/spacing_5">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivWorkout"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/todo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/barbell_press" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/ivWorkout"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_5">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvWorkoutname"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/barbell_bench_press"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_15"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    tools:ignore="RelativeOverlap" />
+                <CheckBox
+                    android:id="@+id/cbSelect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/custom_habit_checkbox"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:textSize="@dimen/font_11" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvRounds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_regular"
+                android:text="@string/_05_rounds_x_50_25_12_10_10"
+                android:textColor="@color/textcolorgray"
+                android:textSize="@dimen/font_13" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
+</androidx.cardview.widget.CardView>

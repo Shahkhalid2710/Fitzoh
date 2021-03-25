@@ -34,6 +34,12 @@
         <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="EdittextStylespinner">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:background">@drawable/custom_weight_layout</item>
+    </style>
+
     <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:textColor">@color/blue</item>
         <item name="android:background">@color/white</item>

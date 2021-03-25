@@ -31,6 +31,7 @@ class RecyclerAdapterTestHistory(context: Context,list:ArrayList<FitnessTest>):R
         holder.itemView.tvTime1.text=fitnessTest.fTime
         holder.itemView.tvResult1.text=fitnessTest.fResult
         holder.itemView.tvComment1.text=fitnessTest.fComment
+        holder.itemView.tvDate.text=fitnessTest.fDate
 
     }
 }

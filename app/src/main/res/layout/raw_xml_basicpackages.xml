@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_10"
+        android:id="@+id/cvBuy"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/spacing_5">
 
@@ -25,6 +26,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/pay_1_month"
+                android:layout_centerVertical="true"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_14" />
 
@@ -40,20 +42,20 @@
 
             <LinearLayout
                 android:id="@+id/ll1"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/btn_continue"
                 tools:ignore="RelativeOverlap">
 
                 <TextView
-                    android:id="@+id/tvBuymore"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvBuy"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:fontFamily="@font/poppins_medium"
+                    android:text="@string/buy"
+                    android:gravity="center"
                     android:padding="@dimen/spacing_10"
-                    android:text="@string/buy_more"
                     android:textColor="@color/white"
                     android:textSize="@dimen/font_11" />
             </LinearLayout>

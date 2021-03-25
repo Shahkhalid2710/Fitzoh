@@ -318,12 +318,53 @@
     <string name="add_servings">Add servings</string>
     <string name="serving_size">Serving Size</string>
     <string name="add_item">ADD ITEM</string>
+    <string name="baked_beans_with_pork_1_cup">Baked Beans With Pork - 1 Cup</string>
+    <string name="baked_beans_with_pork">Baked Beans With Pork</string>
+    <string name="_1_cup">1 Cup</string>
+    <string name="calories_35_protein_3gm">Calories: 35 Protein: 3gm</string>
+    <string name="carbs_5gm_fat_10gm">Carbs: 5gm Fat: 10gm</string>
+    <string name="_2_medium">2 Medium</string>
+    <string name="_2_piece">2 piece</string>
+    <string name="_00_00">00:00</string>
+    <string name="_0_00">0:00</string>
+    <string name="buy">BUY</string>
 
     <string-array name="categorylist">
         <item>Strength &amp;Condition - Strength</item>
         <item>Speed</item>
         <item>Power</item>
         <item>Flexibility</item>
+    </string-array>
+    <string-array name="addServing">
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>2.5</item>
+        <item>3</item>
+        <item>3.5</item>
+        <item>4</item>
+        <item>4.5</item>
+        <item>5</item>
+        <item>5.5</item>
+        <item>6</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>7.5</item>
+        <item>8</item>
+        <item>8.5</item>
+        <item>9</item>
+        <item>9.5</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="servingsize">
+        <item>1 piece</item>
+        <item>2 piece</item>
+        <item>3 piece</item>
+        <item>4 piece</item>
+        <item>5 piece</item>
+        <item>6 piece</item>
+        <item>7 piece</item>
+        <item>8 piece</item>
     </string-array>
     <string-array name="subcategorylist">
         <item>Yoga</item>
@@ -333,5 +374,18 @@
         <item>English</item>
         <item>Gujarati</item>
         <item>Hindi</item>
+    </string-array>
+    <string-array name="foodlist">
+        <item>Roti</item>
+        <item>Ice-cream</item>
+        <item>Rice</item>
+        <item>Idli</item>
+        <item>Chicken</item>
+        <item>Chocalate</item>
+        <item>Bioled Egg</item>
+        <item>Milk</item>
+        <item>Bread</item>
+        <item>Dosa</item>
+        <item>Aloo ka paratha</item>
     </string-array>
 </resources>

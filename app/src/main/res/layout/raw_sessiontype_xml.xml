@@ -36,7 +36,7 @@
                 android:textSize="@dimen/font_12" />
         </LinearLayout>
         <CheckBox
-            android:id="@+id/cb3"
+            android:id="@+id/cbSession"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_margin="@dimen/spacing_10"

@@ -177,8 +177,9 @@
                     android:textSize="@dimen/font_11" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
    <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/rvPackage"
+       android:id="@+id/rvBasicpackage"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:layout_margin="@dimen/spacing_10"/>

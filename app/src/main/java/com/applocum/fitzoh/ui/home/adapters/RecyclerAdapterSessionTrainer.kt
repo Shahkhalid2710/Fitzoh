@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Session
 import com.applocum.fitzoh.ui.home.models.SessionTrainer
+import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_trainertype_xml.view.*
 
-class RecyclerAdapterSessionTrainer(context: Context,list: ArrayList<SessionTrainer>):RecyclerView.Adapter<RecyclerAdapterSessionTrainer.TrainerHolder>() {
+class RecyclerAdapterSessionTrainer(context: Context,list: ArrayList<Trainer>):RecyclerView.Adapter<RecyclerAdapterSessionTrainer.TrainerHolder>() {
     var mContext=context
     var mList=list
 
@@ -27,12 +28,14 @@ class RecyclerAdapterSessionTrainer(context: Context,list: ArrayList<SessionTrai
     }
 
     override fun onBindViewHolder(holder: TrainerHolder, position: Int) {
-      val sessionTrainer=mList.get(position)
+      val trainer=mList.get(position)
 
-        holder.itemView.tvName.text=sessionTrainer.tName
-        holder.itemView.tvExperince.text=sessionTrainer.tExp
-
-        Glide.with(mContext).load(sessionTrainer.tImage).into(holder.itemView.ivPic)
+        holder.itemView.tvName.text=trainer.trainername
+        holder.itemView.tvExperince.text=trainer.trainerexperince
+        Glide.with(mContext).load(trainer.trainerimage).into(holder.itemView.ivPic)
+        holder.itemView.cvTrainerProfile.setOnClickListener {
+            holder.itemView.cb3.isChecked=true
+        }
     }
 
 }

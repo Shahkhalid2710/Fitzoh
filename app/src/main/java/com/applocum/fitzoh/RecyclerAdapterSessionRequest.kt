@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.ui.home.models.SessionRequest
+import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_request_xml.view.*
 
-class RecyclerAdapterSessionRequest(context: Context,list:ArrayList<SessionRequest>):RecyclerView.Adapter<RecyclerAdapterSessionRequest.SessionRequestHolder>(){
+class RecyclerAdapterSessionRequest(context: Context,list:ArrayList<Trainer>):RecyclerView.Adapter<RecyclerAdapterSessionRequest.SessionRequestHolder>(){
 
     private var mcontext=context
     var mlist=list
@@ -26,8 +27,8 @@ class RecyclerAdapterSessionRequest(context: Context,list:ArrayList<SessionReque
     }
 
     override fun onBindViewHolder(holder: SessionRequestHolder, position: Int) {
-        val sessionRequestHolder= mlist[position]
-        holder.itemView.tvBewell.text=sessionRequestHolder.sessionname
-        Glide.with(mcontext).load(sessionRequestHolder.sessionimage).into(holder.itemView.ivBewell)
+        val trainer= mlist[position]
+        holder.itemView.tvBewell.text=trainer.trainername
+        Glide.with(mcontext).load(trainer.trainerimage).into(holder.itemView.ivBewell)
     }
 }

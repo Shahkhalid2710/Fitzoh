@@ -10,10 +10,11 @@ import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.AboutTrainerActivity
 import com.applocum.fitzoh.ui.home.activities.CounsellorActivity
 import com.applocum.fitzoh.ui.home.models.Blog
+import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 
-class RecyclerAdapterTrainerListing(context: Context,list: ArrayList<Blog>):RecyclerView.Adapter<RecyclerAdapterTrainerListing.ListHolder>() {
+class RecyclerAdapterTrainerListing(context: Context,list: ArrayList<Trainer>):RecyclerView.Adapter<RecyclerAdapterTrainerListing.ListHolder>() {
     var mContext=context
     var mList=list
 
@@ -29,16 +30,18 @@ class RecyclerAdapterTrainerListing(context: Context,list: ArrayList<Blog>):Recy
     }
 
     override fun onBindViewHolder(holder: ListHolder, position: Int) {
-        val blog=mList.get(position)
-        holder.itemView.tvLevel.text=blog.bLevel
-        holder.itemView.tvDescription.text=blog.bDescription
+        val trainer=mList.get(position)
+        holder.itemView.tvLevel.text=trainer.trainername
+        holder.itemView.tvDescription.text=trainer.trainerexperince
 
-        holder.itemView.ivNext.setOnClickListener {
+        holder.itemView.cvBlog.setOnClickListener {
             val intent= Intent(mContext,AboutTrainerActivity::class.java)
+            intent.putExtra("trainer",trainer)
+            intent.putExtra("position",position)
             mContext.startActivity(intent)
         }
 
-        Glide.with(mContext).load(blog.bImage).into(holder.itemView.ivLevel)
+        Glide.with(mContext).load(trainer.trainerimage).into(holder.itemView.ivLevel)
     }
 
 }

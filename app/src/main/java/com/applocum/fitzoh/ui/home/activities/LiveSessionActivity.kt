@@ -9,21 +9,19 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.RecyclerAdapterSessionRequest
-import com.applocum.fitzoh.ui.home.models.SessionRequest
-import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterSessionNumber
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterTrainerListing
-import com.applocum.fitzoh.ui.home.models.Blog
-import com.applocum.fitzoh.ui.home.models.Sessionnumber
+import com.applocum.fitzoh.ui.home.models.Trainer
 import kotlinx.android.synthetic.main.activity_live_session.*
 import kotlinx.android.synthetic.main.activity_live_session.ivBack
 import kotlinx.android.synthetic.main.custom_filter_layout_xml.view.*
 
 class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-    var mListTrainer: ArrayList<SessionRequest> = ArrayList()
-    var mListTrainerList: ArrayList<Blog> = ArrayList()
-    var mListSessionNumbber: ArrayList<Sessionnumber> = ArrayList()
+    var mListExistingPreviousTrainer: ArrayList<Trainer> = ArrayList()
+    var mListTrainerList: ArrayList<Trainer> = ArrayList()
+
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,70 +29,18 @@ class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         ivBack.setOnClickListener {
             finish()
         }
+        val dbhelper=Dbhelper(this)
 
-        val sessionRequest1 = SessionRequest(
-            R.drawable.jhonmartin,
-            "Jhon Martin"
-        )
-        val sessionRequest2 = SessionRequest(
-            R.drawable.robertroy,
-            "Robert Ray"
-        )
-        val sessionRequest3 = SessionRequest(
-            R.drawable.jhondoi,
-            "Jhon Doi"
-        )
-        val sessionRequest4 = SessionRequest(
-            R.drawable.annyroy,
-            "Anny Roy"
-        )
-        val sessionRequest5 = SessionRequest(
-            R.drawable.elaloppes,
-            "Eia Loppes"
-        )
-
-        mListTrainer.add(sessionRequest1)
-        mListTrainer.add(sessionRequest2)
-        mListTrainer.add(sessionRequest3)
-        mListTrainer.add(sessionRequest4)
-        mListTrainer.add(sessionRequest5)
-
-
+        mListExistingPreviousTrainer=dbhelper.getallTrainer()
         rvExistingPreviousTrainer.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvExistingPreviousTrainer.adapter = RecyclerAdapterSessionRequest(this, mListTrainer)
+        rvExistingPreviousTrainer.adapter = RecyclerAdapterSessionRequest(this, mListExistingPreviousTrainer)
 
-        val blog1 = Blog(R.drawable.ena.toString(), "Jenna Hopper", "Experience: 05 years")
-        val blog2 = Blog(R.drawable.amelia.toString(), "Amelia Freer", "Experience: 03 years")
-        val blog3 = Blog(R.drawable.enablatner.toString(), "Enaa blatner", "Experience: 02 years")
-        val blog4 = Blog(R.drawable.bewell.toString(), "Bewell Bykelly", "Experience: 02 years")
 
-        mListTrainerList.add(blog1)
-        mListTrainerList.add(blog2)
-        mListTrainerList.add(blog3)
-        mListTrainerList.add(blog4)
-
+        mListTrainerList=dbhelper.getallTrainer()
         rvTrainerList.layoutManager = LinearLayoutManager(this)
         rvTrainerList.adapter = RecyclerAdapterTrainerListing(this, mListTrainerList)
 
-        val sessionnumber1 = Sessionnumber("Session -01")
-        val sessionnumber2 = Sessionnumber("Session -02")
-        val sessionnumber3 = Sessionnumber("Session -03")
-        val sessionnumber4 = Sessionnumber("Session -04")
-        val sessionnumber5 = Sessionnumber("Session -05")
-        val sessionnumber6 = Sessionnumber("Session -06")
-        val sessionnumber7 = Sessionnumber("Session -07")
-
-        mListSessionNumbber.add(sessionnumber1)
-        mListSessionNumbber.add(sessionnumber2)
-        mListSessionNumbber.add(sessionnumber3)
-        mListSessionNumbber.add(sessionnumber4)
-        mListSessionNumbber.add(sessionnumber5)
-        mListSessionNumbber.add(sessionnumber6)
-        mListSessionNumbber.add(sessionnumber7)
-
-        rvSession.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvSession.adapter = RecyclerAdapterSessionNumber(this, mListSessionNumbber)
 
 
         tvFilter.setOnClickListener {
@@ -120,17 +66,12 @@ class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
             adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
             showDialogView.spinnerLanguage.adapter = adapter3
-
-
-          //  showDialogView.spinnerCategory.onItemSelectedListener = this
-
             showDialogView.btnCancel.setOnClickListener {
                 dialog.dismiss()
             }
             showDialogView.btnSubmit.setOnClickListener {
                 dialog.dismiss()
             }
-
             dialog.show()
         }
 
@@ -140,8 +81,5 @@ class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        //val show: String = parent?.getItemAtPosition(position).toString()
-
-      //  spinnerCategory.setText(show)
     }
 }

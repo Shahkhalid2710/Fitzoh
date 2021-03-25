@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.widget.Toast
@@ -27,6 +28,7 @@ import kotlinx.android.synthetic.main.raw_nutritionplan_xml.*
 
 class NutritionPlanActivity : AppCompatActivity() {
     var mList:ArrayList<NutritionMeal> = ArrayList()
+    var mListnew:ArrayList<NutritionMeal> = ArrayList()
     lateinit var nutritionMeal: NutritionMeal
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,10 +62,13 @@ class NutritionPlanActivity : AppCompatActivity() {
 
             dialog.show()
         }
+
         mList=dbhelper.getNutritionMeal()
+        mListnew=dbhelper.getAllNutritionMeal()
+
 
         rvNutritionplan.layoutManager=LinearLayoutManager(this)
-        val recyclerAdapterNutritionplan=RecyclerAdapterNutritionplan(this,mList)
+        val recyclerAdapterNutritionplan=RecyclerAdapterNutritionplan(this,mListnew)
         rvNutritionplan.adapter=recyclerAdapterNutritionplan
         recyclerAdapterNutritionplan.notifyDataSetChanged()
 

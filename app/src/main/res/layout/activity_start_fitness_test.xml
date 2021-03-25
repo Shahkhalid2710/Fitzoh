@@ -52,7 +52,7 @@
        android:id="@+id/tvtime"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="@string/_10_20"
+       android:text="@string/_0_00"
        android:textColor="@color/blue"
        android:layout_gravity="center"
        android:textSize="@dimen/font_28"/>
@@ -61,7 +61,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    <Button
+   <!-- <Button
         android:id="@+id/btnStop"
         android:background="@drawable/btn_continue"
         android:layout_width="160dp"
@@ -70,7 +70,7 @@
         android:text="@string/stop"
         android:layout_marginTop="@dimen/spacing_25"
         android:visibility="gone"
-        android:textSize="@dimen/font_15"/>
+        android:textSize="@dimen/font_15"/>-->
         <Button
             android:id="@+id/btnStart"
             android:background="@drawable/btn_continue"

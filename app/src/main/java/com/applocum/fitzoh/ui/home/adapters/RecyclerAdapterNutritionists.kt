@@ -9,10 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.CounsellorActivity
 import com.applocum.fitzoh.ui.home.models.Blog
+import com.applocum.fitzoh.ui.home.models.Counsellor
+import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 
-class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Blog>):RecyclerView.Adapter<RecyclerAdapterNutritionists.NutritionHolder>() {
+class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Counsellor>):RecyclerView.Adapter<RecyclerAdapterNutritionists.NutritionHolder>() {
     var mContext=context
     var mList=list
 
@@ -28,15 +30,17 @@ class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Blog>):Recycl
     }
 
     override fun onBindViewHolder(holder: NutritionHolder, position: Int) {
-       val blog=mList.get(position)
-        holder.itemView.tvLevel.text=blog.bLevel
-        holder.itemView.tvDescription.text=blog.bDescription
+       val counsellor=mList.get(position)
 
-        holder.itemView.ivNext.setOnClickListener {
+        holder.itemView.tvLevel.text=counsellor.counsellorname
+        holder.itemView.tvDescription.text=counsellor.counsellorexperience
+        Glide.with(mContext).load(counsellor.counsellorimage).into(holder.itemView.ivLevel)
+
+        holder.itemView.cvBlog.setOnClickListener {
             val intent=Intent(mContext,CounsellorActivity::class.java)
+            intent.putExtra("counsellor",counsellor)
+            intent.putExtra("position",position)
             mContext.startActivity(intent)
         }
-
-        Glide.with(mContext).load(blog.bImage).into(holder.itemView.ivLevel)
     }
 }

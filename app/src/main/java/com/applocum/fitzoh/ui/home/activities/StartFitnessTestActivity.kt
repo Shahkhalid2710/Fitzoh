@@ -2,28 +2,62 @@ package com.applocum.fitzoh.ui.home.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.FitnessTest
-import com.applocum.fitzoh.ui.signin.activities.SignInActivity
+import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.google.android.material.snackbar.Snackbar
-import com.shashank.sony.fancytoastlib.FancyToast
 import com.triggertrap.seekarc.SeekArc
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import kotlinx.android.synthetic.main.activity_start_fitness_test.*
 
 class StartFitnessTestActivity : AppCompatActivity(), SeekArc.OnSeekArcChangeListener {
 
     lateinit var fitnessTest: FitnessTest
+    lateinit var listOfTest:ListOfTest
+    var starttime:Long=0
+
+    val timehandler=Handler()
+    val timerRunnable: Runnable = object : Runnable {
+        override fun run() {
+            val millis: Long = System.currentTimeMillis() - starttime
+            var seconds = (millis / 1000).toInt()
+            val minutes = seconds /60
+            seconds = seconds % 60
+            tvtime.setText(String.format("%d:%02d", minutes, seconds))
+            seekArc.setProgress(seconds)
+
+            timehandler.postDelayed(this, 1000)
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start_fitness_test)
+        seekArc.setOnSeekArcChangeListener(this)
+
+        btnStart.setOnClickListener {
+         //   btnStart.visibility=View.GONE
+        //    btnStop.visibility=View.VISIBLE
+            timehandler.removeCallbacks(timerRunnable)
+
+            if (btnStart.getText().equals("stop")) {
+                timehandler.removeCallbacks(timerRunnable)
+                btnStart.setText("start")
+            } else {
+                starttime = System.currentTimeMillis()
+                timehandler.postDelayed(timerRunnable, 0)
+                btnStart.setText("stop")
+            }
+        }
+
 
         val dbhelper=Dbhelper(this)
         ivBack.setOnClickListener {
@@ -32,33 +66,29 @@ class StartFitnessTestActivity : AppCompatActivity(), SeekArc.OnSeekArcChangeLis
         etSelectResult.setOnClickListener {
             selectResult()
         }
-        seekArc.setProgress(100)
 
-        seekArc.setOnSeekArcChangeListener(this)
 
-        btnStart.setOnClickListener {
-                btnStart.visibility=View.GONE
-                btnStop.visibility=View.VISIBLE
-        }
 
-        btnStop.setOnClickListener {
 
-        }
+        listOfTest= intent.getSerializableExtra("listoftest") as ListOfTest
+         val mydate: String = intent.getStringExtra("selecteddate").toString()
+        Log.d("mydate","->"+mydate)
+
         btnSubmit.setOnClickListener {
-            fitnessTest= FitnessTest(tvtime.text.toString(), etSelectResult.text.toString(),etComment.text.toString())
-
+            fitnessTest= FitnessTest(mydate.toString(),tvtime.text.toString(),etSelectResult.text.toString(),etComment.text.toString())
             val time:String=tvtime.text.toString()
             val result= etSelectResult.text.toString()
             val comment=etComment.text.toString()
 
-            if (validateTest(time, result, comment))
+
+            if (validateTest(mydate,time, result, comment))
             {
-                dbhelper.fitnesstest(fitnessTest)
+                dbhelper.fitnesstest(fitnessTest,listOfTest.id)
+                Log.d("idmy","->"+listOfTest.id)
 
                 val myToast = Toast.makeText(applicationContext,"Successfully Completed",Toast.LENGTH_SHORT)
                 myToast.setGravity(Gravity.CENTER,0,0)
                 myToast.show()
-
                 val intent = Intent(this, TestDetailsActivity::class.java)
                 intent.putExtra("fitnesstest",fitnessTest)
                 this.startActivity(intent)
@@ -86,7 +116,7 @@ class StartFitnessTestActivity : AppCompatActivity(), SeekArc.OnSeekArcChangeLis
         val dialog = builder.create()
         dialog.show()
     }
-     fun validateTest(time:String,result:String,comment:String):Boolean
+     fun validateTest(date:String,time:String,result:String,comment:String):Boolean
      {
          if (time.isEmpty()) {
              val snackbar = Snackbar.make(testlayout, "Enter time", Snackbar.LENGTH_LONG)
@@ -105,10 +135,11 @@ class StartFitnessTestActivity : AppCompatActivity(), SeekArc.OnSeekArcChangeLis
          }
          return true
      }
+
     override fun onProgressChanged(seekArc: SeekArc?, progress: Int, fromUser: Boolean) {
 
+    }
 
-   }
     override fun onStartTrackingTouch(seekArc: SeekArc?) {
 
     }
@@ -116,4 +147,5 @@ class StartFitnessTestActivity : AppCompatActivity(), SeekArc.OnSeekArcChangeLis
     override fun onStopTrackingTouch(seekArc: SeekArc?) {
 
     }
+
 }

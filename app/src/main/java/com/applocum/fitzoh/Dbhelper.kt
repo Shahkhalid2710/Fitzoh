@@ -1,6 +1,5 @@
 package com.applocum.fitzoh
 
-import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
@@ -47,6 +46,7 @@ class Dbhelper(context: Context) :
         private const val KEY_TRAINERLANGUAGES = "trainerlanguages"
         private const val KEY_TRAINERABOUT = "trainerabout"
         private const val KEY_TRAINERSESSIONS = "trainersessions"
+        private const val KEY_TRAINERSTATUS = "trainerstatus"
 
 
         private const val TABLE_COUNSELLOR = "counsellor"
@@ -88,32 +88,66 @@ class Dbhelper(context: Context) :
         private const val KEY_BLOG_IMAGE = "blogimage"
         private const val KEY_BLOG_ABOUT = "blogabout"
 
-        private const val TABLE_FITNESS_TEST = "startfitnesstest"
-        private const val KEY_FITNESS_TEST_ID = "startfitnesstestid"
-        private const val KEY_FITNESS_TEST_TIME= "startfitnesstesttime"
-        private const val KEY_FITNESS_TEST_RESULT= "startfitnesstestresult"
-        private const val KEY_FITNESS_TEST_COMMENT = "startfitnesstestcomment"
-
         private const val TABLE_NUTRITION_MEAL= "nutritionmeal"
         private const val KEY_NUTRITION_MEAL_ID = "nutritionmealid"
         private const val KEY_NUTRITION_MEAL_NAME = "nutritionmealname"
         private const val KEY_NUTRITION_MEAL_TIME = "nutritionmealtime"
+        private const val KEY_NUTRITION_MEAL_FOOD = "nutritionmealfood"
+        private const val KEY_NUTRITION_MEAL_NO_OF_SERVING = "nutritionmealnoofserving"
+        private const val KEY_NUTRITION_MEAL_SERVING_SIZE = "nutritionmealservingsize"
+
+
+        private const val TABLE_FITNESS_TEST = "startfitnesstest"
+        private const val KEY_FITNESS_TEST_ID = "startfitnesstestid"
+        private const val KEY_FITNESS_TEST_DATE= "startfitnesstestdate"
+        private const val KEY_FITNESS_TEST_TIME= "startfitnesstesttime"
+        private const val KEY_FITNESS_TEST_RESULT= "startfitnesstestresult"
+        private const val KEY_FITNESS_TEST_COMMENT = "startfitnesstestcomment"
+
+        private const val TABLE_WORKOUT = "workout"
+        private const val KEY_WORKOUT_ID= "workoutid"
+        private const val KEY_WORKOUT_NAME= "workoutname"
+        private const val KEY_WORKOUT_ABOUT= "workoutabout"
+        private const val KEY_WORKOUT_VIDEO= "workoutvideo"
+        private const val KEY_WORKOUT_IMAGE= "workoutimage"
+        private const val KEY_WORKOUT_STATUS= "workoutstatus"
+
+        private const val TABLE_BASIC_PACKAGE = "basicpackage"
+        private const val KEY_BASIC_PACKAGE_ID= "basicpackageid"
+        private const val KEY_BASIC_PACKAGE_MONTH= "basicpackagemonth"
+        private const val KEY_BASIC_PACKAGE_PRICE= "basicpackageprice"
+
+        private const val TABLE_SESSION_CATEGORY = "sessioncategory"
+        private const val KEY_SESSION_CATEGORY_ID= "sessioncategoryid"
+        private const val KEY_SESSION_CATEGORY_IMAGE= "sessioncategoryimage"
+        private const val KEY_SESSION_CATEGORY_NAME= "sessioncategoryname"
+        private const val KEY_SESSION_CATEGORY_STATUS= "sessioncategorystatus"
+
+
+        private const val TABLE_SESSION_BOOKING = "sessionbooking"
+        private const val KEY_SESSION_BOOKING_ID= "sessionbookingid"
+        private const val KEY_SESSION_BOOKING_DATE= "sessionbookingdate"
+        private const val KEY_SESSION_BOOKING_START_TIME= "sessionbookingstarttime"
+        private const val KEY_SESSION_BOOKING_END_TIME= "sessionbookingendtime"
 
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("create table Signup(userid INTEGER PRIMARY KEY AUTOINCREMENT,username TEXT,email TEXT,mobileno TEXT,dateofbirth TEXT,gender TEXT,height TEXT,weight TEXT,dailyactivity TEXT,mealtype TEXT,currentbodyfat TEXT)")
         db?.execSQL("create table Goal(goal_id INTEGER PRIMARY KEY AUTOINCREMENT,bmi TEXT,bmitype TEXT,weightrange TEXT,targetweight TEXT,fitnessgoal TEXT,positivehabit TEXT)")
-        db?.execSQL("create table trainer(trainerid INTEGER PRIMARY KEY AUTOINCREMENT,trainername TEXT,trainerimage TEXT,trainerexperience TEXT,trainerlanguages TEXT,trainerabout TEXT,trainersessions TEXT)")
+        db?.execSQL("create table trainer(trainerid INTEGER PRIMARY KEY AUTOINCREMENT,trainername TEXT,trainerimage TEXT,trainerexperience TEXT,trainerlanguages TEXT,trainerabout TEXT,trainersessions TEXT,trainerstatus TEXT)")
         db?.execSQL("create table counsellor(counsellorid INTEGER PRIMARY KEY AUTOINCREMENT,counsellorname TEXT,counsellorimage TEXT,counsellorexperience TEXT,counsellorlanguages TEXT,counsellorabout TEXT,counsellorprice TEXT)")
-
         db?.execSQL("create table slotbooking(slotid INTEGER PRIMARY KEY AUTOINCREMENT,slotdate TEXT,slotstarttime TEXT,slotendtime TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES trainer(trainerid))")
         db?.execSQL("create table fitnesstest(fitnesstestlistid INTEGER PRIMARY KEY AUTOINCREMENT,fitnesstestlistname TEXT,fitnesstestlistimage TEXT,fitnesstestlistabout TEXT,fitnesstestlistvideo TEXT)")
         db?.execSQL("create table maincategory(maincategoryid INTEGER PRIMARY KEY AUTOINCREMENT,maincategoryname TEXT)")
         db?.execSQL("create table subcategory(subcategoryid INTEGER PRIMARY KEY AUTOINCREMENT,subcategoryimage TEXT,subcategoryvideo TEXT,subcategoryabout TEXT,cid INTEGER NOT NULL,FOREIGN KEY(cid) REFERENCES maincategory(maincategoryid))")
         db?.execSQL("create table blog(blogid INTEGER PRIMARY KEY AUTOINCREMENT,blogname TEXT,blogimage TEXT,blogabout TEXT)")
-        db?.execSQL("create table startfitnesstest(startfitnesstestid INTEGER PRIMARY KEY AUTOINCREMENT,startfitnesstesttime TEXT,startfitnesstestresult TEXT,startfitnesstestcomment TEXT)")
-        db?.execSQL("create table nutritionmeal(nutritionmealid INTEGER PRIMARY KEY AUTOINCREMENT,nutritionmealname TEXT,nutritionmealtime TEXT)")
+        db?.execSQL("create table nutritionmeal(nutritionmealid INTEGER PRIMARY KEY AUTOINCREMENT,nutritionmealname TEXT,nutritionmealtime TEXT,nutritionmealfood TEXT,nutritionmealnoofserving TEXT,nutritionmealservingsize TEXT)")
+        db?.execSQL("create table startfitnesstest(startfitnesstestid INTEGER PRIMARY KEY AUTOINCREMENT,startfitnesstestdate TEXT,startfitnesstesttime TEXT,startfitnesstestresult TEXT,startfitnesstestcomment TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES fitnesstest(fitnesstestlistid))")
+        db?.execSQL("create table workout(workoutid INTEGER PRIMARY KEY AUTOINCREMENT,workoutname TEXT,workoutabout TEXT,workoutvideo TEXT,workoutimage TEXT,workoutstatus TEXT)")
+        db?.execSQL("create table sessioncategory(sessioncategoryid INTEGER PRIMARY KEY AUTOINCREMENT,sessioncategoryname TEXT,sessioncategoryimage TEXT,sessioncategorystatus TEXT)")
+        db?.execSQL("create table basicpackage(basicpackageid INTEGER PRIMARY KEY AUTOINCREMENT,basicpackagemonth TEXT,basicpackageprice TEXT)")
+        db?.execSQL("create table sessionbooking(sessionbookingid INTEGER PRIMARY KEY AUTOINCREMENT,sessionbookingdate TEXT,sessionbookingstarttime TEXT,sessionbookingendtime TEXT,userid INTEGER NOT NULL,packageid INTEGER NOT NULL,counsellorid INTEGER NOT NULL,trainerid INTEGER NOT NULL,sid INTEGER NOT NULL,FOREIGN KEY(userid) REFERENCES Signup(userid),FOREIGN KEY(packageid) REFERENCES basicpackage(basicpackageid),FOREIGN KEY(counsellorid) REFERENCES counsellor(counsellorid),FOREIGN KEY(trainerid) REFERENCES trainer(trainerid),FOREIGN KEY(sid) REFERENCES slotbooking(slotid))")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -128,16 +162,201 @@ class Dbhelper(context: Context) :
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_BLOG")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_FITNESS_TEST")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_NUTRITION_MEAL")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_WORKOUT")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_BASIC_PACKAGE")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_SESSION_CATEGORY")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_SESSION_BOOKING")
         onCreate(db)
+    }
+
+    fun workout()
+    {
+        val db=this.writableDatabase
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus)" + "values('Barbell Bench Press','05 rounds X 50 / 25 / 12 / 10 / 10','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/barbell_press','0')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus)" + "values('Dumbell Press','05 rounds X 10 / 10 / 10 / 10','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/dumbell_press','0')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus)" + "values('How To: Dumbbell Chest..','04 rounds X 6-8 6-8 6-8 6-8','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/dumbbell_bench_press','0')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus)" + "values('Dubell Fly','04 rounds X 12 / 10 / 06 / 06','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/dumbellfly','0')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus)" + "values('Cable Flys','04 rounds X 15 / 15 / 15 / 15','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/cableflys','0')")
+        db.close()
+
+    }
+
+    fun sessioncategory()
+    {
+        val db=this.writableDatabase
+        db.execSQL("insert into sessioncategory(sessioncategoryname,sessioncategoryimage,sessioncategorystatus)" + "values('Strength','android.resource://com.applocum.fitzoh/drawable/strength','0')")
+        db.execSQL("insert into sessioncategory(sessioncategoryname,sessioncategoryimage,sessioncategorystatus)" + "values('Power Yoga','android.resource://com.applocum.fitzoh/drawable/img_yoga','0')")
+        db.execSQL("insert into sessioncategory(sessioncategoryname,sessioncategoryimage,sessioncategorystatus)" + "values('Mobility & Flexibility','android.resource://com.applocum.fitzoh/drawable/image_flexibility','0')")
+        db.execSQL("insert into sessioncategory(sessioncategoryname,sessioncategoryimage,sessioncategorystatus)" + "values('Yoga - Relaxation','android.resource://com.applocum.fitzoh/drawable/image_yogarelex','0')")
+        db.execSQL("insert into sessioncategory(sessioncategoryname,sessioncategoryimage,sessioncategorystatus)" + "values('Meditation','android.resource://com.applocum.fitzoh/drawable/img_meditation','0')")
+        db.execSQL("insert into sessioncategory(sessioncategoryname,sessioncategoryimage,sessioncategorystatus)" + "values('Powerspeed','android.resource://com.applocum.fitzoh/drawable/image_powerandspeed','0')")
+        db.close()
+    }
+
+    fun getSessioncategory(): ArrayList<SessionCategory> {
+            val db = this.readableDatabase
+            val query = "select * from sessioncategory"
+            val mList: ArrayList<SessionCategory> = ArrayList()
+            val cursor = db.rawQuery(query, null)
+
+            var sessionCategory = SessionCategory()
+
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    do {
+                        sessionCategory = SessionCategory(
+                            cursor.getString(cursor.getColumnIndex(KEY_SESSION_CATEGORY_IMAGE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_SESSION_CATEGORY_NAME)),
+                            cursor.getInt(cursor.getColumnIndex(KEY_SESSION_CATEGORY_STATUS)))
+
+                        val a = cursor.getInt(cursor.getColumnIndex(KEY_SESSION_CATEGORY_ID))
+                        sessionCategory.id = a
+                        mList.add(sessionCategory)
+                    } while (cursor.moveToNext())
+                }
+            }
+            db.close()
+            return mList
+        }
+
+    fun getallTrainer(): ArrayList<Trainer> {
+        val db = this.readableDatabase
+        val query = "select * from trainer"
+        val mList: ArrayList<Trainer> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+
+        var trainer = Trainer()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    trainer = Trainer(
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERNAME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERIMAGE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINEREXPERIENCE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERLANGUAGES)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERABOUT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS)),
+                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS)))
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_TRAINER_ID))
+                    trainer.id = a
+                    mList.add(trainer)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
+    }
+
+    fun basicpackage()
+    {
+        val db=this.writableDatabase
+        db.execSQL("insert into basicpackage(basicpackagemonth,basicpackageprice)" + "values('Pay 1 Month','$499')")
+        db.execSQL("insert into basicpackage(basicpackagemonth,basicpackageprice)" + "values('Pay 2 Month','$599')")
+        db.execSQL("insert into basicpackage(basicpackagemonth,basicpackageprice)" + "values('Pay 3 Month','$799')")
+        db.close()
+
+    }
+    fun getbasicpackage():ArrayList<BasicPackages>
+    {
+        val db=this.readableDatabase
+        val query = "select * from basicpackage"
+        val mList: ArrayList<BasicPackages> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+
+        var basicPackages = BasicPackages()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    basicPackages = BasicPackages(
+                        cursor.getString(cursor.getColumnIndex(KEY_BASIC_PACKAGE_MONTH)),
+                        cursor.getString(cursor.getColumnIndex(KEY_BASIC_PACKAGE_PRICE))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_BASIC_PACKAGE_ID))
+                    basicPackages.id = a
+                    mList.add(basicPackages)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
+
+    }
+    fun getworkout():ArrayList<Workout>
+    {
+        val db = this.readableDatabase
+        val query = "select * from workout"
+        val mList: ArrayList<Workout> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+
+        var workout = Workout()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    workout = Workout(
+                        cursor.getString(cursor.getColumnIndex(KEY_WORKOUT_NAME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_WORKOUT_ABOUT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_WORKOUT_IMAGE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_WORKOUT_VIDEO)),
+                        cursor.getInt(cursor.getColumnIndex(KEY_WORKOUT_STATUS))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_WORKOUT_ID))
+                    workout.id = a
+                    mList.add(workout)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
     }
 
     fun slotbooking() {
         val db = this.writableDatabase
-
         db.execSQL("insert into slotbooking(slotdate,slotstarttime,slotendtime,tid)" + "values(Date(),'07:00 AM','10:00 PM','4')")
         db.close()
     }
 
+    fun fitnesstest(fitnessTest: FitnessTest,id: Int) {
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        val listOfTest=ListOfTest()
+        cv.put(KEY_FITNESS_TEST_DATE,fitnessTest.fDate)
+        cv.put(KEY_FITNESS_TEST_TIME,fitnessTest.fTime)
+        cv.put(KEY_FITNESS_TEST_RESULT,fitnessTest.fResult)
+        cv.put(KEY_FITNESS_TEST_COMMENT,fitnessTest.fComment)
+        cv.put("tid",id)
+        db.insert(TABLE_FITNESS_TEST, null,cv)
+        db.close()
+    }
+
+    fun getFitnesstest(id:Int): ArrayList<FitnessTest> {
+        val db = this.readableDatabase
+        val query = "select * from startfitnesstest where tid=?"
+        val mList: ArrayList<FitnessTest> = ArrayList()
+        val cursor = db.rawQuery(query, arrayOf(id.toString()))
+
+        var fitnessTest = FitnessTest()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    fitnessTest = FitnessTest(
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_DATE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_TIME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_RESULT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_COMMENT))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_FITNESS_TEST_ID))
+                    fitnessTest.id = a
+                    mList.add(fitnessTest)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        return mList
+    }
     fun maincategory() {
         val db = this.writableDatabase
 
@@ -169,6 +388,8 @@ class Dbhelper(context: Context) :
         db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/two','Friendships Video 4','5')")
         db.close()
     }
+
+
 
     fun getAll(): ArrayList<CategoryRaw> {
         val db = this.readableDatabase
@@ -400,13 +621,14 @@ class Dbhelper(context: Context) :
         return mList
     }
 
-    fun getslotbooking(date: String): Slotbooking {
+    fun getslotbooking(date: String): Slotbooking? {
 
         val db = this.readableDatabase
         val query = "select * from slotbooking where slotdate=?"
         val cursor = db.rawQuery(query, arrayOf(date))
+        Log.d("dateeee","-->"+date)
+        var slotbooking:Slotbooking? = Slotbooking()
 
-        var slotbooking = Slotbooking()
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -420,6 +642,9 @@ class Dbhelper(context: Context) :
                     slotbooking.id = a
                 } while (cursor.moveToNext())
             }
+        }
+        else {
+            slotbooking=null
         }
         db.close()
         return slotbooking
@@ -443,16 +668,7 @@ class Dbhelper(context: Context) :
 
     }
 
-    fun fitnesstest(fitnessTest: FitnessTest) {
-        val db = this.writableDatabase
-        val cv = ContentValues()
-        cv.put(KEY_FITNESS_TEST_TIME,fitnessTest.fTime)
-        cv.put(KEY_FITNESS_TEST_RESULT,fitnessTest.fResult)
-        cv.put(KEY_FITNESS_TEST_COMMENT,fitnessTest.fComment)
-        db.insert(TABLE_FITNESS_TEST, null, cv)
-        db.close()
 
-    }
 
     fun nutritionMeal(nutritionMeal: NutritionMeal)
     {
@@ -460,6 +676,9 @@ class Dbhelper(context: Context) :
         val cv = ContentValues()
         cv.put(KEY_NUTRITION_MEAL_NAME,nutritionMeal.nName)
         cv.put(KEY_NUTRITION_MEAL_TIME,nutritionMeal.nTime)
+        cv.put(KEY_NUTRITION_MEAL_FOOD,nutritionMeal.nFood)
+        cv.put(KEY_NUTRITION_MEAL_NO_OF_SERVING,nutritionMeal.nNoofserving)
+        cv.put(KEY_NUTRITION_MEAL_SERVING_SIZE,nutritionMeal.nServingsize)
         db.insert(TABLE_NUTRITION_MEAL, null, cv)
         db.close()
     }
@@ -488,6 +707,19 @@ class Dbhelper(context: Context) :
         return mList
     }
 
+    fun updatenutritionMeal(nutritionMeal: NutritionMeal,id: Int)
+    {
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(KEY_NUTRITION_MEAL_NAME,nutritionMeal.nName)
+        cv.put(KEY_NUTRITION_MEAL_TIME,nutritionMeal.nTime)
+        cv.put(KEY_NUTRITION_MEAL_FOOD,nutritionMeal.nFood)
+        cv.put(KEY_NUTRITION_MEAL_NO_OF_SERVING,nutritionMeal.nNoofserving)
+        cv.put(KEY_NUTRITION_MEAL_SERVING_SIZE,nutritionMeal.nServingsize)
+        db.update(TABLE_NUTRITION_MEAL,cv, KEY_NUTRITION_MEAL_ID + "=" +id,null)
+        db.close()
+    }
+
   fun deletenutritionmeal(id: Int):NutritionMeal
   {
       val db=this.writableDatabase
@@ -497,25 +729,27 @@ class Dbhelper(context: Context) :
       db.close()
       return nutritionMeal
   }
-    fun getFitnesstest(): ArrayList<FitnessTest> {
+
+    fun getAllNutritionMeal(): ArrayList<NutritionMeal> {
         val db = this.readableDatabase
-        val query = "select * from startfitnesstest"
-        val mList: ArrayList<FitnessTest> = ArrayList()
+        val query = "select * from nutritionmeal"
+        val mList: ArrayList<NutritionMeal> = ArrayList()
         val cursor = db.rawQuery(query, null)
 
-        var fitnessTest = FitnessTest()
+        var nutritionMeal = NutritionMeal()
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    fitnessTest = FitnessTest(
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_TIME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_RESULT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_COMMENT))
-                    )
-                    val a = cursor.getInt(cursor.getColumnIndex(KEY_FITNESS_TEST_ID))
-                    fitnessTest.id = a
-                    mList.add(fitnessTest)
+                    nutritionMeal = NutritionMeal(
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NAME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_TIME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_FOOD)),
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NO_OF_SERVING)),
+                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_SERVING_SIZE)))
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_NUTRITION_MEAL_ID))
+                    nutritionMeal.id = a
+                    mList.add(nutritionMeal)
                 } while (cursor.moveToNext())
             }
         }
@@ -524,14 +758,15 @@ class Dbhelper(context: Context) :
     }
 
 
+
     fun trainerprofile() {
         val db = this.writableDatabase
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('Jhon Martin','android.resource://com.applocum.fitzoh/drawable/jhonmartin','5 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('Robert Ray','android.resource://com.applocum.fitzoh/drawable/robertroy','4 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('Jhon Doi','android.resource://com.applocum.fitzoh/drawable/jhondoi','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('Jenna Hopper','android.resource://com.applocum.fitzoh/drawable/ena','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('EIa Loppes','android.resource://com.applocum.fitzoh/drawable/elaloppes','1 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions)" + "values('Bewell Bykelly','android.resource://com.applocum.fitzoh/drawable/bewell','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus)" + "values('Jhon Martin','android.resource://com.applocum.fitzoh/drawable/jhonmartin','5 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus)" + "values('Robert Ray','android.resource://com.applocum.fitzoh/drawable/robertroy','4 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus)" + "values('Jhon Doi','android.resource://com.applocum.fitzoh/drawable/jhondoi','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus)" + "values('Jenna Hopper','android.resource://com.applocum.fitzoh/drawable/ena','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus)" + "values('EIa Loppes','android.resource://com.applocum.fitzoh/drawable/elaloppes','1 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus)" + "values('Bewell Bykelly','android.resource://com.applocum.fitzoh/drawable/bewell','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0')")
 
         db.close()
     }
@@ -560,7 +795,8 @@ class Dbhelper(context: Context) :
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINEREXPERIENCE)),
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERLANGUAGES)),
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERABOUT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS))
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS)),
+                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS))
                     )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_TRAINER_ID))
                     trainer.id = a
@@ -570,6 +806,36 @@ class Dbhelper(context: Context) :
         db.close()
         return trainer
     }
+
+   fun getallCounselloers(): ArrayList<Counsellor> {
+       val db = this.readableDatabase
+       val query = "select * from counsellor"
+       val mList: ArrayList<Counsellor> = ArrayList()
+       val cursor = db.rawQuery(query, null)
+
+       var counsellor = Counsellor()
+
+       if (cursor != null) {
+           if (cursor.moveToFirst()) {
+               do {
+                   counsellor = Counsellor(
+                       cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORNAME)),
+                       cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORIMAGE)),
+                       cursor.getString(cursor.getColumnIndex(KEY_COUNSELLOREXPERIENCE)),
+                       cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORLANGUAGES)),
+                       cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORABOUT)),
+                       cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORPRICE))
+                   )
+                   val a = cursor.getInt(cursor.getColumnIndex(KEY_COUNSELLOR_ID))
+                   counsellor.id = a
+                   mList.add(counsellor)
+               } while (cursor.moveToNext())
+           }
+       }
+       db.close()
+       return mList
+   }
+
 
     fun fitnesslist() {
         val db = this.writableDatabase
