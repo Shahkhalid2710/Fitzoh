@@ -8,7 +8,6 @@ import android.text.Spanned
 import android.text.TextPaint
 import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,16 +17,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.BlogActivity
 import com.applocum.fitzoh.ui.home.models.Blog
-import com.applocum.fitzoh.ui.home.models.Category
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 
-class RecyclerAdapterBlog(context: Context,list: ArrayList<Blog>, var cellClickListener: RecyclerAdapterBlog.CellClickListener) :RecyclerView.Adapter<RecyclerAdapterBlog.BlogHolder>(){
+class RecyclerAdapterBlog(context: Context, list: ArrayList<Blog>, private var cellClickListener:CellClickListener) :RecyclerView.Adapter<RecyclerAdapterBlog.BlogHolder>(){
     var mContext=context
     private var mList=list
 
     inner class BlogHolder(itemView: View):RecyclerView.ViewHolder(itemView){}
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BlogHolder {
       val v = LayoutInflater.from(mContext).inflate(R.layout.raw_blog_xml,parent,false)
         return BlogHolder(v)

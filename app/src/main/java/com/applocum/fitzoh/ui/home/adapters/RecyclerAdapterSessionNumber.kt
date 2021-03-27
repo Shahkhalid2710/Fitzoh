@@ -25,7 +25,7 @@ class RecyclerAdapterSessionNumber(context: Context,list:ArrayList<Sessionnumber
     }
 
     override fun onBindViewHolder(holder: NumberHolder, position: Int) {
-        val sessionnumber=mList.get(position)
+        val sessionnumber= mList[position]
         holder.itemView.tvSessionnumber.text=sessionnumber.sName
 
     }

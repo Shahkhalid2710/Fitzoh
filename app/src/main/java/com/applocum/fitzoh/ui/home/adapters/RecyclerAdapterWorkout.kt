@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.custom_xml.*
 import kotlinx.android.synthetic.main.raw_xml_workout.view.*
 
-class RecyclerAdapterWorkout(context: Context,list: ArrayList<Workout>,var cellClickListener: RecyclerAdapterWorkout.CellClickListener):RecyclerView.Adapter<RecyclerAdapterWorkout.WorkoutHolder>() {
+class RecyclerAdapterWorkout(context: Context, list: ArrayList<Workout>, private var cellClickListener: CellClickListener):RecyclerView.Adapter<RecyclerAdapterWorkout.WorkoutHolder>() {
     var mContext=context
     var mList=list
 
@@ -36,18 +36,16 @@ class RecyclerAdapterWorkout(context: Context,list: ArrayList<Workout>,var cellC
         holder.itemView.tvWorkoutname.text=workout.wName
         holder.itemView.tvRounds.text=workout.wAbout
         Glide.with(mContext).load(workout.wImage).into(holder.itemView.ivWorkout)
-        holder.itemView.cbSelect.tag= mList[position]
-
         holder.itemView.ivWorkout.setOnClickListener {
-            val metrics: DisplayMetrics = mContext.getResources().getDisplayMetrics()
+            val metrics: DisplayMetrics = mContext.resources.displayMetrics
 
-            val DeviceTotalWidth = metrics.widthPixels
-            val DeviceTotalHeight = metrics.heightPixels
+            val width = metrics.widthPixels
+            val height = metrics.heightPixels
 
             val dialog = Dialog(mContext)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.custom_xml)
-            dialog.window!!.setLayout(DeviceTotalWidth, DeviceTotalHeight)
+            dialog.window!!.setLayout(width, height)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
 
             dialog.videoview.setVideoURI(Uri.parse(workout.wVideo))
@@ -59,9 +57,23 @@ class RecyclerAdapterWorkout(context: Context,list: ArrayList<Workout>,var cellC
 
             dialog.show()
         }
+
+        if (workout.wStatus == 1)
+        {
+            holder.itemView.cbSelect.isChecked=true
+        }
         holder.itemView.setOnClickListener {
             cellClickListener.onCellClickistener(workout,position)
         }
+
+        holder.itemView.cbSelect.setOnCheckedChangeListener { _, b ->
+            if (b) {
+                workout.wStatus=1
+            } else {
+                workout.wStatus=0
+            }
+        }
+
     }
     interface CellClickListener
     {

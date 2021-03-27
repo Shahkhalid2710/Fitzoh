@@ -11,14 +11,11 @@ import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.AddFoodItemActivity
 import com.applocum.fitzoh.ui.home.models.NutritionMeal
-import com.applocum.fitzoh.ui.home.models.NutritionPlan
-import com.daimajia.swipe.SwipeLayout
-import kotlinx.android.synthetic.main.activity_add_food_item.view.*
 import kotlinx.android.synthetic.main.raw_nutritionplan_xml.view.*
 
 class RecyclerAdapterNutritionplan(context: Context,list: ArrayList<NutritionMeal>):RecyclerView.Adapter<RecyclerAdapterNutritionplan.NutritionPlanHolder>() {
     var mContext=context
-    var mList=list
+    private var mList=list
 
     inner class NutritionPlanHolder(itemView: View):RecyclerView.ViewHolder(itemView){}
 
@@ -32,7 +29,7 @@ class RecyclerAdapterNutritionplan(context: Context,list: ArrayList<NutritionMea
     }
 
     override fun onBindViewHolder(holder: NutritionPlanHolder, position: Int) {
-        val nutritionMeal=mList.get(position)
+        val nutritionMeal= mList[position]
         holder.itemView.tvMealName.text=nutritionMeal.nName
         holder.itemView.tvMealTime.text=nutritionMeal.nTime
         holder.itemView.tvNoofserving.text=nutritionMeal.nNoofserving

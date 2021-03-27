@@ -9,19 +9,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterBasicPackages
-import com.applocum.fitzoh.ui.home.models.BasicPackages
-import kotlinx.android.synthetic.main.fragment_basic_package.*
+import com.applocum.fitzoh.ui.home.models.Packages
 import kotlinx.android.synthetic.main.fragment_basic_package.view.*
 
 class BasicPackageFragment : Fragment() {
-
-    var mListPackages:ArrayList<BasicPackages> = ArrayList()
+    private var mListPackages:ArrayList<Packages> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val v= inflater.inflate(R.layout.fragment_basic_package, container, false)
         val dbhelper= activity?.let { Dbhelper(it) }
         mListPackages=dbhelper!!.getbasicpackage()

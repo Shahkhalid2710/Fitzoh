@@ -19,8 +19,8 @@ import kotlinx.android.synthetic.main.activity_live_session.ivBack
 import kotlinx.android.synthetic.main.custom_filter_layout_xml.view.*
 
 class LiveSessionActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
-    var mListExistingPreviousTrainer: ArrayList<Trainer> = ArrayList()
-    var mListTrainerList: ArrayList<Trainer> = ArrayList()
+    private var mListExistingPreviousTrainer: ArrayList<Trainer> = ArrayList()
+    private var mListTrainerList: ArrayList<Trainer> = ArrayList()
 
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -12,14 +12,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.mainscreen.activities.MainActivity
-import kotlinx.android.synthetic.main.activity_edit_profile.*
-import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
 class ProfileFragment : Fragment() {
 
-    lateinit var sharedPreferences : SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    private lateinit var sharedPreferences : SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +28,7 @@ class ProfileFragment : Fragment() {
             sharedPreferences=activity!!.getSharedPreferences("mypref",MODE_PRIVATE)
             editor=sharedPreferences.edit()
             editor.clear()
-            editor.commit()
+            editor.apply()
 
             val intent= Intent(activity,
                 MainActivity::class.java)
@@ -51,8 +49,8 @@ class ProfileFragment : Fragment() {
 
        val user= email?.let { dbhelper?.signin(it) }
 
-        v.tvKg.setText(user?.userWeight)
-        v.tvName.setText(user?.userName)
+        v.tvKg.text = user?.userWeight
+        v.tvName.text = user?.userName
         return v
 
     }

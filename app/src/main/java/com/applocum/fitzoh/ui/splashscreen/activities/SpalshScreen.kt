@@ -1,5 +1,6 @@
-package com.applocum.fitzoh.ui.splashscreen.activities
+@file:Suppress("DEPRECATION")
 
+package com.applocum.fitzoh.ui.splashscreen.activities
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -11,17 +12,15 @@ import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.bottomnavigation.activities.HomeActivity
 import com.applocum.fitzoh.ui.mainscreen.activities.MainActivity
 
-
+@Suppress("DEPRECATION")
 class SpalshScreen : AppCompatActivity() {
-    lateinit var sharedPreferences : SharedPreferences
+    private lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_spalsh_screen)
-
         val prefs = PreferenceManager.getDefaultSharedPreferences(this)
         if (!prefs.getBoolean("firstTime", false)) {
-            // <---- run your one time code here
             val dbhelper=Dbhelper(this)
             dbhelper.trainerprofile()
             dbhelper.counsellorprofile()
@@ -32,6 +31,8 @@ class SpalshScreen : AppCompatActivity() {
             dbhelper.blog()
             dbhelper.workout()
             dbhelper.basicpackage()
+            dbhelper.standardpackage()
+            dbhelper.premiumpackage()
             dbhelper.sessioncategory()
             // mark first time has ran.
             val editor = prefs.edit()
@@ -42,7 +43,7 @@ class SpalshScreen : AppCompatActivity() {
 
         Handler().postDelayed({
             sharedPreferences=getSharedPreferences("mypref", MODE_PRIVATE)
-            if (sharedPreferences.getString("email","").toString().isNullOrBlank())
+            if (sharedPreferences.getString("email","").toString().isBlank())
             {
                 val intent= Intent(this, MainActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)

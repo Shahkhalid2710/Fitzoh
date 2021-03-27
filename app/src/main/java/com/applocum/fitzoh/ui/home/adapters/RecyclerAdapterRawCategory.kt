@@ -1,15 +1,11 @@
 package com.applocum.fitzoh.ui.home.adapters
 
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
@@ -20,7 +16,7 @@ import kotlinx.android.synthetic.main.raw_xml_library.view.*
 
 class RecyclerAdapterRawCategory(context: Context,list:ArrayList<CategoryRaw>) :RecyclerView.Adapter<RecyclerAdapterRawCategory.CategoriesHolder>(){
     var mContext=context
-    var mList=list
+   var mList=list
 
     inner class CategoriesHolder(itemView:View):RecyclerView.ViewHolder(itemView){}
 
@@ -34,7 +30,7 @@ class RecyclerAdapterRawCategory(context: Context,list:ArrayList<CategoryRaw>) :
     }
 
     override fun onBindViewHolder(holder: CategoriesHolder, position: Int) {
-         val categoryRaw=mList.get(position)
+         val categoryRaw= mList[position]
 
         holder.itemView.rvRaw.layoutManager= LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
         holder.itemView.rvRaw.adapter=RecyclerAdapterCategories(mContext,categoryRaw.mylist)

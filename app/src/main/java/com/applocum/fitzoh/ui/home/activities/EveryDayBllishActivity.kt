@@ -1,11 +1,6 @@
 package com.applocum.fitzoh.ui.home.activities
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.applocum.fitzoh.R
@@ -17,9 +12,8 @@ import kotlinx.android.synthetic.main.activity_fitzoh_video_library.ivBack
 
 
 class EveryDayBllishActivity : AppCompatActivity() {
-    var mListCategories: ArrayList<Categories> = ArrayList()
-
-    lateinit var categories: CategoryRaw
+    private var mListCategories: ArrayList<Categories> = ArrayList()
+    private lateinit var categories: CategoryRaw
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

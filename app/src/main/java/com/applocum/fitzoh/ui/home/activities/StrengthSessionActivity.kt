@@ -9,12 +9,8 @@ class StrengthSessionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_strength_session)
-        val homeScreenFragment=
-            HomeScreenFragment()
-
-       ivBack.setOnClickListener {
+        ivBack.setOnClickListener {
            finish()
        }
-
     }
 }

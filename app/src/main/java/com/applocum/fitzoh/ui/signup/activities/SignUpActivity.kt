@@ -7,7 +7,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
-import android.widget.CompoundButton
 import android.widget.DatePicker
 import androidx.appcompat.app.AppCompatActivity
 import com.applocum.fitzoh.Dbhelper
@@ -31,8 +30,8 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
     private var myDay: Int = 0
     private var myMonth: Int = 0
     private var myYear: Int = 0
-    var selectbodyfat = ""
-    val emailPattern = Pattern.compile(
+    private var selectbodyfat = ""
+    private val emailPattern = Pattern.compile(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
@@ -41,7 +40,7 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                 ")+"
     )
-    val MobilePattern =Pattern.compile("[0-9]{10}")
+    private val MobilePattern =Pattern.compile("[0-9]{10}")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,33 +117,33 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
                 val intent = Intent(this, SignInActivity::class.java)
                 intent.putExtra("height",userheight)
                 intent.putExtra("weight",userweight)
-                this.startActivity(intent)
+                startActivity(intent)
             }
         }
 
 
 
-       cb1.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b ->
-            if (b) {
-                selectbodyfat="1"
-                cb2.isChecked = false
-                cb3.isChecked = false
-            }
-        })
-        cb2.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b ->
+       cb1.setOnCheckedChangeListener { _, b ->
+           if (b) {
+               selectbodyfat="1"
+               cb2.isChecked = false
+               cb3.isChecked = false
+           }
+       }
+        cb2.setOnCheckedChangeListener { _, b ->
             if (b) {
                 selectbodyfat="2"
                 cb1.isChecked = false
                 cb3.isChecked = false
             }
-        })
-        this.cb3.setOnCheckedChangeListener(CompoundButton.OnCheckedChangeListener { compoundButton, b ->
+        }
+        this.cb3.setOnCheckedChangeListener { _, b ->
             if (b) {
                 selectbodyfat="3"
                 cb2.isChecked = false
                 cb1.isChecked = false
             }
-        })
+        }
     }
 
     private fun selectmealtype() {

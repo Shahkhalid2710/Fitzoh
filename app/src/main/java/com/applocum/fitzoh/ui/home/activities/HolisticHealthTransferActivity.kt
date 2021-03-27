@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.adapters.ViewPagerFragmentAdapter
-import com.applocum.fitzoh.ui.mainscreen.adapters.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_holistic_health_transfer.*
 
 class HolisticHealthTransferActivity : AppCompatActivity() {
@@ -19,7 +18,6 @@ class HolisticHealthTransferActivity : AppCompatActivity() {
         viewPagerFragmentAdapter.addfragment(BasicPackageFragment(),"Basic Package")
         viewPagerFragmentAdapter.addfragment(StandardFragment(),"Standard")
         viewPagerFragmentAdapter.addfragment(PremiumFragment(),"Premium")
-
         viewPager.adapter=viewPagerFragmentAdapter
         tablayout.setupWithViewPager(viewPager)
 

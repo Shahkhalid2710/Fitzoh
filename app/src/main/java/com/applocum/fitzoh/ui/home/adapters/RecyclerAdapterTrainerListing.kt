@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.AboutTrainerActivity
-import com.applocum.fitzoh.ui.home.activities.CounsellorActivity
-import com.applocum.fitzoh.ui.home.models.Blog
 import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
@@ -30,7 +28,7 @@ class RecyclerAdapterTrainerListing(context: Context,list: ArrayList<Trainer>):R
     }
 
     override fun onBindViewHolder(holder: ListHolder, position: Int) {
-        val trainer=mList.get(position)
+        val trainer= mList[position]
         holder.itemView.tvLevel.text=trainer.trainername
         holder.itemView.tvDescription.text=trainer.trainerexperince
 

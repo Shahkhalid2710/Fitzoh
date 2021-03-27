@@ -328,6 +328,9 @@
     <string name="_00_00">00:00</string>
     <string name="_0_00">0:00</string>
     <string name="buy">BUY</string>
+    <string name="standard_package_details">Standard Package Details:</string>
+    <string name="premium_package_details">Premium Package Details:</string>
+    <string name="blogs">Blogs</string>
 
     <string-array name="categorylist">
         <item>Strength &amp;Condition - Strength</item>

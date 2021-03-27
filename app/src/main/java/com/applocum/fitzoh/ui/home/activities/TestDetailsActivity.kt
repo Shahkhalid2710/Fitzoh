@@ -5,9 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.Window
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.Dbhelper
@@ -20,20 +18,18 @@ import com.google.android.material.snackbar.Snackbar
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
-import kotlinx.android.synthetic.main.activity_start_fitness_test.*
 import kotlinx.android.synthetic.main.activity_test_details.*
 import kotlinx.android.synthetic.main.activity_test_details.ivBack
 import kotlinx.android.synthetic.main.custom_xml.*
-import kotlinx.android.synthetic.main.raw_listoftest_xml.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS", "DEPRECATION")
 class TestDetailsActivity : AppCompatActivity(), OnDateSelectedListener {
     var mList: ArrayList<FitnessTest> = ArrayList()
-    var currentposition = 0
-    var listOfTest: ListOfTest? = null
-    var seleteddate: String = ""
+    private var currentposition = 0
+    private var listOfTest: ListOfTest? = null
+    private var seleteddate: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,13 +50,13 @@ class TestDetailsActivity : AppCompatActivity(), OnDateSelectedListener {
         ivVideo.setOnClickListener {
             val metrics: DisplayMetrics = resources.displayMetrics
 
-            val DeviceTotalWidth = metrics.widthPixels
-            val DeviceTotalHeight = metrics.heightPixels
+            val width = metrics.widthPixels
+            val height = metrics.heightPixels
 
             val dialog = Dialog(this)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.custom_xml)
-            dialog.window!!.setLayout(DeviceTotalWidth, DeviceTotalHeight)
+            dialog.window!!.setLayout(width, height)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
             dialog.videoview.setVideoPath(listOfTest?.Listvideo)
             dialog.videoview.start()
@@ -71,13 +67,12 @@ class TestDetailsActivity : AppCompatActivity(), OnDateSelectedListener {
         }
 
         val id: Int = listOfTest!!.id
-        Log.d("testid", "-->" + id)
         mList = dbhelper.getFitnesstest(id)
         rvTestHistory.layoutManager = LinearLayoutManager(this)
         rvTestHistory.adapter = RecyclerAdapterTestHistory(this, mList)
 
         btnStartTest.setOnClickListener {
-            if (seleteddate.equals("")) {
+            if (seleteddate == "") {
                 val snackbar = Snackbar.make(lltestdetails, "Please Select Date", Snackbar.LENGTH_LONG)
                 snackbar.show()
             }
@@ -112,7 +107,5 @@ class TestDetailsActivity : AppCompatActivity(), OnDateSelectedListener {
         }
         val formateDate = SimpleDateFormat("dd-MM-yyyy").format(date)
         seleteddate = formateDate
-        Log.d("dateeee", "-->" + seleteddate)
-
     }
 }

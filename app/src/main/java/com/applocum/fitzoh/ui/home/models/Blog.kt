@@ -6,7 +6,6 @@ class Blog(image: String ="", level:String="", description:String="") :Serializa
     var bImage=image
     var bLevel=level
     var bDescription=description
-
     var id:Int=0
 
 }

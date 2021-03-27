@@ -16,7 +16,7 @@ class RecyclerAdapterBookLiveSession(
     list: ArrayList<com.applocum.fitzoh.ui.home.models.Session>
 ):RecyclerView.Adapter<RecyclerAdapterBookLiveSession.BookliveSessionHolder>() {
     var mContext=context
-    var mList=list
+   private var mList=list
 
     inner class BookliveSessionHolder(itemView: View): RecyclerView.ViewHolder(itemView){}
 

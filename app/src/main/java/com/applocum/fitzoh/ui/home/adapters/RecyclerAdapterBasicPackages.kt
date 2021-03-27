@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.NutritionistCounsellorsActivity
-import com.applocum.fitzoh.ui.home.models.BasicPackages
+import com.applocum.fitzoh.ui.home.models.Packages
 import kotlinx.android.synthetic.main.raw_xml_basicpackages.view.*
 
-class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<BasicPackages>) :RecyclerView.Adapter<RecyclerAdapterBasicPackages.BasicPackageHolder>(){
+class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<Packages>) :RecyclerView.Adapter<RecyclerAdapterBasicPackages.BasicPackageHolder>(){
     var mContext=context
-    var mList=list
+    var mList:ArrayList<Packages> =list
 
     inner class BasicPackageHolder(itemView: View):RecyclerView.ViewHolder(itemView){}
 
@@ -27,14 +27,14 @@ class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<BasicPackages
     }
 
     override fun onBindViewHolder(holder: BasicPackageHolder, position: Int) {
-        val basicPackages=mList.get(position)
+        val packages= mList[position]
 
-        holder.itemView.tvPayMonth.text=basicPackages.bName
-        holder.itemView.tvPrice.text=basicPackages.bPrice
+        holder.itemView.tvPayMonth.text=packages.bName
+        holder.itemView.tvPrice.text=packages.bPrice
 
         holder.itemView.cvBuy.setOnClickListener {
             val intent=Intent(mContext,NutritionistCounsellorsActivity::class.java)
-            intent.putExtra("basicpackages",basicPackages)
+            intent.putExtra("packages",packages)
             intent.putExtra("position",position)
             mContext.startActivity(intent)
         }

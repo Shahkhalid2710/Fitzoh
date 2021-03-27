@@ -684,7 +684,8 @@
                 android:gravity="center"
                 android:text="@string/online_trainer"
                 android:textColor="@color/white"
-                android:textSize="@dimen/font_13" />
+                android:textSize="@dimen/font_13"
+                tools:ignore="TooManyViews" />
         </FrameLayout>
     </LinearLayout>
 

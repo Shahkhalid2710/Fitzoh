@@ -3,13 +3,12 @@ package com.applocum.fitzoh.ui.profile.activities
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import kotlinx.android.synthetic.main.activity_edit_profile.*
 
 class EditProfileActivity : AppCompatActivity() {
-    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +19,10 @@ class EditProfileActivity : AppCompatActivity() {
         }
 
         val dbhelper = Dbhelper(this)
-
         sharedPreferences=getSharedPreferences("mypref", MODE_PRIVATE)
         val email=sharedPreferences.getString("email","")
 
         val user= email?.let { dbhelper.signin(it) }
-
-
         etusername.setText(user?.userName)
         etDOB.setText(user?.userDOB)
         etgender.setText(user?.userGender)
@@ -34,6 +30,5 @@ class EditProfileActivity : AppCompatActivity() {
         etweight.setText(user?.userWeight)
         etdailyactivity.setText(user?.dailyactivity)
         etmealType.setText(user?.mealtype)
-
     }
 }

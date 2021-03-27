@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
+        android:id="@+id/llselectcalender"
         tools:context=".ui.home.activities.SelectCalenderActivity">
 
 
@@ -20,8 +21,8 @@
 
             <ImageView
                 android:id="@+id/ivBack"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/spacing_10"
                 android:contentDescription="@string/todo"
@@ -86,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_10"
             android:layout_gravity="center"
-            android:visibility="visible"
+            android:visibility="gone"
             android:text="@string/submit"
             android:textSize="@dimen/font_15"/>
 

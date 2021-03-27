@@ -1,14 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.activities.StandardFragment">
+    android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.home.activities.BasicPackageFragment">
 
-</FrameLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/white">
+
+                    <VideoView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:backgroundTint="@color/black" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/play_button" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvBasicPackageDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_20"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/standard_package_details"
+                    android:textColor="@color/bluee"
+                    android:textSize="@dimen/font_15" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_20"
+                    android:layout_marginEnd="@dimen/spacing_10">
+
+                    <LinearLayout
+                        android:id="@+id/ll"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/custom_layout_details"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tvBPD"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_toEndOf="@+id/ll"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/_150_home_workout_routines"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_20"
+                    android:layout_marginEnd="@dimen/spacing_10">
+
+                    <LinearLayout
+                        android:id="@+id/ll2"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/custom_layout_details"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tvUST"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_toEndOf="@+id/ll2"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/unlimited_sleep_tracking"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_20"
+                    android:layout_marginEnd="@dimen/spacing_10">
+
+                    <LinearLayout
+                        android:id="@+id/ll3"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/custom_layout_details"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tvWPR"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_toEndOf="@+id/ll3"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/weekly_progress_reports"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_20"
+                    android:layout_marginEnd="@dimen/spacing_10">
+
+                    <LinearLayout
+                        android:id="@+id/ll4"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/custom_layout_details"
+                        android:orientation="vertical" />
+
+                    <TextView
+                        android:id="@+id/tvMt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:layout_toEndOf="@+id/ll4"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/micronutrient_tracking"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/font_13" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_20"
+                    android:layout_marginTop="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:layout_marginBottom="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_nunc_imperdiet_tortor_libero_id_facilisis_urna_mollis_eget_aenean_tortor_purus_vestibulum_vitae_augue_at_maximus_dictum_est"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_11" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvStandardPackage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"/>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_home_screen.view.cvUpcomingSessio
 
 class HomeScreenFragment : Fragment() {
     private var mList:ArrayList<ConnectWith> = ArrayList()
-    private var mList3:ArrayList<Fitzohvideo> = ArrayList()
     private var mListBlog:ArrayList<Blog> = ArrayList()
     private var mListSession:ArrayList<Session> = ArrayList()
 
@@ -31,19 +30,19 @@ class HomeScreenFragment : Fragment() {
         val connectWith1= ConnectWith(
             R.drawable.image_connect,
             "CONNECT WITH",
-            "The Best Online Trainers andArchieve your fitness goals",
+            "The Best Online Trainers and Archieve your fitness goals",
             "SEARCH"
         )
         val connectWith2= ConnectWith(
             R.drawable.image_connect,
             "CONNECT WITH",
-            "The Best Online Trainers andArchieve your fitness goals",
+            "The Best Online Trainers and Archieve your fitness goals",
             "SEARCH"
         )
         val connectWith3= ConnectWith(
             R.drawable.image_connect,
             "CONNECT WITH",
-            "The Best Online Trainers andArchieve your fitness goals",
+            "The Best Online Trainers and Archieve your fitness goals",
             "SEARCH"
         )
 
@@ -64,52 +63,6 @@ class HomeScreenFragment : Fragment() {
             startActivity(intent)
         }
 
-     /*   val fitzohvideo1= Fitzohvideo(
-            R.drawable.image_videolibrary,
-            "EVERY DAY BLISH",
-            "Hypnosis for instant Freedom from stress & Anxiety"
-        )
-        val fitzohvideo2= Fitzohvideo(
-            R.drawable.image_videolibrary,
-            "EVERY DAY BLISH",
-            "Hypnosis for instant Freedom from stress & Anxiety"
-        )
-        val fitzohvideo3= Fitzohvideo(
-            R.drawable.image_videolibrary,
-            "EVERY DAY BLISH",
-            "Hypnosis for instant Freedom from stress & Anxiety"
-        )
-        val fitzohvideo4= Fitzohvideo(
-            R.drawable.image_videolibrary,
-            "EVERY DAY BLISH",
-            "Hypnosis for instant Freedom from stress & Anxiety"
-        )
-
-        mList3.add(fitzohvideo1)
-        mList3.add(fitzohvideo2)
-        mList3.add(fitzohvideo3)
-        mList3.add(fitzohvideo4)
-
-        v.rvFitzohvideo.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
-        v.rvFitzohvideo.adapter= activity?.let {
-            RecyclerAdapterVideoLibrary(
-                it,
-                mList3,object :RecyclerAdapterVideoLibrary.CellClickListener
-                {
-                    override fun onCellClickistener(myobject: Fitzohvideo, position: Int) {
-                        val intent = Intent(
-                            activity,
-                            FitzohVideoLibraryActivity::class.java
-                        )
-                        intent.putExtra("fitzohvideo", myobject)
-                        intent.putExtra("position", position)
-                        startActivity(intent)
-                    }
-
-                }
-            )
-        }*/
-
 
         mListBlog= dbhelper!!.getblog()
         val blog= Blog()
@@ -124,11 +77,14 @@ class HomeScreenFragment : Fragment() {
                     intent.putExtra("position",position)
                     startActivity(intent)
                 }
-
             })
         }
 
-
+        v.tvBlogViewmore.setOnClickListener {
+            val intent=Intent(activity,
+                BlogsActivity::class.java)
+            startActivity(intent)
+        }
         v.cvUpcomingSessions.setOnClickListener {
             val intent=Intent(activity,
                 StrengthSessionActivity::class.java)
@@ -182,17 +138,15 @@ class HomeScreenFragment : Fragment() {
         v.rvBooklivesession.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         v.rvBooklivesession.adapter= activity?.let { RecyclerAdapterBookLiveSession(it,mListSession) }
 
+        val trainer=dbhelper.gettrainer()
+        val counsellor=dbhelper.getcounsellor()
 
-
-        val trainer=dbhelper?.gettrainer()
-        val counsellor=dbhelper?.getcounsellor()
-
-        v.tvTrainerName.setText(trainer?.trainername)
-        v.tvTrainerId.setText(trainer?.id.toString())
-        v.tvCounsellorName.setText(counsellor?.counsellorname)
-        v.tvCounsellorId.setText(counsellor?.id.toString())
-        activity?.let { Glide.with(it).load(trainer!!.trainerimage).into(v.ivTrainerProfile) }
-        activity?.let { Glide.with(it).load(counsellor!!.counsellorimage).into(v.ivCounceller) }
+        v.tvTrainerName.text = trainer.trainername
+        v.tvTrainerId.text = trainer.id.toString()
+        v.tvCounsellorName.text = counsellor.counsellorname
+        v.tvCounsellorId.text = counsellor.id.toString()
+        activity?.let { Glide.with(it).load(trainer.trainerimage).into(v.ivTrainerProfile) }
+        activity?.let { Glide.with(it).load(counsellor.counsellorimage).into(v.ivCounceller) }
         return v
     }
     }

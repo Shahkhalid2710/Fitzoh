@@ -19,10 +19,10 @@ import java.util.*
 import java.util.regex.Pattern
 
 class SignInActivity : AppCompatActivity() {
-    lateinit var sharedPreferences: SharedPreferences
-    lateinit var editor: SharedPreferences.Editor
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
 
-    val emailPattern = Pattern.compile(
+    private val emailPattern = Pattern.compile(
         "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
                 "\\@" +
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
@@ -31,7 +31,6 @@ class SignInActivity : AppCompatActivity() {
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
                 ")+"
     )
-
 
     @SuppressLint("DefaultLocale")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -88,7 +87,7 @@ class SignInActivity : AppCompatActivity() {
 
         }
     }
-    fun checkemail(useremail:String):Boolean
+    private fun checkemail(useremail:String):Boolean
     {
         if (useremail.isEmpty()) {
             val snackbar = Snackbar.make(linearlayout, "Please enter email", Snackbar.LENGTH_LONG)

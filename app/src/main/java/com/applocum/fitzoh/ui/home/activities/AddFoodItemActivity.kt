@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,23 +12,18 @@ import android.widget.Toast
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.NutritionMeal
-import com.applocum.fitzoh.ui.signin.activities.SignInActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_add_food_item.*
-import kotlinx.android.synthetic.main.activity_sign_up.*
-import kotlinx.android.synthetic.main.custom_filter_layout_xml.view.*
 import java.util.ArrayList
 
 class AddFoodItemActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
-    var seletedfood:String=""
-    lateinit var nutritionMeal:NutritionMeal
-    lateinit var nutritionMeal2:NutritionMeal
-    var language =
-        arrayOf("Roti", "Dosa", "Ice-Cream","Chai","Rice", "Chicken", "Chocolate", "Boiled Egg", "Milk","Bread","Aloo ka paratha","Idli")
+    private var seletedfood:String=""
+    private lateinit var nutritionMeal:NutritionMeal
+    private lateinit var nutritionMeal2:NutritionMeal
+    private var language = arrayOf("Roti","Kiwi fruit", "Dosa", "Ice-Cream","Chai","Rice", "Chicken", "Chocolate", "Boiled Egg", "Milk","Bread","Aloo ka paratha","Idli")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_food_item)
-
         ivBack.setOnClickListener {
             finish()
         }
@@ -47,7 +41,6 @@ class AddFoodItemActivity : AppCompatActivity(), AdapterView.OnItemClickListener
             if (validatefooddata(nutritionMeal.nName,nutritionMeal.nTime,foodname, noofserving, servingsize))
             {
                 val id=nutritionMeal.id
-                Log.d("iddddd","="+id)
                 dbhelper.updatenutritionMeal(nutritionMeal2,id)
                 Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, NutritionPlanActivity::class.java)
@@ -65,7 +58,7 @@ class AddFoodItemActivity : AppCompatActivity(), AdapterView.OnItemClickListener
         actv.threshold = 1
         actv.setAdapter(adapterACTV)
         actv.setTextColor(Color.BLACK)
-        actv.setOnItemClickListener(this)
+        actv.onItemClickListener = this
     }
     private fun selectnoofserving() {
         val builder = AlertDialog.Builder(this)
@@ -125,10 +118,21 @@ class AddFoodItemActivity : AppCompatActivity(), AdapterView.OnItemClickListener
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         seletedfood=actv.text.toString()
-        Log.d("aaaaaa","->"+seletedfood)
     }
-    fun validatefooddata(mealname:String,mealtime:String,foodname:String,noofserving:String,servingsize:String):Boolean
+
+
+    private fun validatefooddata(mealname:String, mealtime:String, foodname:String, noofserving:String, servingsize:String):Boolean
     {
+        if (mealname.isEmpty()) {
+            val snackbar = Snackbar.make(llfoodlayout, "Please enter mealname", Snackbar.LENGTH_LONG)
+            snackbar.show()
+            return false
+        }
+        if (mealtime.isEmpty()) {
+            val snackbar = Snackbar.make(llfoodlayout, "Please enter mealtime", Snackbar.LENGTH_LONG)
+            snackbar.show()
+            return false
+        }
         if (foodname.isEmpty()) {
             val snackbar = Snackbar.make(llfoodlayout, "Please select foodname", Snackbar.LENGTH_LONG)
             snackbar.show()

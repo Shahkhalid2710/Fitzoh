@@ -2,9 +2,7 @@ package com.applocum.fitzoh.ui.home.adapters
 
 import android.app.Dialog
 import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.net.Uri
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -35,21 +33,20 @@ class RecyclerAdapterCategories(context: Context,list: ArrayList<Categories>) :R
     }
 
     override fun onBindViewHolder(holder: CategoriesHolder, position: Int) {
-        val categories=mList.get(position)
+        val categories: Categories = mList[position]
 
         holder.itemView.tvDescription.text=categories.cDescription
         Glide.with(mContext).load(categories.cImage).into(holder.itemView.ivCategory)
 
         holder.itemView.setOnClickListener {
-            val metrics: DisplayMetrics = mContext.getResources().getDisplayMetrics()
-
-            val DeviceTotalWidth = metrics.widthPixels
-            val DeviceTotalHeight = metrics.heightPixels
+            val metrics = mContext.resources.displayMetrics
+            val width = metrics.widthPixels
+            val height = metrics.heightPixels
 
             val dialog = Dialog(mContext)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.custom_xml)
-            dialog.window!!.setLayout(DeviceTotalWidth, DeviceTotalHeight)
+            dialog.window!!.setLayout(width, height)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
 
             dialog.videoview.setVideoURI(Uri.parse(categories.cVideo))

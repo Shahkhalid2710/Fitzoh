@@ -48,7 +48,7 @@
                 android:id="@+id/ivanomika"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:src="@drawable/antonikapic"
                 android:contentDescription="@string/todo" />
 
@@ -81,7 +81,7 @@
                     android:id="@+id/ivonlinetraining"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/onlinetraining"
                     android:contentDescription="@string/todo" />
 
@@ -108,7 +108,7 @@
                     android:id="@+id/ivOnlineCounsellor"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     android:src="@drawable/onlinecounceller"
                     android:contentDescription="@string/todo" />
 
@@ -158,9 +158,9 @@
 
                     <ImageView
                         android:id="@+id/ivStrength"
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"
-                        android:scaleType="fitXY"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/img_strength"
                         android:contentDescription="@string/todo" />
 
@@ -184,9 +184,9 @@
 
                     <ImageView
                         android:id="@+id/ivYoga"
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"
-                        android:scaleType="fitXY"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/img_yoga"
                         android:contentDescription="@string/todo" />
 
@@ -210,9 +210,9 @@
 
                     <ImageView
                         android:id="@+id/ivMeditation"
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"
-                        android:scaleType="fitXY"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/img_meditation"
                         android:contentDescription="@string/todo" />
 
@@ -236,9 +236,9 @@
 
                     <ImageView
                         android:id="@+id/ivedurance"
-                        android:layout_width="match_parent"
-                        android:layout_height="110dp"
-                        android:scaleType="fitXY"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
                         android:src="@drawable/img_endurance"
                         android:contentDescription="@string/todo" />
 
@@ -270,6 +270,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_10"
+            android:id="@+id/cvmealpackage"
             android:backgroundTint="@color/white"
             app:cardCornerRadius="7dp">
 
@@ -318,6 +319,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="@dimen/spacing_10"
+               android:id="@+id/cvConsultations"
                 android:backgroundTint="@color/white"
                 app:cardCornerRadius="7dp"
                tools:ignore="NestedWeights">

@@ -8,15 +8,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.CounsellorActivity
-import com.applocum.fitzoh.ui.home.models.Blog
 import com.applocum.fitzoh.ui.home.models.Counsellor
-import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 
 class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Counsellor>):RecyclerView.Adapter<RecyclerAdapterNutritionists.NutritionHolder>() {
     var mContext=context
-    var mList=list
+   private var mList=list
 
     inner class NutritionHolder(itemView: View):RecyclerView.ViewHolder(itemView){}
 
@@ -30,7 +28,7 @@ class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Counsellor>):
     }
 
     override fun onBindViewHolder(holder: NutritionHolder, position: Int) {
-       val counsellor=mList.get(position)
+       val counsellor= mList[position]
 
         holder.itemView.tvLevel.text=counsellor.counsellorname
         holder.itemView.tvDescription.text=counsellor.counsellorexperience

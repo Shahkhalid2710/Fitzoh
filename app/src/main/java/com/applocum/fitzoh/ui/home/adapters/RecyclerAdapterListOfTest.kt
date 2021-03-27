@@ -10,7 +10,7 @@ import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_listoftest_xml.view.*
 
-class RecyclerAdapterListOfTest(context: Context, list:ArrayList<ListOfTest>, var cellClickListener: CellClickListener) :RecyclerView.Adapter<RecyclerAdapterListOfTest.TestHolder>(){
+class RecyclerAdapterListOfTest(context: Context, list:ArrayList<ListOfTest>, private var cellClickListener: CellClickListener) :RecyclerView.Adapter<RecyclerAdapterListOfTest.TestHolder>(){
     var mContext=context
     var mList=list
 
@@ -26,7 +26,7 @@ class RecyclerAdapterListOfTest(context: Context, list:ArrayList<ListOfTest>, va
     }
 
     override fun onBindViewHolder(holder: TestHolder, position: Int) {
-        val listoftest=mList.get(position)
+        val listoftest= mList[position]
         holder.itemView.tvName.text=listoftest.Listname
         holder.itemView.tvDescription.text=listoftest.Listdescription
 

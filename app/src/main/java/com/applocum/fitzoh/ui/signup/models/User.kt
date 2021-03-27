@@ -2,13 +2,13 @@ package com.applocum.fitzoh.ui.signup.models
 
 import java.io.Serializable
 
-class User(var name :String?="",var email:String?="",
-           var no:String?="",var dob:String?="",
-           var gender:String?="",var height:String?="",
+class User(var name :String?="", private var email:String?="",
+           private var no:String?="", private var dob:String?="",
+           private var gender:String?="", var height:String?="",
            var weight:String?="",
            var dailyactivity:String?="",
            var mealtype:String?="",
-           var currentbodyfat:String?=""): Serializable {
+           private var currentbodyfat:String?=""): Serializable {
 
     var id:Int=0
     var userName=name

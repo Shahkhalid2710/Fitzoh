@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/ivBack"
-            android:layout_width="17dp"
-            android:layout_height="17dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/spacing_10"
             android:src="@drawable/leftarrow"
@@ -38,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_10"
-        app:tabTextColor="@color/bluee" />
+        app:tabTextColor="@color/black"
+        app:tabSelectedTextColor="@color/bluee"/>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

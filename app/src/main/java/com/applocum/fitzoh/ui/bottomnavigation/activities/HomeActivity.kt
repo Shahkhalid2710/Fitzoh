@@ -35,24 +35,16 @@ class HomeActivity : AppCompatActivity(), AHBottomNavigation.OnTabSelectedListen
         bottomNavigationView.setDefaultBackgroundResource(R.color.white)
         bottomNavigationView.setOnTabSelectedListener(this)
 
-        val homeScreenFragment =
-            HomeScreenFragment()
+        val homeScreenFragment = HomeScreenFragment()
         loadfragment(homeScreenFragment)
-
     }
-
     override fun onTabSelected(position: Int, wasSelected: Boolean): Boolean {
 
-        val calenderFragment =
-            CalenderFragment()
-        val profileFragment =
-            ProfileFragment()
-        val trainerFragment =
-            TrainerFragment()
-        val packagesFragment =
-            PackagesFragment()
-        val homeScreenFragment=
-            HomeScreenFragment()
+        val calenderFragment = CalenderFragment()
+        val profileFragment = ProfileFragment()
+        val trainerFragment = TrainerFragment()
+        val packagesFragment = PackagesFragment()
+        val homeScreenFragment= HomeScreenFragment()
 
         when (position) {
             0 -> { loadfragment(calenderFragment) }
@@ -64,12 +56,9 @@ class HomeActivity : AppCompatActivity(), AHBottomNavigation.OnTabSelectedListen
         return true
     }
 
-
     private fun loadfragment(fragment: Fragment) {
-
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.myLayout, fragment)
         transaction.commit()
     }
-
 }

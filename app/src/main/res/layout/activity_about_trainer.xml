@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/ivBack"
-                android:layout_width="17dp"
-                android:layout_height="17dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/spacing_10"
                 android:contentDescription="@string/todo"
@@ -140,48 +140,13 @@
             android:textColor="@color/black"
             android:textSize="@dimen/font_15" />
 
-
-       <!-- <androidx.cardview.widget.CardView
-            android:id="@+id/cvSessiondetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_10"
-            android:layout_marginEnd="@dimen/spacing_10"
-            android:layout_marginTop="@dimen/spacing_10"
-            android:backgroundTint="@color/white"
-            android:layout_marginBottom="@dimen/spacing_20"
-            app:cardCornerRadius="@dimen/spacing_5">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tvNoofsessionCompleted"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_10"
-                    android:layout_marginTop="@dimen/spacing_10"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/no_of_session_completed"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/font_13" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSession"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
--->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tablayout"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_10"
-            app:tabTextColor="@color/bluee" />
+            app:tabTextColor="@color/black"
+            app:tabSelectedTextColor="@color/bluee"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
