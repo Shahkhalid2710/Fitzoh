@@ -2,9 +2,11 @@ package com.applocum.fitzoh
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import com.applocum.fitzoh.ui.calender.models.Progress
 import com.applocum.fitzoh.ui.goal.models.Goal
 import com.applocum.fitzoh.ui.home.models.*
 import com.applocum.fitzoh.ui.signup.models.User
@@ -61,6 +63,7 @@ class Dbhelper(context: Context) :
         private const val KEY_SLOT_STARTTIME = "slotstarttime"
         private const val KEY_SLOT_ENDTIME = "slotendtime"
         private const val KEY_SLOT_DATE = "slotdate"
+        private const val KEY_SLOT_TIME = "slottime"
 
         private const val TABLE_FITNESS_LIST = "fitnesstest"
         private const val KEY_FITNESS_LIST_ID = "fitnesstestlistid"
@@ -137,7 +140,19 @@ class Dbhelper(context: Context) :
         private const val KEY_SESSION_BOOKING_DATE= "sessionbookingdate"
         private const val KEY_SESSION_BOOKING_START_TIME= "sessionbookingstarttime"
         private const val KEY_SESSION_BOOKING_END_TIME= "sessionbookingendtime"
+        private const val KEY_SESSION_BOOKING_TIME= "sessionbookingtime"
 
+        private const val TABLE_PROGRESS= "progress"
+        private const val KEY_PROGRESS_ID= "progressid"
+        private const val KEY_PROGRESS_HEIGHT= "progressheight"
+        private const val KEY_PROGRESS_WEIGHT= "progressweight"
+        private const val KEY_PROGRESS_BODY_FAT= "progressbodyfat"
+        private const val KEY_PROGRESS_CHEST= "progresschest"
+        private const val KEY_PROGRESS_ARM= "progressarm"
+
+        private const val TABLE_SESSION_SUB_CATEGORY= "sessionsubcategory"
+        private const val KEY_SESSION_SUB_CATEGORY_ID= "sessionsubcategoryid"
+        private const val KEY_SESSION_SUB_CATEGORY_NAME= "sessionsubcategoryname"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -145,7 +160,7 @@ class Dbhelper(context: Context) :
         db?.execSQL("create table Goal(goal_id INTEGER PRIMARY KEY AUTOINCREMENT,bmi TEXT,bmitype TEXT,weightrange TEXT,targetweight TEXT,fitnessgoal TEXT,positivehabit TEXT)")
         db?.execSQL("create table trainer(trainerid INTEGER PRIMARY KEY AUTOINCREMENT,trainername TEXT,trainerimage TEXT,trainerexperience TEXT,trainerlanguages TEXT,trainerabout TEXT,trainersessions TEXT,trainerstatus TEXT,sessionid INTEGER NOT NULL,FOREIGN KEY(sessionid) REFERENCES sessioncategory(sessioncategoryid))")
         db?.execSQL("create table counsellor(counsellorid INTEGER PRIMARY KEY AUTOINCREMENT,counsellorname TEXT,counsellorimage TEXT,counsellorexperience TEXT,counsellorlanguages TEXT,counsellorabout TEXT,counsellorprice TEXT)")
-        db?.execSQL("create table slotbooking(slotid INTEGER PRIMARY KEY AUTOINCREMENT,slotdate TEXT,slotstarttime TEXT,slotendtime TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES trainer(trainerid))")
+        db?.execSQL("create table slotbooking(slotid INTEGER PRIMARY KEY AUTOINCREMENT,slotdate TEXT,slotstarttime TEXT,slotendtime TEXT,slottime TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES trainer(trainerid))")
         db?.execSQL("create table fitnesstest(fitnesstestlistid INTEGER PRIMARY KEY AUTOINCREMENT,fitnesstestlistname TEXT,fitnesstestlistimage TEXT,fitnesstestlistabout TEXT,fitnesstestlistvideo TEXT)")
         db?.execSQL("create table maincategory(maincategoryid INTEGER PRIMARY KEY AUTOINCREMENT,maincategoryname TEXT)")
         db?.execSQL("create table subcategory(subcategoryid INTEGER PRIMARY KEY AUTOINCREMENT,subcategoryimage TEXT,subcategoryvideo TEXT,subcategoryabout TEXT,cid INTEGER NOT NULL,FOREIGN KEY(cid) REFERENCES maincategory(maincategoryid))")
@@ -157,7 +172,9 @@ class Dbhelper(context: Context) :
         db?.execSQL("create table basicpackage(basicpackageid INTEGER PRIMARY KEY AUTOINCREMENT,basicpackagemonth TEXT,basicpackageprice TEXT)")
         db?.execSQL("create table standardpackage(standardpackageid INTEGER PRIMARY KEY AUTOINCREMENT,standardpackagemonth TEXT,standardpackageprice TEXT)")
         db?.execSQL("create table premiumpackage(premiumpackageid INTEGER PRIMARY KEY AUTOINCREMENT,premiumpackagemonth TEXT,premiumpackageprice TEXT)")
-        db?.execSQL("create table sessionbooking(sessionbookingid INTEGER PRIMARY KEY AUTOINCREMENT,sessionbookingdate TEXT,sessionbookingstarttime TEXT,sessionbookingendtime TEXT,userid INTEGER NOT NULL,packageid INTEGER NOT NULL,counsellorid INTEGER NOT NULL,trainerid INTEGER NOT NULL,sid INTEGER NOT NULL,FOREIGN KEY(userid) REFERENCES Signup(userid),FOREIGN KEY(packageid) REFERENCES basicpackage(basicpackageid),FOREIGN KEY(counsellorid) REFERENCES counsellor(counsellorid),FOREIGN KEY(trainerid) REFERENCES trainer(trainerid),FOREIGN KEY(sid) REFERENCES slotbooking(slotid))")
+        db?.execSQL("create table sessionbooking(sessionbookingid INTEGER PRIMARY KEY AUTOINCREMENT,sessionbookingdate TEXT,sessionbookingstarttime TEXT,sessionbookingendtime TEXT,sessionbookingtime TEXT,userid INTEGER NOT NULL,packageid INTEGER NOT NULL,counsellorid INTEGER NOT NULL,trainerid INTEGER NOT NULL,sessioncategoryid INTEGER NOT NULL,FOREIGN KEY(userid) REFERENCES Signup(userid),FOREIGN KEY(packageid) REFERENCES basicpackage(basicpackageid),FOREIGN KEY(counsellorid) REFERENCES counsellor(counsellorid),FOREIGN KEY(trainerid) REFERENCES trainer(trainerid),FOREIGN KEY(sessioncategoryid) REFERENCES sessioncategory(sessioncategoryid))")
+        db?.execSQL("create table progress(progressid INTEGER PRIMARY KEY AUTOINCREMENT,progressheight TEXT,progressweight TEXT,progressbodyfat TEXT,progresschest TEXT,progressarm TEXT,userid INTEGER NOT NULL,FOREIGN KEY(userid) REFERENCES Signup(userid))")
+        db?.execSQL("create table sessionsubcategory(sessionsubcategoryid INTEGER PRIMARY KEY AUTOINCREMENT,sessionsubcategoryname TEXT,sessioncategoryid INTEGER NOT NULL,FOREIGN KEY(sessioncategoryid) REFERENCES sessioncategory(sessioncategoryid))")
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -178,21 +195,99 @@ class Dbhelper(context: Context) :
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_PREMIUM_PACKAGE")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_SESSION_CATEGORY")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_SESSION_BOOKING")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_PROGRESS")
+        db?.execSQL("DROP TABLE IF EXISTS $TABLE_SESSION_SUB_CATEGORY")
         onCreate(db)
     }
+    fun sessionsubcategory()
+    {
+        val db=this.writableDatabase
+        db.execSQL("insert into sessionsubcategory(sessionsubcategoryname,sessioncategoryid)" + "values('Jogging','1')")
+        db.execSQL("insert into sessionsubcategory(sessionsubcategoryname,sessioncategoryid)" + "values('Swimming','2')")
+        db.execSQL("insert into sessionsubcategory(sessionsubcategoryname,sessioncategoryid)" + "values('Biking','3')")
+        db.execSQL("insert into sessionsubcategory(sessionsubcategoryname,sessioncategoryid)" + "values('Running','4')")
+        db.execSQL("insert into sessionsubcategory(sessionsubcategoryname,sessioncategoryid)" + "values('Walking','5')")
+        db.execSQL("insert into sessionsubcategory(sessionsubcategoryname,sessioncategoryid)" + "values('Yoga','6')")
+        db.close()
+    }
 
-   fun sessionBooking(sessionbooking: Sessionbooking,userid:Int,packageid:Int,counsellorid:Int,trainerid:Int,slotid:Int)
+    fun getsessionsubcategory(name: String):ArrayList<String>{
+        val db = this.readableDatabase
+        val query = "select sessioncategory.sessioncategoryid,sessioncategory.sessioncategoryname,sessioncategory.sessioncategoryimage,sessioncategory.sessioncategorystatus,sessionsubcategory.sessionsubcategoryname FROM sessionsubcategory INNER JOIN sessioncategory ON  sessionsubcategory.sessioncategoryid=sessioncategory.sessioncategoryid where sessioncategory.sessioncategoryname=?"
+        val cursor = db.rawQuery(query, arrayOf(name))
+        val list:ArrayList<String> = ArrayList()
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                      val name=  cursor.getString(cursor.getColumnIndex(KEY_SESSION_SUB_CATEGORY_NAME))
+                     list.add(name)
+                    Log.d("nameeeee","->"+name)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        cursor.close()
+        return list
+    }
+
+
+
+    fun progress(progress: Progress,id: Int) {
+        val db = this.writableDatabase
+        val cv = ContentValues()
+        cv.put(KEY_PROGRESS_HEIGHT,progress.uHeight)
+        cv.put(KEY_PROGRESS_WEIGHT,progress.uWeight)
+        cv.put(KEY_PROGRESS_BODY_FAT, progress.uBodyfat)
+        cv.put(KEY_PROGRESS_CHEST,progress.uChest)
+        cv.put(KEY_PROGRESS_ARM,progress.uArm)
+        cv.put("userid",id)
+        db.insert(TABLE_PROGRESS, null, cv)
+        db.close()
+
+    }
+
+    fun getProgress():Progress?
+    {
+        val db = this.readableDatabase
+        val query = "select * from progress"
+        val cursor = db.rawQuery(query, null)
+        var progress= Progress()
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    progress = Progress(
+                        cursor.getString(cursor.getColumnIndex(KEY_PROGRESS_HEIGHT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_PROGRESS_WEIGHT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_PROGRESS_BODY_FAT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_PROGRESS_CHEST)),
+                        cursor.getString(cursor.getColumnIndex(KEY_PROGRESS_ARM))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_PROGRESS_ID))
+                   progress.id = a
+                    //mList.add(progress)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        cursor.close()
+        return progress
+    }
+
+
+
+   fun sessionBooking(sessionbooking:Sessionbooking,userid:Int,packageid:Int,counsellorid:Int,trainerid:Int,sessionCategoryid:Int)
     {
         val db=this.writableDatabase
         val cv=ContentValues()
         cv.put(KEY_SESSION_BOOKING_DATE,sessionbooking.sDate)
         cv.put(KEY_SESSION_BOOKING_START_TIME,sessionbooking.sStarttime)
         cv.put(KEY_SESSION_BOOKING_END_TIME,sessionbooking.sEndtime)
+        cv.put(KEY_SESSION_BOOKING_TIME,sessionbooking.sTime)
         cv.put("userid",userid)
         cv.put("packageid",packageid)
         cv.put("counsellorid",counsellorid)
         cv.put("trainerid",trainerid)
-        cv.put("sid",slotid)
+        cv.put("sessioncategoryid",sessionCategoryid)
         db.insert(TABLE_SESSION_BOOKING, null,cv)
         db.close()
 
@@ -209,6 +304,7 @@ class Dbhelper(context: Context) :
         db.close()
 
     }
+
     fun getworkout():ArrayList<Workout>
     {
         val db = this.readableDatabase
@@ -290,11 +386,11 @@ class Dbhelper(context: Context) :
     fun trainerprofile() {
         val db = this.writableDatabase
         db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Jhon Martin','android.resource://com.applocum.fitzoh/drawable/jhonmartin','5 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','1')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Robert Ray','android.resource://com.applocum.fitzoh/drawable/robertroy','4 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','6')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Robert Ray','android.resource://com.applocum.fitzoh/drawable/robertroy','4 years','Hindi','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','6')")
         db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Jhon Doi','android.resource://com.applocum.fitzoh/drawable/jhondoi','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','2')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Jenna Hopper','android.resource://com.applocum.fitzoh/drawable/ena','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','3')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('EIa Loppes','android.resource://com.applocum.fitzoh/drawable/elaloppes','1 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','4')")
-        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Bewell Bykelly','android.resource://com.applocum.fitzoh/drawable/bewell','2 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','5')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Jenna Hopper','android.resource://com.applocum.fitzoh/drawable/ena','2 years','Gujarati','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','3')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('EIa Loppes','android.resource://com.applocum.fitzoh/drawable/elaloppes','1 years','French','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','4')")
+        db.execSQL("insert into trainer(trainername,trainerimage,trainerexperience,trainerlanguages,trainerabout,trainersessions,trainerstatus,sessionid)" + "values('Bewell Bykelly','android.resource://com.applocum.fitzoh/drawable/bewell','2 years','French','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','Sesssion-1','0','5')")
 
         db.close()
     }
@@ -327,6 +423,7 @@ class Dbhelper(context: Context) :
         cursor.close()
         return mList
     }
+
     fun gettrainer(): Trainer {
         val db = this.readableDatabase
         val query = "select * from trainer where trainerid= 4"
@@ -386,6 +483,35 @@ class Dbhelper(context: Context) :
       return mListtrainer
   }
 
+    fun getTrainerlist(categoryname:String,subcategoryname:String,langauage:String): ArrayList<Trainer> {
+        val db = this.readableDatabase
+        val query="SELECT * FROM trainer JOIN sessioncategory ON trainer.sessionid=sessioncategory.sessioncategoryid JOIN sessionsubcategory ON sessionsubcategory.sessioncategoryid=sessioncategory.sessioncategoryid where sessionsubcategoryname LIKE '$subcategoryname' AND sessioncategoryname LIKE '$categoryname' AND trainerlanguages LIKE '$langauage'"
+         val mList: ArrayList<Trainer> = ArrayList()
+        val cursor = db.rawQuery(query, null)
+        var trainer: Trainer
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    trainer = Trainer(
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERNAME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERIMAGE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINEREXPERIENCE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERLANGUAGES)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERABOUT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS)),
+                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS)))
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_TRAINER_ID))
+                    trainer.id = a
+                    mList.add(trainer)
+                } while (cursor.moveToNext())
+            }
+        }
+        db.close()
+        cursor.close()
+        return mList
+    }
+
     fun basicpackage()
     {
         val db=this.writableDatabase
@@ -395,6 +521,7 @@ class Dbhelper(context: Context) :
         db.close()
 
     }
+
     fun getbasicpackage():ArrayList<Packages>
     {
         val db=this.readableDatabase
@@ -498,13 +625,42 @@ class Dbhelper(context: Context) :
 
     fun slotbooking() {
         val db = this.writableDatabase
-        db.execSQL("insert into slotbooking(slotdate,slotstarttime,slotendtime,tid)" + "values(Date(),'07:00 AM','10:00 PM','4')")
+        db.execSQL("insert into slotbooking(slotdate,slotstarttime,slotendtime,slottime,tid)" + "values(Date(),'07:00 AM','10:00 PM','12:00 PM','4')")
         db.close()
     }
-    fun getslotbooking(date: String): Slotbooking? {
+
+    fun getslotbooking(date: String): Slotbooking?{
         val db = this.readableDatabase
-        val query = "select * from slotbooking where slotdate=?"
+        val query = "select * from 'slotbooking' where slotdate=?"
         val cursor = db.rawQuery(query, arrayOf(date))
+        var slotbooking:Slotbooking?= Slotbooking()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    slotbooking = Slotbooking(
+                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_DATE)),
+                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_STARTTIME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_ENDTIME)),
+                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_TIME))
+                    )
+                    val a = cursor.getInt(cursor.getColumnIndex(KEY_SLOT_ID))
+                    slotbooking.id = a
+                } while (cursor.moveToNext())
+            }
+        }
+        else {
+            slotbooking=null
+        }
+        db.close()
+        cursor.close()
+        return slotbooking
+    }
+
+    fun getallslotbooking(): Slotbooking? {
+        val db = this.readableDatabase
+        val query = "select * from slotbooking"
+        val cursor = db.rawQuery(query,null)
         var slotbooking:Slotbooking? = Slotbooking()
 
         if (cursor != null) {
@@ -519,9 +675,6 @@ class Dbhelper(context: Context) :
                     slotbooking.id = a
                 } while (cursor.moveToNext())
             }
-        }
-        else {
-            slotbooking=null
         }
         db.close()
         cursor.close()
@@ -539,6 +692,7 @@ class Dbhelper(context: Context) :
         db.insert(TABLE_FITNESS_TEST, null,cv)
         db.close()
     }
+
     fun getFitnesstest(id:Int): ArrayList<FitnessTest> {
         val db = this.readableDatabase
         val query = "select * from startfitnesstest where tid=?"
@@ -668,11 +822,29 @@ class Dbhelper(context: Context) :
         db.close()
 
     }
+    fun updateprofile(user: User?,id: Int?)
+    {
+        val db=this.writableDatabase
+        val cv=ContentValues()
+        cv.put(KEY_USERNAME, user?.userName)
+        cv.put(KEY_EMAIL, user?.userEmail)
+        cv.put(KEY_MOBILE_NUMBER, user?.userMobileNumber)
+        cv.put(KEY_DATE_OF_BIRTH, user?.userDOB)
+        cv.put(KEY_GENDER, user?.userGender)
+        cv.put(KEY_HEIGHT, user?.userHeight)
+        cv.put(KEY_WEIGHT, user?.userWeight)
+        cv.put(KEY_DAILY_ACTIVITY, user?.userdDailyActivity)
+        cv.put(KEY_MEAL_TYPE, user?.userMealType)
+        cv.put(KEY_CURRENT_BODY_FAT, user?.userCurrentBodyFat)
+        db.update(TABLE_SIGNUP,cv, "$KEY_USERID=$id",null)
+        db.close()
+    }
 
     fun signin(email: String): User? {
         val db = this.readableDatabase
         val query: String = "select * from Signup where $KEY_EMAIL =?"
         val cursor = db.rawQuery(query, arrayOf(email))
+        val mList:ArrayList<User> = ArrayList()
         var user = User()
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -689,7 +861,9 @@ class Dbhelper(context: Context) :
                         cursor.getString(cursor.getColumnIndex(KEY_MEAL_TYPE)),
                         cursor.getString(cursor.getColumnIndex(KEY_CURRENT_BODY_FAT))
                     )
-
+                    val a=cursor.getInt(cursor.getColumnIndex(KEY_USERID))
+                    user.id=a
+                    mList.add(user)
                 } while (cursor.moveToNext())
             }
         }

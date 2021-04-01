@@ -1,18 +1,21 @@
 package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
+import com.applocum.fitzoh.ui.home.models.Packages
 import com.applocum.fitzoh.ui.home.models.Trainer
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_trainertype_xml.view.*
 
-class RecyclerAdapterSessionTrainer(context: Context,list: ArrayList<Trainer>):RecyclerView.Adapter<RecyclerAdapterSessionTrainer.TrainerHolder>() {
+class RecyclerAdapterSessionTrainer(context: Context,list: ArrayList<Trainer>,private var cellClickListener:CellClickListener):RecyclerView.Adapter<RecyclerAdapterSessionTrainer.TrainerHolder>() {
     var mContext=context
     var mList=list
+    var selecttrainer=-1
 
     inner class TrainerHolder(itemView: View):RecyclerView.ViewHolder(itemView){}
 
@@ -31,9 +34,24 @@ class RecyclerAdapterSessionTrainer(context: Context,list: ArrayList<Trainer>):R
         holder.itemView.tvName.text=trainer.trainername
         holder.itemView.tvExperince.text=trainer.trainerexperince
         Glide.with(mContext).load(trainer.trainerimage).into(holder.itemView.ivPic)
-        holder.itemView.cvTrainerProfile.setOnClickListener {
+        holder.itemView.setOnClickListener {
             holder.itemView.cb3.isChecked=true
+            selecttrainer=trainer.id
+            Log.d("positionnnnnnnn","-->"+selecttrainer)
+            notifyDataSetChanged()
+            cellClickListener.onCellClickistener(trainer,position)
+        }
+        if (selecttrainer == position)
+        {
+            trainer.trainerstatus=1
+        }
+        else
+        {
+            trainer.trainerstatus=0
         }
     }
-
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: Trainer, position: Int)
+    }
 }

@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.NutritionistCounsellorsActivity
+import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.applocum.fitzoh.ui.home.models.Packages
 import kotlinx.android.synthetic.main.raw_xml_basicpackages.view.*
 
-class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<Packages>) :RecyclerView.Adapter<RecyclerAdapterBasicPackages.BasicPackageHolder>(){
+class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<Packages>,private var cellClickListener:CellClickListener) :RecyclerView.Adapter<RecyclerAdapterBasicPackages.BasicPackageHolder>(){
     var mContext=context
     var mList:ArrayList<Packages> =list
 
@@ -32,11 +33,12 @@ class RecyclerAdapterBasicPackages(context: Context,list:ArrayList<Packages>) :R
         holder.itemView.tvPayMonth.text=packages.bName
         holder.itemView.tvPrice.text=packages.bPrice
 
-        holder.itemView.cvBuy.setOnClickListener {
-            val intent=Intent(mContext,NutritionistCounsellorsActivity::class.java)
-            intent.putExtra("packages",packages)
-            intent.putExtra("position",position)
-            mContext.startActivity(intent)
+        holder.itemView.setOnClickListener {
+            cellClickListener.onCellClickistener(packages,position)
         }
+    }
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: Packages, position: Int)
     }
 }

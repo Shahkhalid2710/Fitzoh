@@ -60,5 +60,9 @@
         <item name="android:textColor">@color/red</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
+    <style name="Layoutbackground">
+        <item name="android:background">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
 
 </resources>

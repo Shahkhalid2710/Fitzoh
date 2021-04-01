@@ -24,6 +24,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginStart="@dimen/spacing_10"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/leftarrow" />
@@ -100,6 +102,8 @@
                 android:layout_margin="@dimen/spacing_20"
                 android:background="@drawable/btn_continue"
                 android:gravity="center"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:text="@string/add_meal"
                 android:textSize="@dimen/font_15" />
     </LinearLayout>

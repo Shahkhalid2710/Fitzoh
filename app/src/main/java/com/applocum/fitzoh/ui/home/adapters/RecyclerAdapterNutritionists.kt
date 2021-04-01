@@ -9,10 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.CounsellorActivity
 import com.applocum.fitzoh.ui.home.models.Counsellor
+import com.applocum.fitzoh.ui.home.models.Packages
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 
-class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Counsellor>):RecyclerView.Adapter<RecyclerAdapterNutritionists.NutritionHolder>() {
+class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Counsellor>,private var cellClickListener: CellClickListener):RecyclerView.Adapter<RecyclerAdapterNutritionists.NutritionHolder>() {
     var mContext=context
    private var mList=list
 
@@ -34,11 +35,12 @@ class RecyclerAdapterNutritionists(context: Context,list:ArrayList<Counsellor>):
         holder.itemView.tvDescription.text=counsellor.counsellorexperience
         Glide.with(mContext).load(counsellor.counsellorimage).into(holder.itemView.ivLevel)
 
-        holder.itemView.cvBlog.setOnClickListener {
-            val intent=Intent(mContext,CounsellorActivity::class.java)
-            intent.putExtra("counsellor",counsellor)
-            intent.putExtra("position",position)
-            mContext.startActivity(intent)
+        holder.itemView.setOnClickListener {
+            cellClickListener.onCellClickistener(counsellor,position)
         }
+    }
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: Counsellor, position: Int)
     }
 }

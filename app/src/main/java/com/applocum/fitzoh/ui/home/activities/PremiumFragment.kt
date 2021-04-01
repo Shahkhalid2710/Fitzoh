@@ -24,7 +24,11 @@ class PremiumFragment : Fragment() {
          mListPackages=dbhelper!!.getpremiumpackage()
          v.rvPremiumPackage.layoutManager=
              LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-         v.rvPremiumPackage.adapter= activity?.let { RecyclerAdapterBasicPackages(it,mListPackages) }
+         v.rvPremiumPackage.adapter= activity?.let { RecyclerAdapterBasicPackages(it,mListPackages,object :RecyclerAdapterBasicPackages.CellClickListener{
+             override fun onCellClickistener(myobject: Packages, position: Int) {
+
+             }
+         }) }
         return v
     }
 }

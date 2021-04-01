@@ -24,6 +24,8 @@
             android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:contentDescription="@string/todo"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/image_respirateryandstamina" />
 
         <ImageView

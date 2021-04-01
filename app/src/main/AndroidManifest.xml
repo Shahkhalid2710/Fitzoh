@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fitzoh">
-        <activity android:name=".ui.home.activities.BlogsActivity"></activity>
+        <activity android:name=".ui.calender.activities.ProgressDetailsActivty"></activity>
+        <activity android:name=".ui.home.activities.BlogsActivity" />
         <activity android:name=".ui.home.activities.AddFoodItemActivity" />
         <activity android:name=".ui.profile.activities.EditProfileActivity" />
         <activity android:name=".ui.home.activities.BlogActivity" />

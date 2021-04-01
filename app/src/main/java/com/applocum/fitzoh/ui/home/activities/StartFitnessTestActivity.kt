@@ -34,6 +34,7 @@ class StartFitnessTestActivity : AppCompatActivity(), SeekArc.OnSeekArcChangeLis
             seconds %= 60
             tvtime.text = String.format("%d:%02d", minutes, seconds)
             seekArc.setProgress(seconds)
+
             timehandler.postDelayed(this, 1000)
         }
     }

@@ -24,10 +24,12 @@ class NutritionPlanActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nutrition_plan)
-        val dbhelper=Dbhelper(this)
+       val dbhelper=Dbhelper(this)
         ivBack.setOnClickListener {
             finish()
         }
+
+
         btnAddMeal.setOnClickListener {
             val showDialogView= LayoutInflater.from(this).inflate(R.layout.custom_meal_layout,null,false)
             val dialog = AlertDialog.Builder(this).create()
@@ -44,10 +46,10 @@ class NutritionPlanActivity : AppCompatActivity() {
                     dialog.dismiss()
                 }
             }
+
             showDialogView.btnCancel.setOnClickListener {
                 dialog.dismiss()
             }
-
             dialog.show()
         }
 

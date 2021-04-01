@@ -2,18 +2,20 @@ package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
+import com.applocum.fitzoh.ui.home.models.Slotbooking
 import kotlinx.android.synthetic.main.raw_xml_time.view.*
 
 
 class RecyclerAdapterSlotBookingTime(context: Context, list:ArrayList<String>, private var cellClickListener:CellClickListener):RecyclerView.Adapter<RecyclerAdapterSlotBookingTime.SlotBookingHolder>() {
     var mContext=context
     var mList=list
-    private var selectedItem:Int=0
+    private var selectedItem:Int=-1
 
     inner class SlotBookingHolder(itemView:View):RecyclerView.ViewHolder(itemView){}
 
@@ -27,14 +29,15 @@ class RecyclerAdapterSlotBookingTime(context: Context, list:ArrayList<String>, p
     }
 
     override fun onBindViewHolder(holder: SlotBookingHolder, position: Int) {
-        val time= mList[position]
-        holder.itemView.tvTime.text=time
+        val slotbooking= mList.get(position)
+        holder.itemView.tvTime.text= slotbooking
+
 
 
         holder.itemView.setOnClickListener {
-            selectedItem = position
+            selectedItem =position
             notifyDataSetChanged()
-            cellClickListener.onCellClickistener(time,position)
+            cellClickListener.onCellClickistener(slotbooking,position)
 
         }
             if (selectedItem == holder.adapterPosition) {

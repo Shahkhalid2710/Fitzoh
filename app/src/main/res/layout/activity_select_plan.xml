@@ -17,6 +17,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="@dimen/spacing_10"
             android:src="@drawable/leftarrow"
             android:contentDescription="@string/todo" />
@@ -42,6 +44,8 @@
           android:layout_height="130dp"
           android:src="@drawable/image_beginner"
           android:scaleType="centerCrop"
+          android:focusable="true"
+          android:foreground="?attr/selectableItemBackgroundBorderless"
           android:contentDescription="@string/todo" />
       <TextView
           android:id="@+id/tvBeginner"
@@ -63,6 +67,8 @@
             android:layout_height="130dp"
             android:src="@drawable/image_intermedeter"
             android:scaleType="centerCrop"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/todo" />
         <TextView
             android:id="@+id/tvIntermediate"
@@ -84,6 +90,8 @@
             android:layout_height="130dp"
             android:src="@drawable/image_advance"
             android:scaleType="centerCrop"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/todo" />
         <TextView
             android:id="@+id/tvAdvance"

@@ -24,6 +24,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginStart="@dimen/spacing_10"
                 android:src="@drawable/leftarrow"
                 android:contentDescription="@string/todo" />
@@ -90,6 +92,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/btn_continue"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:text="@string/checkin"
             android:textSize="@dimen/font_15"
             android:layout_marginBottom="@dimen/spacing_50"

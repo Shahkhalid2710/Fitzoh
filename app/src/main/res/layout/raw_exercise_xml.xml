@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/spacing_10"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="5dp"
+    tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvWorkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="start"
+                    android:text="@string/workout"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <TextView
+                    android:id="@+id/tvCardio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="end"
+                    android:text="@string/cardio"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/spacing_10"
+                android:layout_marginEnd="@dimen/spacing_10"
+                android:background="@color/textcolorgray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvSets"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/sets"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12" />
+
+                <TextView
+                    android:id="@+id/tvsetno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/spacing_5"
+                    android:gravity="end"
+                    android:text="@string/_03"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_11" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvExercsise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/exercises"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_12" />
+
+                <TextView
+                    android:id="@+id/tvexerciseno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/spacing_5"
+                    android:gravity="end"
+                    android:text="@string/_03"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_11" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/spacing_10"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:background="@drawable/btn_continue"
+                android:text="@string/start"
+                android:textSize="@dimen/font_11" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>

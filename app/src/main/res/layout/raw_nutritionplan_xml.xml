@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipelayout"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white">
@@ -18,6 +20,8 @@
             android:id="@+id/ivDelete"
             android:layout_width="21dp"
             android:layout_height="21dp"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/todo"
             android:src="@drawable/delete" />
     </LinearLayout>
@@ -32,6 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_10"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:backgroundTint="@color/white"
             app:cardCornerRadius="@dimen/spacing_5">
 
@@ -84,6 +90,8 @@
                             android:id="@+id/ivMenu"
                             android:layout_width="21dp"
                             android:layout_height="21dp"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
                             android:layout_marginEnd="@dimen/spacing_20"
                             android:contentDescription="@string/todo"
                             android:src="@drawable/edit" />
@@ -92,6 +100,8 @@
                             android:id="@+id/ivAdd"
                             android:layout_width="21dp"
                             android:layout_height="21dp"
+                            android:focusable="true"
+                            android:foreground="?attr/selectableItemBackgroundBorderless"
                             android:layout_marginEnd="@dimen/spacing_10"
                             android:contentDescription="@string/todo"
                             android:src="@drawable/blueplus" />

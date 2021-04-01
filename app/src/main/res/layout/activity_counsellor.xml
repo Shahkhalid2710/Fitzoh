@@ -17,6 +17,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="@dimen/spacing_10"
             android:src="@drawable/leftarrow"
             android:contentDescription="@string/todo" />
@@ -56,6 +58,8 @@
                     android:layout_height="80dp"
                     android:contentDescription="@string/todo"
                     android:scaleType="centerCrop"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:src="@drawable/ena" />
 
                 <LinearLayout
@@ -125,6 +129,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:layout_marginTop="@dimen/spacing_20"
         android:text="@string/select_nutritionist"
         android:padding="@dimen/spacing_10"

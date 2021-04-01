@@ -36,33 +36,25 @@
             android:textSize="@dimen/font_13" />
 
 
-        <RelativeLayout
+        <EditText
+            android:id="@+id/etSelectcategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_10"
             android:layout_marginEnd="@dimen/spacing_10"
+            android:drawableEnd="@drawable/ic_list"
+            android:focusable="false"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/select_category"
+            android:padding="@dimen/spacing_10"
+            android:imeOptions="actionNext"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_12"
             android:background="@drawable/custom_weight_layout"
-            tools:ignore="UselessParent">
-
-            <Spinner
-                android:id="@+id/spinnerCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/spacing_5"
-                style="@style/spinnerstyle"
-                android:spinnerMode="dialog"
-                android:entries="@array/categorylist" />
-
-            <ImageView
-                android:id="@+id/ivListCategory"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/spacing_10"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/ic_drop_down_button" />
-        </RelativeLayout>
+            android:textColorHint="@color/textcolorgray"
+            tools:ignore="LabelFor"
+            android:autofillHints="0"
+            android:inputType="text" />
         <TextView
             android:id="@+id/tvSelectSubCategory"
             android:layout_width="wrap_content"
@@ -74,33 +66,25 @@
             android:textSize="@dimen/font_13" />
 
 
-        <RelativeLayout
+        <EditText
+            android:id="@+id/etSubcategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_10"
             android:layout_marginEnd="@dimen/spacing_10"
+            android:drawableEnd="@drawable/ic_list"
+            android:focusable="false"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/select_sub_category"
+            android:padding="@dimen/spacing_10"
+            android:imeOptions="actionNext"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_12"
             android:background="@drawable/custom_weight_layout"
-            tools:ignore="UselessParent">
-
-            <Spinner
-                android:id="@+id/spinnerSubCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/spacing_5"
-                style="@style/spinnerstyle"
-                android:spinnerMode="dialog"
-                android:entries="@array/subcategorylist" />
-
-            <ImageView
-                android:id="@+id/ivListSubCategory"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/spacing_10"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/ic_drop_down_button" />
-        </RelativeLayout>
+            android:textColorHint="@color/textcolorgray"
+            tools:ignore="LabelFor"
+            android:autofillHints="0"
+            android:inputType="text" />
 
         <TextView
         android:id="@+id/tvLanguage"
@@ -112,33 +96,25 @@
         android:textColor="@color/black"
         android:textSize="@dimen/font_13" />
 
-        <RelativeLayout
+        <EditText
+            android:id="@+id/etlanguage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/spacing_10"
             android:layout_marginEnd="@dimen/spacing_10"
+            android:drawableEnd="@drawable/ic_list"
+            android:focusable="false"
+            android:fontFamily="@font/poppins_regular"
+            android:hint="@string/select_language"
+            android:padding="@dimen/spacing_10"
+            android:imeOptions="actionNext"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_12"
             android:background="@drawable/custom_weight_layout"
-            tools:ignore="UselessParent">
-
-            <Spinner
-                android:id="@+id/spinnerLanguage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/spacing_5"
-                style="@style/spinnerstyle"
-                android:spinnerMode="dialog"
-                android:entries="@array/languagelist" />
-
-            <ImageView
-                android:id="@+id/ivListLanguage"
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/spacing_10"
-                android:contentDescription="@string/todo"
-                android:src="@drawable/ic_drop_down_button" />
-        </RelativeLayout>
+            android:textColorHint="@color/textcolorgray"
+            tools:ignore="LabelFor"
+            android:autofillHints="0"
+            android:inputType="text" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -154,6 +130,8 @@
                 android:layout_margin="@dimen/spacing_5"
                 android:layout_gravity="center"
                 android:text="@string/submit"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/spacing_10"
                 android:textSize="@dimen/font_15" />
 
@@ -165,6 +143,8 @@
                 android:layout_margin="@dimen/spacing_10"
                 android:layout_gravity="center"
                 android:text="@string/cancel"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:textColor="@color/bluee"
                 android:padding="@dimen/spacing_10"
                 android:textSize="@dimen/font_15" />

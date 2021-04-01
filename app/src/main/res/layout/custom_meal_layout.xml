@@ -58,6 +58,8 @@
             android:layout_height="40dp"
             android:layout_margin="@dimen/spacing_5"
             android:layout_gravity="center"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:text="@string/add"
             android:padding="@dimen/spacing_10"
             android:textSize="@dimen/font_12" />
@@ -69,6 +71,8 @@
             android:layout_height="40dp"
             android:layout_margin="@dimen/spacing_10"
             android:layout_gravity="center"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:text="@string/cancel"
             android:textColor="@color/bluee"
             android:padding="@dimen/spacing_10"

@@ -31,6 +31,8 @@
                 android:layout_height="20dp"
                 android:layout_margin="@dimen/spacing_10"
                 android:scaleType="fitXY"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/leftarrow"
                 android:contentDescription="@string/todo" />
 

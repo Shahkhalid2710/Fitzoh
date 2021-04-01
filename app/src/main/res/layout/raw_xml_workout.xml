@@ -5,6 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="@dimen/spacing_10"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
     android:backgroundTint="@color/white"
     app:cardCornerRadius="@dimen/spacing_5">
 <LinearLayout
@@ -14,7 +16,8 @@
     android:orientation="vertical">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
 
         <ImageView
             android:id="@+id/ivWorkout"

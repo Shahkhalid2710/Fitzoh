@@ -291,6 +291,8 @@
             android:layout_height="50dp"
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/spacing_10"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/whatsapp"
             android:layout_marginBottom="60dp"
             android:contentDescription="@string/todo" />

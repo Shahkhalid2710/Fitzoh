@@ -18,6 +18,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="@dimen/spacing_10"
             android:src="@drawable/leftarrow"
             android:contentDescription="@string/todo" />

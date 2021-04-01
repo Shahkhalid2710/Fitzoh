@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:id="@+id/llprogress"
+        tools:context=".ui.calender.activities.ProgressDetailsActivty">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/leftarrow" />
+
+            <TextView
+                android:id="@+id/tvStartFitnessTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/progress_details"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/take_upto_3_photos"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <Button
+            android:id="@+id/btnUploadpic"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="start"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:background="@drawable/btn_continue"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="@string/upload_photo"
+            android:textSize="@dimen/font_10" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_margin="@dimen/spacing_10"
+            android:background="@color/textcolorgray" />
+
+        <TextView
+            android:id="@+id/tvCoremesurement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/core_measurements"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/height_cm"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <TextView
+                    android:id="@+id/tvcurrentheight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/cureent_height"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_10" />
+
+                <EditText
+                    android:id="@+id/etHeight"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_5"
+                    android:autofillHints="0"
+                    android:background="@drawable/custom_weight_layout"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:text="@string/_13_462"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/font_10"
+                    tools:ignore="LabelFor" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:background="@color/textcolorgray" />
+
+                <TextView
+                    android:id="@+id/tvweight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/weight_kg"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <TextView
+                    android:id="@+id/tvcurrentweight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/cureent_weight"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_10" />
+
+                <EditText
+                    android:id="@+id/etWeight"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_5"
+                    android:autofillHints="0"
+                    android:background="@drawable/custom_weight_layout"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:text="@string/_89"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/font_10"
+                    tools:ignore="LabelFor" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvbodyfatcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/body_fat_count"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvbodyfat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/body_fat_count_"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <TextView
+                    android:id="@+id/tvcurrentfat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/cureent_count"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_10" />
+
+                <EditText
+                    android:id="@+id/etbodyfat"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_5"
+                    android:autofillHints="0"
+                    android:background="@drawable/custom_weight_layout"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:text="@string/_21"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/font_10"
+                    tools:ignore="LabelFor" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvBodymesurement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/body_measurements"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_15" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:backgroundTint="@color/white"
+            app:cardCornerRadius="@dimen/spacing_5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_10"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvChest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/chest_inch"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <TextView
+                    android:id="@+id/tvcurrentchest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/cureent_chest"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_10" />
+
+                <EditText
+                    android:id="@+id/etChest"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_5"
+                    android:autofillHints="0"
+                    android:background="@drawable/custom_weight_layout"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:text="@string/_22"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/font_10"
+                    tools:ignore="LabelFor" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:background="@color/textcolorgray" />
+
+                <TextView
+                    android:id="@+id/tvArm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/arm_inch"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_13" />
+
+                <TextView
+                    android:id="@+id/tvcurrentArm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginEnd="@dimen/spacing_10"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/cureent_arm"
+                    android:textColor="@color/textcolorgray"
+                    android:textSize="@dimen/font_10" />
+
+                <EditText
+                    android:id="@+id/etArm"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_10"
+                    android:layout_marginTop="@dimen/spacing_5"
+                    android:autofillHints="0"
+                    android:background="@drawable/custom_weight_layout"
+                    android:focusable="false"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:padding="3dp"
+                    android:text="@string/_10"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/font_10"
+                    tools:ignore="LabelFor" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/spacing_20"
+            android:background="@drawable/btn_continue"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="@string/submit"
+            android:textSize="@dimen/font_15" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

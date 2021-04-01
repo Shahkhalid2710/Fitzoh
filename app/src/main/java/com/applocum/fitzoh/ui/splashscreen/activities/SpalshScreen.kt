@@ -34,6 +34,7 @@ class SpalshScreen : AppCompatActivity() {
             dbhelper.standardpackage()
             dbhelper.premiumpackage()
             dbhelper.sessioncategory()
+            dbhelper.sessionsubcategory()
             // mark first time has ran.
             val editor = prefs.edit()
             editor.putBoolean("firstTime", true)

@@ -1,5 +1,6 @@
 package com.applocum.fitzoh.ui.bottomnavigation.activities
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.applocum.fitzoh.*
 import com.applocum.fitzoh.ui.calender.activities.CalenderFragment
 import com.applocum.fitzoh.ui.home.activities.HomeScreenFragment
+import com.applocum.fitzoh.ui.home.activities.LiveSessionActivity
 import com.applocum.fitzoh.ui.packages.activities.PackagesFragment
 import com.applocum.fitzoh.ui.profile.activities.ProfileFragment
 import com.applocum.fitzoh.ui.trainer.activities.TrainerFragment
@@ -50,7 +52,8 @@ class HomeActivity : AppCompatActivity(), AHBottomNavigation.OnTabSelectedListen
             0 -> { loadfragment(calenderFragment) }
             1 -> { loadfragment(packagesFragment) }
             2 -> { loadfragment(homeScreenFragment) }
-            3 -> { loadfragment(trainerFragment) }
+            3 -> { val intent=Intent(this,LiveSessionActivity::class.java)
+                   startActivity(intent)}
             4 -> { loadfragment(profileFragment) }
         }
         return true

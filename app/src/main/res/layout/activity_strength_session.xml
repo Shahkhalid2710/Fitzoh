@@ -23,6 +23,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="@dimen/spacing_10"
             android:contentDescription="@string/todo"
             android:src="@drawable/leftarrow" />
@@ -54,6 +56,8 @@
         android:layout_height="180dp"
         android:layout_margin="@dimen/spacing_10"
         android:scaleType="centerCrop"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/strength"
         android:contentDescription="@string/todo" />
 
@@ -62,6 +66,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_10"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/spacing_5">
 

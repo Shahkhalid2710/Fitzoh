@@ -24,7 +24,11 @@ class StandardFragment : Fragment() {
         val dbhelper= activity?.let { Dbhelper(it) }
         mListPackages=dbhelper!!.getstandardpackage()
         v.rvStandardPackage.layoutManager= LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false)
-        v.rvStandardPackage.adapter= activity?.let { RecyclerAdapterBasicPackages(it,mListPackages) }
+        v.rvStandardPackage.adapter= activity?.let { RecyclerAdapterBasicPackages(it,mListPackages,object :RecyclerAdapterBasicPackages.CellClickListener{
+            override fun onCellClickistener(myobject: Packages, position: Int) {
+
+            }
+        }) }
         return v
     }
     }

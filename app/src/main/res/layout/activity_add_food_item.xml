@@ -19,6 +19,8 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:layout_marginStart="@dimen/spacing_10"
             android:contentDescription="@string/todo"
             android:src="@drawable/leftarrow" />
@@ -44,6 +46,7 @@
             android:contentDescription="@string/todo"
             android:src="@drawable/ic_notification" />
     </RelativeLayout>
+
     <TextView
         android:id="@+id/tvTodayWorkOut"
         android:layout_width="wrap_content"
@@ -175,5 +178,7 @@
         android:background="@drawable/btn_continue"
         android:gravity="center"
         android:text="@string/add_item"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:textSize="@dimen/font_15" />
 </LinearLayout>

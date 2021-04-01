@@ -11,6 +11,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
+        android:id="@+id/lllivesession"
         tools:context=".ui.home.activities.LiveSessionActivity">
 
         <RelativeLayout
@@ -24,6 +25,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginStart="@dimen/spacing_10"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/leftarrow" />
@@ -97,46 +100,25 @@
                     android:textSize="@dimen/font_15" />
             </LinearLayout>
         </LinearLayout>
-
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTrainerList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_10" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cvSessiondetails"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvtrainernotfound"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/spacing_10"
-            android:layout_marginEnd="@dimen/spacing_10"
-            android:layout_marginTop="@dimen/spacing_10"
-            android:backgroundTint="@color/white"
-            android:layout_marginBottom="@dimen/spacing_20"
-            app:cardCornerRadius="@dimen/spacing_5">
+            android:text="@string/trainer_not_found"
+            android:textColor="@color/black"
+            android:visibility="gone"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_gravity="center"/>
 
-          <!--  <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        </FrameLayout>
 
-                <TextView
-                    android:id="@+id/tvNoofsessionCompleted"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/spacing_10"
-                    android:layout_marginTop="@dimen/spacing_10"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/no_of_session_completed"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/font_13" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSession"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10" />
-            </LinearLayout>-->
-        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

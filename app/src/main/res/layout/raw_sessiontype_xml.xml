@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:id="@+id/llsession"
     android:background="@color/white"
     android:orientation="vertical">
 
@@ -24,6 +25,8 @@
                 android:layout_height="100dp"
                 android:contentDescription="@string/todo"
                 android:scaleType="centerCrop"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/img_endurance" />
 
             <TextView

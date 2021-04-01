@@ -12,6 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/spacing_10"
         android:id="@+id/cvBuy"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:backgroundTint="@color/white"
         app:cardCornerRadius="@dimen/spacing_5">
 
@@ -45,6 +47,8 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:background="@drawable/btn_continue"
                 tools:ignore="RelativeOverlap">
 

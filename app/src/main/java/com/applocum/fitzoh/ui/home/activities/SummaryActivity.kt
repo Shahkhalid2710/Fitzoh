@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Counsellor
+import com.applocum.fitzoh.ui.home.models.Packages
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_summary.*
 import kotlinx.android.synthetic.main.activity_summary.ivBack
@@ -17,9 +18,13 @@ class SummaryActivity : AppCompatActivity() {
         ivBack.setOnClickListener {
             finish()
         }
+        val packages=intent.getSerializableExtra("packages") as Packages
         counsellor= intent.getSerializableExtra("counsellor") as Counsellor
+
         btnCheckOut.setOnClickListener {
           val intent=Intent(this,SelectCalenderActivity::class.java)
+            intent.putExtra("packages",packages)
+            intent.putExtra("counsellor",counsellor)
           startActivity(intent)
       }
         tvCounsellorViewProfile.setOnClickListener {

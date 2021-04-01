@@ -25,6 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:gravity="end"
             android:text="@string/view_more"
             android:textColor="@color/bluee"

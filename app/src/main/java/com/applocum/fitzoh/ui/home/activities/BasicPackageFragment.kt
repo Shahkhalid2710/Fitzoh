@@ -1,5 +1,6 @@
 package com.applocum.fitzoh.ui.home.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,8 +23,16 @@ class BasicPackageFragment : Fragment() {
         val v= inflater.inflate(R.layout.fragment_basic_package, container, false)
         val dbhelper= activity?.let { Dbhelper(it) }
         mListPackages=dbhelper!!.getbasicpackage()
+
         v.rvBasicpackage.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
-        v.rvBasicpackage.adapter= activity?.let { RecyclerAdapterBasicPackages(it,mListPackages) }
+        v.rvBasicpackage.adapter= activity?.let { RecyclerAdapterBasicPackages(it,mListPackages,object :RecyclerAdapterBasicPackages.CellClickListener{
+            override fun onCellClickistener(myobject: Packages, position: Int) {
+                val intent= Intent(activity,NutritionistCounsellorsActivity::class.java)
+                intent.putExtra("packages",myobject)
+                intent.putExtra("position",position)
+                startActivity(intent)
+            }
+        }) }
         return v
     }
     }

@@ -167,6 +167,8 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:text="@string/btn_verify"
         android:textSize="@dimen/font_20"/>
     </LinearLayout>

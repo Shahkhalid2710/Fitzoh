@@ -67,6 +67,7 @@ class SignInActivity : AppCompatActivity() {
                     editor=sharedPreferences.edit()
                     if (user != null) {
                         editor.putString("email",user.userEmail)
+                        editor.putInt("id",user.id)
                     }
                     editor.apply()
                     editor.commit()

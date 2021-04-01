@@ -10,6 +10,8 @@
           android:layout_width="90dp"
           android:layout_height="90dp"
           android:src="@drawable/bewell"
+          android:focusable="true"
+          android:foreground="?attr/selectableItemBackgroundBorderless"
           android:contentDescription="@string/todo" />
           <TextView
               android:id="@+id/tvBewell"

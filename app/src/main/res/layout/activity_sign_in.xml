@@ -56,20 +56,13 @@
         android:layout_marginStart="@dimen/spacing_20"
         android:layout_marginEnd="@dimen/spacing_20"
         android:fontFamily="@font/poppins_medium"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/textcolorgray"
         android:hint="@string/hint_emailNo"
         android:textColor="@color/black"
         android:textColorHint="@color/textcolorgray"
         tools:ignore="LabelFor,TextFields"
         android:autofillHints="0"
         android:inputType="textPersonName" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/textcolorgray"
-        android:layout_marginStart="@dimen/spacing_20"
-        android:layout_marginEnd="@dimen/spacing_20"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -83,6 +76,8 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
         android:text="@string/btn_continue"
         android:textSize="@dimen/font_20" />
     <LinearLayout

@@ -5,6 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/white"
     android:layout_margin="@dimen/spacing_10"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless"
     android:id="@+id/cvBlog"
     app:cardCornerRadius="@dimen/spacing_5">
     <RelativeLayout

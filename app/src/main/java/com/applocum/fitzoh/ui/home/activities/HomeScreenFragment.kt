@@ -80,7 +80,7 @@ class HomeScreenFragment : Fragment() {
             })
         }
 
-        v.tvBlogViewmore.setOnClickListener {
+       v.tvBlogViewmore.setOnClickListener {
             val intent=Intent(activity,
                 BlogsActivity::class.java)
             startActivity(intent)
@@ -124,6 +124,7 @@ class HomeScreenFragment : Fragment() {
             startActivity(intent)
         }
 
+
         val session1= Session(R.drawable.img_strength,"Strength")
         val session2= Session(R.drawable.img_yoga,"Yoga")
         val session3= Session(R.drawable.img_meditation,"Meditation")
@@ -143,6 +144,7 @@ class HomeScreenFragment : Fragment() {
 
         v.tvTrainerName.text = trainer.trainername
         v.tvTrainerId.text = trainer.id.toString()
+
         v.tvCounsellorName.text = counsellor.counsellorname
         v.tvCounsellorId.text = counsellor.id.toString()
         activity?.let { Glide.with(it).load(trainer.trainerimage).into(v.ivTrainerProfile) }

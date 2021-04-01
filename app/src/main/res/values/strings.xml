@@ -331,12 +331,22 @@
     <string name="standard_package_details">Standard Package Details:</string>
     <string name="premium_package_details">Premium Package Details:</string>
     <string name="blogs">Blogs</string>
+    <string name="hello">Hello</string>
+    <string name="sign_out">Sign Out</string>
 
     <string-array name="categorylist">
-        <item>Strength &amp;Condition - Strength</item>
-        <item>Speed</item>
-        <item>Power</item>
-        <item>Flexibility</item>
+        <item>Strength</item>
+        <item>Power Yoga</item>
+        <item>Mobility &amp; Flexibility</item>
+        <item>Yoga-Relaxation</item>
+        <item>Meditation</item>
+        <item>Powerspeed</item>
+    </string-array>
+    <string-array name="subcategorylist">
+        <item>Jogging</item>
+        <item>Swimming</item>
+        <item>Biking</item>
+        <item>Running</item>
     </string-array>
     <string-array name="addServing">
         <item>1</item>
@@ -369,10 +379,7 @@
         <item>7 piece</item>
         <item>8 piece</item>
     </string-array>
-    <string-array name="subcategorylist">
-        <item>Yoga</item>
-        <item>Gym</item>
-    </string-array>
+
     <string-array name="languagelist">
         <item>English</item>
         <item>Gujarati</item>
@@ -391,4 +398,36 @@
         <item>Dosa</item>
         <item>Aloo ka paratha</item>
     </string-array>
+    <string name="title_activity_progress_details">ProgressDetailsActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="progress_details">Progress Details</string>
+    <string name="take_upto_3_photos">Take upto 3 photos</string>
+    <string name="upload_photo">UPLOAD PHOTO</string>
+    <string name="core_measurements">Core Measurements</string>
+    <string name="_13_462">13.462</string>
+    <string name="cureent_height">Cureent Height</string>
+    <string name="weight_kg">Weight(kg)</string>
+    <string name="_89">89</string>
+    <string name="body_fat_count">Body Fat Count</string>
+    <string name="body_fat_count_">Body fat count(%)</string>
+    <string name="cureent_weight">Cureent Weight</string>
+    <string name="cureent_count">Cureent count</string>
+    <string name="_21">21</string>
+    <string name="body_measurements">Body Measurements</string>
+    <string name="chest_inch">Chest(inch)</string>
+    <string name="cureent_chest">Cureent Chest</string>
+    <string name="_22">22</string>
+    <string name="arm_inch">Arm(inch)</string>
+    <string name="cureent_arm">Cureent Arm</string>
+    <string name="_10">10</string>
+    <string name="height">Height</string>
+    <string name="chest">Chest</string>
+    <string name="arm">Arm</string>
+    <string name="select_language">Select Language</string>
+    <string name="trainer_not_available">Trainer Not Available</string>
+    <string name="trainer_not_found">Trainer Not Found</string>
 </resources>

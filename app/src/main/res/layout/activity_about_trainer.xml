@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
+        android:id="@+id/llabouttrainer"
         android:nestedScrollingEnabled="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".ui.home.activities.AboutTrainerActivity">
@@ -26,6 +27,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_centerVertical="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_marginStart="@dimen/spacing_10"
                 android:contentDescription="@string/todo"
                 android:src="@drawable/leftarrow" />
@@ -66,6 +69,8 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:contentDescription="@string/todo"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"
                         android:scaleType="centerCrop"
                         android:src="@drawable/ena" />
 
