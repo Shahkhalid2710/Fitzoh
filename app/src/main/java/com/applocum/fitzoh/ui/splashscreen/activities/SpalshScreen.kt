@@ -27,7 +27,7 @@ class SpalshScreen : AppCompatActivity() {
             dbhelper.slotbooking()
             dbhelper.fitnesslist()
             dbhelper.maincategory()
-            dbhelper.subcategory()
+            dbhelper.mysubcategory()
             dbhelper.blog()
             dbhelper.workout()
             dbhelper.basicpackage()
@@ -35,7 +35,6 @@ class SpalshScreen : AppCompatActivity() {
             dbhelper.premiumpackage()
             dbhelper.sessioncategory()
             dbhelper.sessionsubcategory()
-            // mark first time has ran.
             val editor = prefs.edit()
             editor.putBoolean("firstTime", true)
             editor.apply()
@@ -58,8 +57,5 @@ class SpalshScreen : AppCompatActivity() {
             }
 
         },1000)
-
-
-
     }
 }

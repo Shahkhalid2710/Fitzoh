@@ -29,15 +29,6 @@
                 android:textSize="@dimen/font_18"
                 tools:ignore="RelativeOverlap" />
 
-            <ImageView
-                android:id="@+id/ivnotification"
-                android:layout_width="23dp"
-                android:layout_height="23dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginEnd="@dimen/spacing_10"
-                android:src="@drawable/ic_notification"
-                android:contentDescription="@string/todo" />
         </RelativeLayout>
 
         <ImageView
@@ -73,9 +64,12 @@
             android:textSize="@dimen/font_12" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvweightbmi"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_margin="@dimen/spacing_10"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
             android:backgroundTint="@color/white"
             app:cardCornerRadius="6dp">
 
@@ -192,57 +186,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10">
-
-                    <TextView
-                        android:id="@+id/tvLocation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="@string/location"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/font_14"
-                        tools:ignore="RelativeOverlap" />
-
-                    <ImageView
-                        android:id="@+id/ivNext3"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/next"
-                        android:contentDescription="@string/todo" />
-                </RelativeLayout>
-
-             <!--   <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10">
-
-                    <TextView
-                        android:id="@+id/tvactivesub"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="@string/activesubsciptions"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/font_14"
-                        tools:ignore="RelativeOverlap" />
-
-                    <ImageView
-                        android:id="@+id/ivNext4"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/next"
-                        android:contentDescription="@string/todo" />
-                </RelativeLayout>-->
 
                 <RelativeLayout
                     android:id="@+id/rlPurchase"
@@ -277,167 +220,10 @@
                     android:background="@color/gray"
                     android:orientation="vertical">
 
-            <!--    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/spacing_10">
 
-                        <TextView
-                            android:id="@+id/tvReminder"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/reminder"
-                            android:textColor="@color/blue"
-                            android:textSize="@dimen/font_14"
-                            tools:ignore="RelativeOverlap" />
-
-                        <ImageView
-                            android:id="@+id/ivlist"
-                            android:layout_width="18dp"
-                            android:layout_height="18dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/list"
-                            android:contentDescription="@string/todo" />
-                    </RelativeLayout>
--->
-                    <!--<RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/spacing_10">
-
-                        <TextView
-                            android:id="@+id/tvCalenderNotification"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/spacing_10"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/calendernotification"
-                            android:textColor="@color/textcolorgray"
-                            android:textSize="@dimen/font_12"
-                            tools:ignore="RelativeOverlap" />
-
-                        <ImageView
-                            android:id="@+id/ivSwitch"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/off"
-                            android:contentDescription="@string/todo" />
-                    </RelativeLayout>-->
-
-                    <!--<RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/spacing_10">
-
-                        <TextView
-                            android:id="@+id/tvcallReminder"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/spacing_10"
-                            android:fontFamily="@font/poppins_medium"
-                            android:text="@string/callreminder"
-                            android:textColor="@color/textcolorgray"
-                            android:textSize="@dimen/font_12"
-                            tools:ignore="RelativeOverlap" />
-
-                        <ImageView
-                            android:id="@+id/ivSwitchcall"
-                            android:layout_width="23dp"
-                            android:layout_height="23dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/off"
-                            android:contentDescription="@string/todo" />
-                    </RelativeLayout>-->
                 </LinearLayout>
 
-             <!--   <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_20"
-                    android:layout_marginStart="@dimen/spacing_10"
-                    android:layout_marginEnd="@dimen/spacing_10"
-                    android:layout_marginBottom="@dimen/spacing_10">
 
-                    <TextView
-                        android:id="@+id/tvReferals"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="@string/referals"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/font_14"
-                        tools:ignore="RelativeOverlap" />
-
-                    <ImageView
-                        android:id="@+id/ivNextRefrel"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/next"
-                        android:contentDescription="@string/todo" />
-                </RelativeLayout>
--->
-               <!-- <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10">
-
-                    <TextView
-                        android:id="@+id/tvMedicalRecords"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="@string/medicalrecords"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/font_14"
-                        tools:ignore="RelativeOverlap" />
-
-                    <ImageView
-                        android:id="@+id/ivNextMedicalrecords"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/next"
-                        android:contentDescription="@string/todo" />
-                </RelativeLayout>-->
-<!--
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_10">
-
-                    <TextView
-                        android:id="@+id/tvFitnessDevice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:fontFamily="@font/poppins_medium"
-                        android:text="@string/fitnessdevice"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/font_14"
-                        tools:ignore="RelativeOverlap" />
-
-                    <ImageView
-                        android:id="@+id/ivNextFitnessdevice"
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/next"
-                        android:contentDescription="@string/todo" />
-                </RelativeLayout>-->
                 <RelativeLayout
                     android:id="@+id/rlsignout"
                     android:layout_width="match_parent"

@@ -49,6 +49,11 @@ class ProfileFragment : Fragment() {
             }
         }
 
+        v.cvweightbmi.setOnClickListener {
+            val intent=Intent(activity,EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
         v.tvEditProfile.setOnClickListener {
             val intent=Intent(activity,EditProfileActivity::class.java)
             startActivity(intent)
@@ -59,15 +64,6 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
 
-      /*  val dbhelper= activity?.let { Dbhelper(it) }
-
-        sharedPreferences=requireActivity().getSharedPreferences("mypref", AppCompatActivity.MODE_PRIVATE)
-        val email=sharedPreferences.getString("email","")
-
-       val user= email?.let { dbhelper?.signin(it) }
-
-        v.tvKg.text = user?.userWeight
-        v.tvName.text = user?.userName*/
         return v
 
     }

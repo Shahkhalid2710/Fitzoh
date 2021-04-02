@@ -43,7 +43,7 @@
         </RelativeLayout>
 
 
-       <androidx.cardview.widget.CardView
+     <!--  <androidx.cardview.widget.CardView
            android:layout_width="match_parent"
            android:layout_height="50dp"
            android:backgroundTint="@color/white"
@@ -63,7 +63,7 @@
            android:textSize="@dimen/font_12"
            android:padding="@dimen/spacing_5"
            android:autofillHints="@string/_0" />
-       </androidx.cardview.widget.CardView>
+       </androidx.cardview.widget.CardView>-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvFitzohLibrary"

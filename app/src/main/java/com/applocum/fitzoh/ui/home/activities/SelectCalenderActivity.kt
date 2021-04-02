@@ -3,7 +3,6 @@ package com.applocum.fitzoh.ui.home.activities
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +38,7 @@ class SelectCalenderActivity : AppCompatActivity(), OnDateSelectedListener {
     private var selecttrainer = 0
     private var selecttime = ""
     private var selectcategory = 0
-    lateinit var sessionbooking: Sessionbooking
+    private lateinit var sessionbooking: Sessionbooking
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -89,41 +88,42 @@ class SelectCalenderActivity : AppCompatActivity(), OnDateSelectedListener {
             })
 
         btnSubmit.setOnClickListener {
-            if (seleteddate == "") {
-                val snackbar =
-                    Snackbar.make(llselectcalender, "Please Select Date", Snackbar.LENGTH_LONG)
-                snackbar.show()
-            } else if (selectcategory == 0) {
-                val snackbar =
-                    Snackbar.make(llselectcalender, "Please Select category", Snackbar.LENGTH_LONG)
-                snackbar.show()
-            } else if (selecttrainer == 0) {
-                val snackbar =
-                    Snackbar.make(llselectcalender, "Please Select Trainer", Snackbar.LENGTH_LONG)
-                snackbar.show()
-            }else if (selecttime == "") {
-                val snackbar =
-                    Snackbar.make(llselectcalender, "Please Select Time", Snackbar.LENGTH_LONG)
-                snackbar.show()
-            } else {
-                sessionbooking = Sessionbooking(seleteddate, "07:00 AM", "08:00 PM",selecttime)
-                Log.d("sessionbookinggg", "-->" + sessionbooking.id)
-                Log.d("sessionbookinggg", "-->" + sessionbooking.sDate)
-                Log.d("sessionbookinggg", "-->" + sessionbooking.sStarttime)
-                Log.d("sessionbookinggg", "-->" + sessionbooking.sEndtime)
-                Log.d("sessionbookinggg", "-->" + sessionbooking.sTime)
-                dbhelper.sessionBooking(
-                    sessionbooking,
-                    id,
-                    packages.id,
-                    counsellor.id,
-                    selecttrainer,
-                    selectcategory
-                )
-                Toast.makeText(this, "Successfully book", Toast.LENGTH_SHORT).show()
-              /*  val fragment: HomeScreenFragment = HomeScreenFragment()
-                val fragmentManager: FragmentManager = supportFragmentManager
-                fragmentManager.beginTransaction().replace(R.id.llHomeScreen,fragment).commit()*/
+            when {
+                seleteddate == "" -> {
+                    val snackbar =
+                        Snackbar.make(llselectcalender, "Please Select Date", Snackbar.LENGTH_LONG)
+                    snackbar.show()
+                }
+                selectcategory == 0 -> {
+                    val snackbar =
+                        Snackbar.make(llselectcalender, "Please Select category", Snackbar.LENGTH_LONG)
+                    snackbar.show()
+                }
+                selecttrainer == 0 -> {
+                    val snackbar =
+                        Snackbar.make(llselectcalender, "Please Select Trainer", Snackbar.LENGTH_LONG)
+                    snackbar.show()
+                }
+                selecttime == "" -> {
+                    val snackbar =
+                        Snackbar.make(llselectcalender, "Please Select Time", Snackbar.LENGTH_LONG)
+                    snackbar.show()
+                }
+                else -> {
+                    sessionbooking = Sessionbooking(seleteddate, "07:00 AM", "08:00 PM",selecttime)
+                    dbhelper.sessionBooking(
+                        sessionbooking,
+                        id,
+                        packages.id,
+                        counsellor.id,
+                        selecttrainer,
+                        selectcategory
+                    )
+                    Toast.makeText(this, "Successfully book", Toast.LENGTH_SHORT).show()
+                    /*  val fragment: HomeScreenFragment = HomeScreenFragment()
+                        val fragmentManager: FragmentManager = supportFragmentManager
+                        fragmentManager.beginTransaction().replace(R.id.llHomeScreen,fragment).commit()*/
+                }
             }
         }
     }

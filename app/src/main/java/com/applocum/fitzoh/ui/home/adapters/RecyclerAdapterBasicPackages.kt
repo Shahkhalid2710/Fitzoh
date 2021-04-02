@@ -1,14 +1,11 @@
 package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
-import com.applocum.fitzoh.ui.home.activities.NutritionistCounsellorsActivity
-import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.applocum.fitzoh.ui.home.models.Packages
 import kotlinx.android.synthetic.main.raw_xml_basicpackages.view.*
 

@@ -3,6 +3,7 @@ package com.applocum.fitzoh.ui.home.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Counsellor
 import com.applocum.fitzoh.ui.home.models.Packages
@@ -27,10 +28,10 @@ class CounsellorActivity : AppCompatActivity() {
            startActivity(intent)
        }
 
-        counsellor= intent.getSerializableExtra("counsellor") as Counsellor
+       counsellor= intent.getSerializableExtra("counsellor") as Counsellor
 
 
-        // val dbhelper=Dbhelper(this)
+        // val dbhelper= Dbhelper(this)
         //val counsellor=dbhelper.getcounsellor()
 
         tvCOunsellorExperince.text = counsellor.counsellorexperience

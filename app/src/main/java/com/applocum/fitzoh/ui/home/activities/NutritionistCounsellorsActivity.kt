@@ -35,7 +35,5 @@ class NutritionistCounsellorsActivity : AppCompatActivity() {
             }
         })
 
-
-
     }
 }

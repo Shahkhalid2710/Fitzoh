@@ -10,7 +10,6 @@ import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.SessionCategory
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_sessiontype_xml.view.*
-import kotlinx.android.synthetic.main.raw_xml_workout.view.*
 
 class RecyclerAdapterSession(context: Context, list: ArrayList<SessionCategory>, private var cellClickListener:CellClickListener) :RecyclerView.Adapter<RecyclerAdapterSession.SessionHolder>(){
 
@@ -36,7 +35,6 @@ class RecyclerAdapterSession(context: Context, list: ArrayList<SessionCategory>,
         Glide.with(mContext).load(session.sImage).into(holder.itemView.ivType)
 
         holder.itemView.llsession.setOnClickListener {
-           // holder.itemView.cbSession.isChecked=true
             selectedPosition=position
             Log.d("posiiiiiion","-->"+selectedPosition)
             cellClickListener.onCellClickistener(session,position)

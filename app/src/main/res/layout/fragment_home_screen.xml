@@ -29,7 +29,7 @@
             android:textSize="@dimen/font_18"
             tools:ignore="RelativeOverlap" />
 
-        <ImageView
+       <!-- <ImageView
             android:id="@+id/ivnotification"
             android:layout_width="23dp"
             android:layout_height="23dp"
@@ -37,7 +37,7 @@
             android:layout_centerInParent="true"
             android:layout_marginEnd="@dimen/spacing_10"
             android:src="@drawable/ic_notification"
-            android:contentDescription="@string/todo" />
+            android:contentDescription="@string/todo" />-->
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -257,7 +257,7 @@
                         android:layout_centerVertical="true"
                         android:padding="@dimen/spacing_10"
                         android:scaleType="fitXY"
-                        android:src="@drawable/counceller"
+                        android:src="@drawable/bewell"
                         android:contentDescription="@string/todo" />
 
                     <LinearLayout
@@ -273,7 +273,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="@string/jessica_mortensen"
+                            android:text="@string/bewell_bykelly"
                             android:textColor="@color/black"
                             android:textSize="@dimen/font_13" />
 
@@ -282,7 +282,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_regular"
-                            android:text="@string/id_abc435378"
+                            android:text="@string/id_1"
                             android:textColor="@color/textcolorgray"
                             android:textSize="@dimen/font_10" />
 

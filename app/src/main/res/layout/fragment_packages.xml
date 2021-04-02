@@ -28,7 +28,7 @@
                 android:textSize="@dimen/font_18"
                 tools:ignore="RelativeOverlap" />
 
-            <ImageView
+          <!--  <ImageView
                 android:id="@+id/ivnotification"
                 android:layout_width="23dp"
                 android:layout_height="23dp"
@@ -36,7 +36,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginEnd="@dimen/spacing_10"
                 android:contentDescription="@string/todo"
-                android:src="@drawable/ic_notification" />
+                android:src="@drawable/ic_notification" />-->
         </RelativeLayout>
 
         <FrameLayout

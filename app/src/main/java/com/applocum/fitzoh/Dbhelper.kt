@@ -11,6 +11,7 @@ import com.applocum.fitzoh.ui.goal.models.Goal
 import com.applocum.fitzoh.ui.home.models.*
 import com.applocum.fitzoh.ui.signup.models.User
 
+@Suppress("NAME_SHADOWING")
 class Dbhelper(context: Context) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     companion object {
@@ -87,6 +88,7 @@ class Dbhelper(context: Context) :
         private const val KEY_BLOG_NAME = "blogname"
         private const val KEY_BLOG_IMAGE = "blogimage"
         private const val KEY_BLOG_ABOUT = "blogabout"
+        private const val KEY_BLOG_VIDEO = "blogvideo"
 
         private const val TABLE_NUTRITION_MEAL= "nutritionmeal"
         private const val KEY_NUTRITION_MEAL_ID = "nutritionmealid"
@@ -160,11 +162,11 @@ class Dbhelper(context: Context) :
         db?.execSQL("create table Goal(goal_id INTEGER PRIMARY KEY AUTOINCREMENT,bmi TEXT,bmitype TEXT,weightrange TEXT,targetweight TEXT,fitnessgoal TEXT,positivehabit TEXT)")
         db?.execSQL("create table trainer(trainerid INTEGER PRIMARY KEY AUTOINCREMENT,trainername TEXT,trainerimage TEXT,trainerexperience TEXT,trainerlanguages TEXT,trainerabout TEXT,trainersessions TEXT,trainerstatus TEXT,sessionid INTEGER NOT NULL,FOREIGN KEY(sessionid) REFERENCES sessioncategory(sessioncategoryid))")
         db?.execSQL("create table counsellor(counsellorid INTEGER PRIMARY KEY AUTOINCREMENT,counsellorname TEXT,counsellorimage TEXT,counsellorexperience TEXT,counsellorlanguages TEXT,counsellorabout TEXT,counsellorprice TEXT)")
-        db?.execSQL("create table slotbooking(slotid INTEGER PRIMARY KEY AUTOINCREMENT,slotdate TEXT,slotstarttime TEXT,slotendtime TEXT,slottime TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES trainer(trainerid))")
+        db?.execSQL("create table slotbooking(slotid INTEGER PRIMARY KEY AUTOINCREMENT,slotdate TEXT,slotstarttime TEXT,slotendtime TEXT,slottime TEXT,tid INTEGER NOT NULL,userid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES trainer(trainerid),FOREIGN KEY(userid) REFERENCES trainer(userid))")
         db?.execSQL("create table fitnesstest(fitnesstestlistid INTEGER PRIMARY KEY AUTOINCREMENT,fitnesstestlistname TEXT,fitnesstestlistimage TEXT,fitnesstestlistabout TEXT,fitnesstestlistvideo TEXT)")
         db?.execSQL("create table maincategory(maincategoryid INTEGER PRIMARY KEY AUTOINCREMENT,maincategoryname TEXT)")
         db?.execSQL("create table subcategory(subcategoryid INTEGER PRIMARY KEY AUTOINCREMENT,subcategoryimage TEXT,subcategoryvideo TEXT,subcategoryabout TEXT,cid INTEGER NOT NULL,FOREIGN KEY(cid) REFERENCES maincategory(maincategoryid))")
-        db?.execSQL("create table blog(blogid INTEGER PRIMARY KEY AUTOINCREMENT,blogname TEXT,blogimage TEXT,blogabout TEXT)")
+        db?.execSQL("create table blog(blogid INTEGER PRIMARY KEY AUTOINCREMENT,blogname TEXT,blogimage TEXT,blogabout TEXT,blogvideo TEXT)")
         db?.execSQL("create table nutritionmeal(nutritionmealid INTEGER PRIMARY KEY AUTOINCREMENT,nutritionmealname TEXT,nutritionmealtime TEXT,nutritionmealfood TEXT,nutritionmealnoofserving TEXT,nutritionmealservingsize TEXT)")
         db?.execSQL("create table startfitnesstest(startfitnesstestid INTEGER PRIMARY KEY AUTOINCREMENT,startfitnesstestdate TEXT,startfitnesstesttime TEXT,startfitnesstestresult TEXT,startfitnesstestcomment TEXT,tid INTEGER NOT NULL,FOREIGN KEY(tid) REFERENCES fitnesstest(fitnesstestlistid))")
         db?.execSQL("create table workout(workoutid INTEGER PRIMARY KEY AUTOINCREMENT,workoutname TEXT,workoutabout TEXT,workoutvideo TEXT,workoutimage TEXT,workoutstatus TEXT,userid INTEGER NOT NULL,FOREIGN KEY(userid) REFERENCES Signup(userid))")
@@ -221,7 +223,6 @@ class Dbhelper(context: Context) :
                 do {
                       val name=  cursor.getString(cursor.getColumnIndex(KEY_SESSION_SUB_CATEGORY_NAME))
                      list.add(name)
-                    Log.d("nameeeee","->"+name)
                 } while (cursor.moveToNext())
             }
         }
@@ -246,11 +247,11 @@ class Dbhelper(context: Context) :
 
     }
 
-    fun getProgress():Progress?
+    fun getProgress(id:Int):Progress?
     {
         val db = this.readableDatabase
-        val query = "select * from progress"
-        val cursor = db.rawQuery(query, null)
+        val query = "select * from progress where userid=?"
+        val cursor = db.rawQuery(query, arrayOf(id.toString()))
         var progress= Progress()
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -296,11 +297,11 @@ class Dbhelper(context: Context) :
     fun workout()
     {
         val db=this.writableDatabase
-        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Barbell Bench Press','05 rounds X 50 / 25 / 12 / 10 / 10','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/barbell_press','0','1')")
-        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Dumbell Press','05 rounds X 10 / 10 / 10 / 10','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/dumbell_press','0','1')")
-        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('How To: Dumbbell Chest..','04 rounds X 6-8 6-8 6-8 6-8','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/dumbbell_bench_press','0','1')")
-        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Dubell Fly','04 rounds X 12 / 10 / 06 / 06','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/dumbellfly','0','1')")
-        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Cable Flys','04 rounds X 15 / 15 / 15 / 15','android.resource://com.applocum.fitzoh/raw/two','android.resource://com.applocum.fitzoh/drawable/cableflys','0','1')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Barbell Bench Press','05 rounds X 50 / 25 / 12 / 10 / 10','rT7DgCr-3pg','android.resource://com.applocum.fitzoh/drawable/barbell_press','0','1')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Dumbell Press','05 rounds X 10 / 10 / 10 / 10','SHsUIZiNdeY','android.resource://com.applocum.fitzoh/drawable/dumbell_press','0','1')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('How To: Dumbbell Chest..','04 rounds X 6-8 6-8 6-8 6-8','VmB1G1K7v94','android.resource://com.applocum.fitzoh/drawable/dumbbell_bench_press','0','1')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Dubell Fly','04 rounds X 12 / 10 / 06 / 06','QENKPHhQVi4','android.resource://com.applocum.fitzoh/drawable/dumbellfly','0','1')")
+        db.execSQL("insert into workout(workoutname,workoutabout,workoutvideo,workoutimage,workoutstatus,userid)" + "values('Cable Flys','04 rounds X 15 / 15 / 15 / 15','Iwe6AmxVf7o','android.resource://com.applocum.fitzoh/drawable/cableflys','0','1')")
         db.close()
 
     }
@@ -452,6 +453,7 @@ class Dbhelper(context: Context) :
         cursor.close()
         return trainer
     }
+
     fun getparticulartrainer(id: Int): ArrayList<Trainer> {
       val db = this.readableDatabase
       val query =
@@ -625,11 +627,11 @@ class Dbhelper(context: Context) :
 
     fun slotbooking() {
         val db = this.writableDatabase
-        db.execSQL("insert into slotbooking(slotdate,slotstarttime,slotendtime,slottime,tid)" + "values(Date(),'07:00 AM','10:00 PM','12:00 PM','4')")
+        db.execSQL("insert into slotbooking(slotdate,slotstarttime,slotendtime,slottime,tid,userid)" + "values(Date(),'07:00 AM','10:00 PM','12:00 PM','4','1')")
         db.close()
     }
 
-    fun getslotbooking(date: String): Slotbooking?{
+  /*  fun getslotbooking(date: String): Slotbooking?{
         val db = this.readableDatabase
         val query = "select * from 'slotbooking' where slotdate=?"
         val cursor = db.rawQuery(query, arrayOf(date))
@@ -655,7 +657,7 @@ class Dbhelper(context: Context) :
         db.close()
         cursor.close()
         return slotbooking
-    }
+    }*/
 
     fun getallslotbooking(): Slotbooking? {
         val db = this.readableDatabase
@@ -909,9 +911,9 @@ class Dbhelper(context: Context) :
 
     fun blog() {
         val db = this.writableDatabase
-        db.execSQL("insert into blog(blogname,blogimage,blogabout)" + "values('Beginners','android.resource://com.applocum.fitzoh/drawable/img_beginner','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.')")
-        db.execSQL("insert into blog(blogname,blogimage,blogabout)" + "values('Intermediate','android.resource://com.applocum.fitzoh/drawable/img_intermedeter','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.')")
-        db.execSQL("insert into blog(blogname,blogimage,blogabout)" + "values('Advance','android.resource://com.applocum.fitzoh/drawable/jhondoi','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.')")
+        db.execSQL("insert into blog(blogname,blogimage,blogabout,blogvideo)" + "values('Beginners','android.resource://com.applocum.fitzoh/drawable/img_beginner','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.','gC_L9qAHVJ8')")
+        db.execSQL("insert into blog(blogname,blogimage,blogabout,blogvideo)" + "values('Intermediate','android.resource://com.applocum.fitzoh/drawable/img_intermedeter','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.','Ba3qZjzPonI')")
+        db.execSQL("insert into blog(blogname,blogimage,blogabout,blogvideo)" + "values('Advance','android.resource://com.applocum.fitzoh/drawable/jhondoi','lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_duis_est_est_mattis_sit_amet_tristique_in_consequat_ac_sap_curabitur_vitae_quam_sed_quam_tincidunt_lobortis_in_maximus_rhoncus_tellus_non_dignissim_duis_vulputate_non_lorem_sit_amet_venenatis_phasellus_efficitur_ante_fringilla_ultrices_augue_vitae_congue_mauris\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis est est, mattis sit amet tristique in, consequat ac sap Curabitur vitae quam sed quam tincidunt lobortis. In maximus rhoncus tellus non dignissim. Duis vulputate non lorem sit amet venenatis. Phasellus efficitur ante fringilla, ultrices augue vitae, congue mauris.','9IZuslMXpkI')")
         db.close()
     }
     fun getblog(): ArrayList<Blog> {
@@ -928,7 +930,8 @@ class Dbhelper(context: Context) :
                     blog = Blog(
                         cursor.getString(cursor.getColumnIndex(KEY_BLOG_IMAGE)),
                         cursor.getString(cursor.getColumnIndex(KEY_BLOG_NAME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_BLOG_ABOUT))
+                        cursor.getString(cursor.getColumnIndex(KEY_BLOG_ABOUT)),
+                        cursor.getString(cursor.getColumnIndex(KEY_BLOG_VIDEO))
                     )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_BLOG_ID))
                     blog.id = a
@@ -943,12 +946,12 @@ class Dbhelper(context: Context) :
 
     fun fitnesslist() {
         val db = this.writableDatabase
-        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Respiratory & Stamina','android.resource://com.applocum.fitzoh/drawable/image_respirateryandstamina','Respiratory & Stamina','android.resource://com.applocum.fitzoh/raw/abc')")
-        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Cardiovasular Endurance','android.resource://com.applocum.fitzoh/drawable/image_cardiovasularendurance','Cardiovasular Endurance','android.resource://com.applocum.fitzoh/raw/one')")
-        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Strength - Upper Body','android.resource://com.applocum.fitzoh/drawable/image_strength_upperbody','Strength - Upper Body','android.resource://com.applocum.fitzoh/raw/two')")
-        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Strength - Lower Body','android.resource://com.applocum.fitzoh/drawable/image_strength_lowerbody','Strength - Lower Body','android.resource://com.applocum.fitzoh/raw/three')")
-        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Flexibility','android.resource://com.applocum.fitzoh/drawable/image_flexibility','Flexibility','android.resource://com.applocum.fitzoh/raw/abc')")
-        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Power & Speed','android.resource://com.applocum.fitzoh/drawable/image_powerandspeed','Power & Speed','android.resource://com.applocum.fitzoh/raw/one')")
+        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Respiratory & Stamina','android.resource://com.applocum.fitzoh/drawable/image_respirateryandstamina','Respiratory & Stamina','saXF2xH3A2U')")
+        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Cardiovasular Endurance','android.resource://com.applocum.fitzoh/drawable/image_cardiovasularendurance','Cardiovasular Endurance','50kH47ZztHs')")
+        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Strength - Upper Body','android.resource://com.applocum.fitzoh/drawable/image_strength_upperbody','Strength - Upper Body','_t8fJffsZzk')")
+        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Strength - Lower Body','android.resource://com.applocum.fitzoh/drawable/image_strength_lowerbody','Strength - Lower Body','eemRXHKsGIc')")
+        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Flexibility','android.resource://com.applocum.fitzoh/drawable/image_flexibility','Flexibility','L_xrDAtykMI')")
+        db.execSQL("insert into fitnesstest(fitnesstestlistname,fitnesstestlistimage,fitnesstestlistabout,fitnesstestlistvideo)" + "values('Power & Speed','android.resource://com.applocum.fitzoh/drawable/image_powerandspeed','Power & Speed','FYJJbwG_i8U')")
         db.close()
     }
     fun getfitnesslist(): ArrayList<ListOfTest> {
@@ -985,6 +988,7 @@ class Dbhelper(context: Context) :
         db.execSQL("insert into counsellor(counsellorname,counsellorimage,counsellorexperience,counsellorlanguages,counsellorabout,counsellorprice)" + "values('Jenna Hopper','android.resource://com.applocum.fitzoh/drawable/ena','4 years','English','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porttitor dui sit amet arcu luctus mollis. Donec pretium ante vitae urna bibendum, eget feugiat velit consequat. Duis euismod est in tristique rhoncus.','$599')")
         db.close()
     }
+
     fun getcounsellor(): Counsellor {
         val db = this.readableDatabase
         val query = "select * from counsellor where counsellorid= 1"
@@ -1011,6 +1015,7 @@ class Dbhelper(context: Context) :
         cursor.close()
         return counsellor
     }
+    
     fun getallCounselloers(): ArrayList<Counsellor> {
         val db = this.readableDatabase
         val query = "select * from counsellor"
@@ -1041,34 +1046,35 @@ class Dbhelper(context: Context) :
         return mList
     }
 
-    fun subcategory() {
+
+    fun mysubcategory() {
         val db = this.writableDatabase
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/abc','Mind Video 1','2')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','android.resource://com.applocum.fitzoh/raw/one','Mind Video 2','2')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage3','android.resource://com.applocum.fitzoh/raw/two','Mind Video 3','2')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/three','Mind Video 4','2')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/three','Relationship Video 1','3')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage2','android.resource://com.applocum.fitzoh/raw/abc','Relationship Video 2','3')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage3','android.resource://com.applocum.fitzoh/raw/one','Relationship Video 3','3')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/two','Relationship Video 4','3')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/abc','Perfomance Video 1','4')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','android.resource://com.applocum.fitzoh/raw/one','Perfomance Video 2','4')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage3','android.resource://com.applocum.fitzoh/raw/two','Perfomance Video 3','4')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','android.resource://com.applocum.fitzoh/raw/three','Perfomance Video 4','4')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/abc','Friendships Video 1','5')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage2','android.resource://com.applocum.fitzoh/raw/one','Friendships Video 2','5')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage3','android.resource://com.applocum.fitzoh/raw/three','Friendships Video 3','5')")
-        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','android.resource://com.applocum.fitzoh/raw/two','Friendships Video 4','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','pCpiteBel8E','Mind Video 1','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','jwlNOUnGqYA','Mind Video 2','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage3','Q-DXxB_5e28','Mind Video 3','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','GYe1WeAEbZY','Mind Video 4','2')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','d4nZy4maiIg','Relationship Video 1','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage2','6q4IUQzt3dA','Relationship Video 2','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage3','tD-4Vm0AY28','Relationship Video 3','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','_PoBCFGRcZ8','Relationship Video 4','3')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','IBuwNheltdI','Perfomance Video 1','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','zGR0lgoVEjc','Perfomance Video 2','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage2','saXF2xH3A2U','Perfomance Video 3','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/mindimage1','3FCqd4B5l3A','Perfomance Video 4','4')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','lBuqPqds0KM','Friendships Video 1','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage2','3K6XGxO8jhw','Friendships Video 2','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage3','5hFrEtQpEZA','Friendships Video 3','5')")
+        db.execSQL("insert into subcategory(subcategoryimage,subcategoryvideo,subcategoryabout,cid)" + "values('android.resource://com.applocum.fitzoh/drawable/relationshipimage1','GpgMtCmselo','Friendships Video 4','5')")
         db.close()
     }
+
     fun getAll(): ArrayList<CategoryRaw> {
         val db = this.readableDatabase
         val query =
-            "select distinct maincategory.maincategoryid,maincategory.maincategoryname,subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid order by subcategory.subcategoryvideo"
+            "select distinct maincategory.maincategoryid,maincategory.maincategoryname,subcategory.subcategoryimage,subcategory.subcategoryvideo,subcategory.subcategoryabout FROM maincategory INNER JOIN subcategory ON maincategory.maincategoryid=subcategory.cid order by subcategory.subcategoryimage"
         val mList: ArrayList<CategoryRaw> = ArrayList()
         val cursor = db.rawQuery(query, null)
         var categoryRaw: CategoryRaw
-
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -1086,6 +1092,7 @@ class Dbhelper(context: Context) :
         cursor.close()
         return mList
     }
+
     fun getMind(): ArrayList<Categories> {
         val db = this.readableDatabase
         val query =

@@ -52,8 +52,7 @@ class HomeActivity : AppCompatActivity(), AHBottomNavigation.OnTabSelectedListen
             0 -> { loadfragment(calenderFragment) }
             1 -> { loadfragment(packagesFragment) }
             2 -> { loadfragment(homeScreenFragment) }
-            3 -> { val intent=Intent(this,LiveSessionActivity::class.java)
-                   startActivity(intent)}
+            3 -> { loadfragment(trainerFragment)}
             4 -> { loadfragment(profileFragment) }
         }
         return true

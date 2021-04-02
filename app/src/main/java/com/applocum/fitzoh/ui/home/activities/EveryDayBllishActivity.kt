@@ -28,6 +28,5 @@ class EveryDayBllishActivity : AppCompatActivity() {
 
         rvVideos.layoutManager = GridLayoutManager(this, 2)
         rvVideos.adapter = RecyclerAdapterVideo(this, mListCategories)
-
     }
 }

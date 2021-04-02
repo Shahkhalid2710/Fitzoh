@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
+    android:id="@+id/llslotbooking"
     tools:context=".ui.home.activities.SlotBookingFragment">
 
     <TextView
@@ -51,18 +52,19 @@
                 android:id="@+id/rvSlotbooking"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-           <Button
+
+            <Button
                 android:id="@+id/btnSubmit"
-                android:background="@drawable/btn_continue"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/spacing_10"
-               android:focusable="true"
-               android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:layout_gravity="center"
-                android:visibility="gone"
+                android:layout_margin="@dimen/spacing_10"
+                android:background="@drawable/btn_continue"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
                 android:text="@string/submit"
-                android:textSize="@dimen/font_15"/>
+                android:textSize="@dimen/font_15"
+                android:visibility="visible" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

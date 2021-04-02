@@ -25,8 +25,6 @@ class AboutTrainerActivity : AppCompatActivity() {
         viewPager.adapter=viewPagerFragmentAdapter
         tablayout.setupWithViewPager(viewPager)
 
-      //  trainer= intent.getSerializableExtra("trainer") as Trainer
-
         val dbhelper=Dbhelper(this)
         val trainer=dbhelper.gettrainer()
 

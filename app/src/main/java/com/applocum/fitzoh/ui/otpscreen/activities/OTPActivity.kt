@@ -2,6 +2,7 @@ package com.applocum.fitzoh.ui.otpscreen.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.applocum.fitzoh.ui.goal.activities.GoalSettingActivity
@@ -10,6 +11,7 @@ import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.android.synthetic.main.activity_o_t_p.*
 
 class OTPActivity : AppCompatActivity() {
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,7 @@ class OTPActivity : AppCompatActivity() {
             et4.setText("" + a[3])
         }
         btnVerify.setOnClickListener {
+
             if (!et1.text.isNullOrEmpty() && !et2.text.isNullOrEmpty() && !et3.text.isNullOrEmpty()&& !et4.text.isNullOrEmpty()) {
                val intent=Intent(this, GoalSettingActivity::class.java)
                 intent.putExtra("height",p)

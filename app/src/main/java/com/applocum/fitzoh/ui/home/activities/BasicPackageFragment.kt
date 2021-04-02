@@ -1,17 +1,25 @@
 package com.applocum.fitzoh.ui.home.activities
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.DisplayMetrics
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.adapters.RecyclerAdapterBasicPackages
 import com.applocum.fitzoh.ui.home.models.Packages
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.android.synthetic.main.custom_xml.ivCancel
+import kotlinx.android.synthetic.main.custom_youtube_video.*
 import kotlinx.android.synthetic.main.fragment_basic_package.view.*
+import kotlinx.android.synthetic.main.fragment_basic_package.view.ivvideo
 
 class BasicPackageFragment : Fragment() {
     private var mListPackages:ArrayList<Packages> = ArrayList()
@@ -33,6 +41,34 @@ class BasicPackageFragment : Fragment() {
                 startActivity(intent)
             }
         }) }
+
+        v.ivvideo.setOnClickListener {
+            v.ivplayStop.visibility=View.GONE
+            val metrics: DisplayMetrics = requireActivity().resources.displayMetrics
+
+            val width = metrics.widthPixels
+            val height = metrics.heightPixels
+
+            val dialog = Dialog(requireContext())
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.custom_youtube_video)
+            dialog.window!!.setLayout(width, height)
+            dialog.window?.setBackgroundDrawableResource(R.color.tp)
+
+            dialog.youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    val videoId = "9WMMVQ6Z_Bc"
+                    youTubePlayer.loadVideo(videoId, 0f)
+                }
+            })
+
+            dialog.ivCancel.setOnClickListener {
+                v.ivplayStop.visibility=View.VISIBLE
+                dialog.cancel()
+            }
+
+            dialog.show()
+        }
         return v
     }
     }

@@ -1,8 +1,8 @@
 package com.applocum.fitzoh.ui.home.activities
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +12,7 @@ import com.applocum.fitzoh.*
 import com.applocum.fitzoh.ui.home.adapters.*
 import com.applocum.fitzoh.ui.home.models.*
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_home_screen.*
 import kotlinx.android.synthetic.main.fragment_home_screen.view.*
 import kotlinx.android.synthetic.main.fragment_home_screen.view.cvUpcomingSessions
 
@@ -20,7 +21,11 @@ class HomeScreenFragment : Fragment() {
     private var mList:ArrayList<ConnectWith> = ArrayList()
     private var mListBlog:ArrayList<Blog> = ArrayList()
     private var mListSession:ArrayList<Session> = ArrayList()
+    private var mListnew:ArrayList<NutritionMeal> = ArrayList()
+    private var mListwork:ArrayList<Workout> = ArrayList()
 
+
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,8 +70,7 @@ class HomeScreenFragment : Fragment() {
 
 
         mListBlog= dbhelper!!.getblog()
-        val blog= Blog()
-        Log.d("imageeeeeee","->"+blog.bImage)
+
 
         v.rvBlog.layoutManager=LinearLayoutManager(activity)
         v.rvBlog.adapter= activity?.let {
@@ -95,10 +99,10 @@ class HomeScreenFragment : Fragment() {
                 AboutTrainerActivity::class.java)
             startActivity(intent)
         }
-        v.cvgeneralCounsellor.setOnClickListener {
+      /*  v.cvgeneralCounsellor.setOnClickListener {
             val intent=Intent(activity, CounsellorActivity::class.java)
             startActivity(intent)
-        }
+        }*/
         v.cvTrackNutrition.setOnClickListener {
             val intent=Intent(activity, NutritionPlanActivity::class.java)
             startActivity(intent)
@@ -140,15 +144,21 @@ class HomeScreenFragment : Fragment() {
         v.rvBooklivesession.adapter= activity?.let { RecyclerAdapterBookLiveSession(it,mListSession) }
 
         val trainer=dbhelper.gettrainer()
-        val counsellor=dbhelper.getcounsellor()
-
         v.tvTrainerName.text = trainer.trainername
-        v.tvTrainerId.text = trainer.id.toString()
-
-        v.tvCounsellorName.text = counsellor.counsellorname
-        v.tvCounsellorId.text = counsellor.id.toString()
+        v.tvTrainerId.text = "Id :"+trainer.id.toString()
         activity?.let { Glide.with(it).load(trainer.trainerimage).into(v.ivTrainerProfile) }
-        activity?.let { Glide.with(it).load(counsellor.counsellorimage).into(v.ivCounceller) }
         return v
     }
+
+    @SuppressLint("SetTextI18n")
+    override fun onResume() {
+        super.onResume()
+        val dbhelper= activity?.let { Dbhelper(it) }
+        mListnew= dbhelper!!.getAllNutritionMeal()
+        mListwork= dbhelper.getworkout()
+        val size:String=mListnew.size.toString()
+        val size2:String=mListwork.size.toString()
+        tvMeal.text = "$size Meals tracked"
+        tvWorkout.text="$size2 workout track"
     }
+}

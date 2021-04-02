@@ -1,12 +1,16 @@
 package com.applocum.fitzoh.ui.calender.activities
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
+import android.util.DisplayMetrics
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.applocum.fitzoh.Dbhelper
@@ -19,8 +23,15 @@ import com.applocum.fitzoh.ui.calender.models.Exercise
 import com.applocum.fitzoh.ui.calender.models.SessionDay
 import com.applocum.fitzoh.ui.home.activities.CheckWorkOutActivity
 import com.applocum.fitzoh.ui.home.activities.StrengthSessionActivity
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.android.synthetic.main.custom_xml.*
+import kotlinx.android.synthetic.main.custom_xml.ivCancel
+import kotlinx.android.synthetic.main.custom_youtube_video.*
+import kotlinx.android.synthetic.main.fragment_basic_package.view.*
 import kotlinx.android.synthetic.main.fragment_calender.*
 import kotlinx.android.synthetic.main.fragment_calender.view.*
+import kotlinx.android.synthetic.main.fragment_calender.view.ivvideo
 import kotlinx.android.synthetic.main.fragment_calender.view.tvName
 
 class CalenderFragment : Fragment() {
@@ -84,11 +95,12 @@ class CalenderFragment : Fragment() {
                 startActivity(intent)
             }
         }) }
-
-        val dbhelper= activity?.let { Dbhelper(it) }
-        val progress=dbhelper?.getProgress()
         sharedPreferences= activity?.getSharedPreferences("mypref",AppCompatActivity.MODE_PRIVATE)!!
         val email=sharedPreferences.getString("email","")
+        val userid=sharedPreferences.getInt("id",0)
+
+        val dbhelper= activity?.let { Dbhelper(it) }
+        val progress=dbhelper?.getProgress(userid)
 
         val user= email?.let { dbhelper?.signin(it) }
         v.tvName.text = user?.userName
@@ -97,13 +109,43 @@ class CalenderFragment : Fragment() {
             intent.putExtra("progress",progress)
             startActivity(intent)
         }
+        v.ivvideo.setOnClickListener {
+            v.ivplaystop.visibility=View.GONE
+            val metrics: DisplayMetrics = requireActivity().resources.displayMetrics
+
+            val width = metrics.widthPixels
+            val height = metrics.heightPixels
+
+            val dialog = Dialog(requireContext())
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.custom_youtube_video)
+            dialog.window!!.setLayout(width, height)
+            dialog.window?.setBackgroundDrawableResource(R.color.tp)
+
+            dialog.youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    val videoId = "7KSNmziMqog"
+                    youTubePlayer.loadVideo(videoId, 0f)
+                }
+            })
+
+            dialog.ivCancel.setOnClickListener {
+                v.ivplaystop.visibility=View.VISIBLE
+                dialog.cancel()
+            }
+
+            dialog.show()
+        }
+
         return v
     }
 
     override fun onResume() {
         super.onResume()
+        sharedPreferences= activity?.getSharedPreferences("mypref",AppCompatActivity.MODE_PRIVATE)!!
+        val userid=sharedPreferences.getInt("id",0)
         val dbhelper= activity?.let { Dbhelper(it) }
-        val progress=dbhelper?.getProgress()
+        val progress=dbhelper?.getProgress(userid)
         tvWeightvalue.text = progress?.uWeight
         tvHeightvalue.text = progress?.uHeight
         tvbodyfatvalue.text = progress?.uBodyfat

@@ -32,12 +32,17 @@
                     android:background="@color/white"
                     android:backgroundTint="@color/white">
 
-                    <VideoView
+                    <ImageView
+                        android:id="@+id/ivvideo"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:backgroundTint="@color/black" />
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@string/todo"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_meditation" />
 
                     <ImageView
+                        android:id="@+id/ivplaystop"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"

@@ -2,7 +2,6 @@ package com.applocum.fitzoh.ui.home.activities
 
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -21,7 +20,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
-import kotlinx.android.synthetic.main.activity_about_trainer.*
 import kotlinx.android.synthetic.main.fragment_slot_booking.*
 import kotlinx.android.synthetic.main.fragment_slot_booking.btnSubmit
 import kotlinx.android.synthetic.main.fragment_slot_booking.view.*
@@ -47,26 +45,26 @@ class SlotBookingFragment : Fragment(), OnDateSelectedListener {
     ): View? {
         val v= inflater.inflate(R.layout.fragment_slot_booking, container, false)
          v.calendarView.setOnDateChangedListener(this)
-        val dbhelper= activity?.let { Dbhelper(it) }
+       // val dbhelper= activity?.let { Dbhelper(it) }
         sharedPreferences =requireActivity().getSharedPreferences("mypref", AppCompatActivity.MODE_PRIVATE)
-        val id = sharedPreferences.getInt("id", 0)
-       /*  v.btnSubmit.setOnClickListener {
+        //val id = sharedPreferences.getInt("id", 0)
+        v.btnSubmit.setOnClickListener {
              when {
                  seleteddate == "" -> {
-                     val snackbar = Snackbar.make(llabouttrainer, "Please Select Date", Snackbar.LENGTH_LONG)
+                     val snackbar = Snackbar.make(llslotbooking, "Please Select Date", Snackbar.LENGTH_LONG)
                      snackbar.show()
                  }
                  selecttime == "" -> {
-                     val snackbar = Snackbar.make(llabouttrainer, "Please Select Time", Snackbar.LENGTH_LONG)
+                     val snackbar = Snackbar.make(llslotbooking, "Please Select Time", Snackbar.LENGTH_LONG)
                      snackbar.show()
                  }
                  else -> {
                      slotbooking = Slotbooking(seleteddate, "07:00 AM", "08:00 PM",selecttime)
-                     dbhelper?.slotbooking(slotbooking,id,4)
+                    // dbhelper?.slotbooking(slotbooking,4,id)
                      Toast.makeText(activity, "Successfully slot book", Toast.LENGTH_SHORT).show()
                  }
              }
-         }*/
+         }
         return v
     }
 
@@ -97,7 +95,6 @@ class SlotBookingFragment : Fragment(), OnDateSelectedListener {
         val dbhelper= activity?.let { Dbhelper(it) }
         val slotbooking=dbhelper?.getallslotbooking()
 
-
              var a =""
              var b =""
              if (slotbooking != null) a=slotbooking.slotstarttime
@@ -118,9 +115,7 @@ class SlotBookingFragment : Fragment(), OnDateSelectedListener {
              rvSlotbooking.adapter= activity?.let { RecyclerAdapterSlotBookingTime(it,mList,object :RecyclerAdapterSlotBookingTime.CellClickListener{
                  override fun onCellClickistener(myobject: String, position: Int) {
                      btnSubmit.visibility=View.VISIBLE
-                     val intent=Intent()
                      selecttime=myobject
-                     intent.putExtra("slotbooking",slotbooking)
                  }
 
              }) }

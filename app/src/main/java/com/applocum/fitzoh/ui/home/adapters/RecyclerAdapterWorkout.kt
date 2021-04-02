@@ -2,7 +2,6 @@ package com.applocum.fitzoh.ui.home.adapters
 
 import android.app.Dialog
 import android.content.Context
-import android.net.Uri
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Workout
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.custom_xml.*
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.android.synthetic.main.custom_xml.ivCancel
+import kotlinx.android.synthetic.main.custom_youtube_video.*
 import kotlinx.android.synthetic.main.raw_xml_workout.view.*
 
 class RecyclerAdapterWorkout(context: Context, list: ArrayList<Workout>, private var cellClickListener: CellClickListener):RecyclerView.Adapter<RecyclerAdapterWorkout.WorkoutHolder>() {
@@ -36,6 +38,7 @@ class RecyclerAdapterWorkout(context: Context, list: ArrayList<Workout>, private
         holder.itemView.tvWorkoutname.text=workout.wName
         holder.itemView.tvRounds.text=workout.wAbout
         Glide.with(mContext).load(workout.wImage).into(holder.itemView.ivWorkout)
+
         holder.itemView.ivWorkout.setOnClickListener {
             val metrics: DisplayMetrics = mContext.resources.displayMetrics
 
@@ -44,12 +47,18 @@ class RecyclerAdapterWorkout(context: Context, list: ArrayList<Workout>, private
 
             val dialog = Dialog(mContext)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.custom_xml)
+            dialog.setContentView(R.layout.custom_youtube_video)
             dialog.window!!.setLayout(width, height)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
 
-            dialog.videoview.setVideoURI(Uri.parse(workout.wVideo))
-            dialog.videoview.start()
+            /*dialog.videoview.setVideoURI(Uri.parse(workout.wVideo))
+            dialog.videoview.start()*/
+            dialog.youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    //  val videoId = "jwlNOUnGqYA"
+                    youTubePlayer.loadVideo(workout.wVideo, 0f)
+                }
+            })
 
             dialog.ivCancel.setOnClickListener {
                 dialog.cancel()
@@ -62,6 +71,11 @@ class RecyclerAdapterWorkout(context: Context, list: ArrayList<Workout>, private
         {
             holder.itemView.cbSelect.isChecked=true
         }
+        else{
+
+            holder.itemView.cbSelect.isChecked=false
+        }
+
         holder.itemView.setOnClickListener {
             cellClickListener.onCellClickistener(workout,position)
         }

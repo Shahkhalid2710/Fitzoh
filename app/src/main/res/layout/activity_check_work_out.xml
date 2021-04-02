@@ -1,107 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
- <androidx.core.widget.NestedScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-    android:background="@color/white"
-        android:layout_height="match_parent">
-
-<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    android:id="@+id/llworkout"
-    tools:context=".ui.home.activities.CheckWorkOutActivity">
+    android:background="@color/white">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/llworkout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        tools:ignore="UselessParent">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".ui.home.activities.CheckWorkOutActivity">
 
-        <ImageView
-            android:id="@+id/ivBack"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_centerVertical="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackgroundBorderless"
-            android:layout_marginStart="@dimen/spacing_10"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/leftarrow" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/spacing_10"
+                android:contentDescription="@string/todo"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/leftarrow" />
+
+            <TextView
+                android:id="@+id/tvCheckWorkout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/check_workout"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_18" />
+        </RelativeLayout>
 
         <TextView
-            android:id="@+id/tvCheckWorkout"
+            android:id="@+id/tvTodayWorkOut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/spacing_10"
             android:fontFamily="@font/poppins_medium"
-            android:text="@string/check_workout"
+            android:text="@string/workout"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_18" />
-    </RelativeLayout>
+            android:textSize="@dimen/font_15" />
 
-    <TextView
-        android:id="@+id/tvTodayWorkOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_10"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/badass_chest"
-        android:textColor="@color/black"
-        android:textSize="@dimen/font_15" />
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_10"
-        android:background="@color/white"
-        android:backgroundTint="@color/white">
-
-        <VideoView
-            android:id="@+id/videoView"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:backgroundTint="@color/black" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_10"
+            android:background="@color/white"
+            android:backgroundTint="@color/white">
 
-        <ImageView
-            android:id="@+id/ivPlay"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/todo"
-            android:src="@drawable/play_button" />
-    </FrameLayout>
+            <ImageView
+                android:id="@+id/ivvideo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_endurance" />
 
-    <CheckBox
-        android:id="@+id/cbSelectall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/spacing_10"
-        android:button="@drawable/custom_habit_checkbox"
-        android:fontFamily="@font/poppins_medium"
-        android:gravity="center"
-        android:padding="@dimen/spacing_5"
-        android:text="@string/select_all"
-        android:textColor="@color/black"
-        android:textSize="@dimen/font_11" />
+            <ImageView
+                android:id="@+id/ivPlay"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/todo"
+                android:src="@drawable/play_button" />
+        </FrameLayout>
+
+        <CheckBox
+            android:id="@+id/cbSelectall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_10"
+            android:button="@drawable/custom_habit_checkbox"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:padding="@dimen/spacing_5"
+            android:text="@string/select_all"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_11" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvWorkout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btnSubmit"
-        android:background="@drawable/btn_continue"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_10"
-        android:layout_gravity="center"
-        android:text="@string/submit"
-        android:focusable="true"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
-        android:layout_marginBottom="@dimen/spacing_10"
-        android:textSize="@dimen/font_15"/>
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/spacing_10"
+            android:layout_marginBottom="@dimen/spacing_10"
+            android:background="@drawable/btn_continue"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless"
+            android:text="@string/submit"
+            android:textSize="@dimen/font_15" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

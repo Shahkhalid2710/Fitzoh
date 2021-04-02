@@ -2,18 +2,16 @@ package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.activities.AddFoodItemActivity
 import com.applocum.fitzoh.ui.home.models.NutritionMeal
 import kotlinx.android.synthetic.main.raw_nutritionplan_xml.view.*
 
-class RecyclerAdapterNutritionplan(context: Context, list: ArrayList<NutritionMeal>) :
+class RecyclerAdapterNutritionplan(context: Context, list: ArrayList<NutritionMeal>,private var cellClickListener: CellClickListener) :
     RecyclerView.Adapter<RecyclerAdapterNutritionplan.NutritionPlanHolder>() {
     var mContext = context
     private var mList = list
@@ -46,9 +44,12 @@ class RecyclerAdapterNutritionplan(context: Context, list: ArrayList<NutritionMe
             holder.itemView.llCalories.visibility = View.VISIBLE
         }
         holder.itemView.ivDelete.setOnClickListener {
-            val dbhelper = Dbhelper(mContext)
-            dbhelper.deletenutritionmeal(nutritionMeal.id)
-            notifyItemChanged(position)
+            cellClickListener.onCellClickistener(nutritionMeal,position)
+
         }
+    }
+    interface CellClickListener
+    {
+        fun onCellClickistener(myobject: NutritionMeal, position: Int)
     }
 }

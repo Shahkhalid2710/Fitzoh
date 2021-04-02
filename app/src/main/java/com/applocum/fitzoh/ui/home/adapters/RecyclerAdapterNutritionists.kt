@@ -1,15 +1,12 @@
 package com.applocum.fitzoh.ui.home.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
-import com.applocum.fitzoh.ui.home.activities.CounsellorActivity
 import com.applocum.fitzoh.ui.home.models.Counsellor
-import com.applocum.fitzoh.ui.home.models.Packages
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.raw_blog_xml.view.*
 

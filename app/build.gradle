@@ -60,4 +60,7 @@ dependencies {
     //swipelayout
     implementation "com.daimajia.swipelayout:library:1.2.0@aar"
     compileOnly 'com.google.android.wearable:wearable:2.8.1'
+
+    //youtube
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
 }

@@ -430,4 +430,6 @@
     <string name="select_language">Select Language</string>
     <string name="trainer_not_available">Trainer Not Available</string>
     <string name="trainer_not_found">Trainer Not Found</string>
+    <string name="workout_">Workout</string>
+    <string name="id_1">id:1</string>
 </resources>

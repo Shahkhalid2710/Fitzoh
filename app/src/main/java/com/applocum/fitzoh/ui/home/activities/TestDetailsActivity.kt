@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,12 +16,16 @@ import com.applocum.fitzoh.ui.home.models.FitnessTest
 import com.applocum.fitzoh.ui.home.models.ListOfTest
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
 import kotlinx.android.synthetic.main.activity_test_details.*
 import kotlinx.android.synthetic.main.activity_test_details.ivBack
-import kotlinx.android.synthetic.main.custom_xml.*
+import kotlinx.android.synthetic.main.activity_test_details.ivPlay
+import kotlinx.android.synthetic.main.custom_xml.ivCancel
+import kotlinx.android.synthetic.main.custom_youtube_video.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 
@@ -48,19 +53,26 @@ class TestDetailsActivity : AppCompatActivity(), OnDateSelectedListener {
         Glide.with(this).load(listOfTest?.Listimage).into(ivVideo)
 
         ivVideo.setOnClickListener {
+            ivPlay.visibility=View.GONE
             val metrics: DisplayMetrics = resources.displayMetrics
-
             val width = metrics.widthPixels
             val height = metrics.heightPixels
 
             val dialog = Dialog(this)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.custom_xml)
+            dialog.setContentView(R.layout.custom_youtube_video)
             dialog.window!!.setLayout(width, height)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
-            dialog.videoview.setVideoPath(listOfTest?.Listvideo)
-            dialog.videoview.start()
+
+            dialog.youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                   // val videoId = "7KSNmziMqog"
+                    youTubePlayer.loadVideo(listOfTest!!.Listvideo, 0f)
+                }
+            })
+
             dialog.ivCancel.setOnClickListener {
+                ivPlay.visibility= View.VISIBLE
                 dialog.cancel()
             }
             dialog.show()

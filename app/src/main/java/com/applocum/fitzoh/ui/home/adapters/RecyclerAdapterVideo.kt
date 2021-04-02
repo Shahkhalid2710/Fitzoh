@@ -2,7 +2,6 @@ package com.applocum.fitzoh.ui.home.adapters
 
 import android.app.Dialog
 import android.content.Context
-import android.net.Uri
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.home.models.Categories
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.custom_xml.*
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import kotlinx.android.synthetic.main.custom_youtube_video.*
 import kotlinx.android.synthetic.main.raw_video_xml.view.*
 
 class RecyclerAdapterVideo(context: Context, list: ArrayList<Categories>) :
@@ -45,15 +46,17 @@ class RecyclerAdapterVideo(context: Context, list: ArrayList<Categories>) :
 
             val dialog = Dialog(mContext)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.custom_xml)
+            dialog.setContentView(R.layout.custom_youtube_video)
             dialog.window!!.setLayout(width, height)
             dialog.window?.setBackgroundDrawableResource(R.color.tp)
 
-            dialog.videoview.setVideoURI(Uri.parse(video.cVideo))
-            dialog.videoview.start()
-
+            dialog.youtube_player_view.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    youTubePlayer.loadVideo(video.cVideo, 0f)
+                }
+            })
             dialog.ivCancel.setOnClickListener {
-                dialog.cancel()
+                dialog.dismiss()
             }
 
             dialog.show()

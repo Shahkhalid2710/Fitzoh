@@ -3,9 +3,7 @@ package com.applocum.fitzoh.ui.profile.activities
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,8 +12,6 @@ import android.widget.ArrayAdapter
 import android.widget.DatePicker
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.R
-import com.applocum.fitzoh.ui.home.activities.HomeScreenFragment
-import com.applocum.fitzoh.ui.signin.activities.SignInActivity
 import com.applocum.fitzoh.ui.signup.models.User
 import com.google.android.material.snackbar.Snackbar
 import com.shashank.sony.fancytoastlib.FancyToast
@@ -27,14 +23,12 @@ import kotlinx.android.synthetic.main.activity_edit_profile.etheight
 import kotlinx.android.synthetic.main.activity_edit_profile.etmealType
 import kotlinx.android.synthetic.main.activity_edit_profile.etusername
 import kotlinx.android.synthetic.main.activity_edit_profile.etweight
-import kotlinx.android.synthetic.main.activity_sign_up.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class EditProfileActivity : AppCompatActivity(),DatePickerDialog.OnDateSetListener {
     private lateinit var sharedPreferences: SharedPreferences
-    private lateinit var user: User
     private var day: Int = 0
     private var month: Int = 0
     private var year: Int = 0

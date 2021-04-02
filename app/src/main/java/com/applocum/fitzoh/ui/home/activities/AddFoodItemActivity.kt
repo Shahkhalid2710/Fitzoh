@@ -20,7 +20,7 @@ class AddFoodItemActivity : AppCompatActivity(), AdapterView.OnItemClickListener
     private var seletedfood:String=""
     private lateinit var nutritionMeal:NutritionMeal
     private lateinit var nutritionMeal2:NutritionMeal
-    private var language = arrayOf("Roti","Kiwi fruit", "Dosa", "Ice-Cream","Chai","Rice", "Chicken", "Chocolate", "Boiled Egg", "Milk","Bread","Aloo ka paratha","Idli")
+    private var language = arrayOf("Roti","Maggi","Noodles","Kiwi fruit", "Dosa", "Ice-Cream","Chai","Rice", "Chicken", "Chocolate", "Boiled Egg", "Milk","Bread","Aloo ka paratha","Idli")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_food_item)
@@ -46,6 +46,7 @@ class AddFoodItemActivity : AppCompatActivity(), AdapterView.OnItemClickListener
                 val intent = Intent(this, NutritionPlanActivity::class.java)
                 intent.putExtra("nutritionMeal2",nutritionMeal2)
                 this.startActivity(intent)
+                this.finish()
             }
         }
         etNoofServing.setOnClickListener {
