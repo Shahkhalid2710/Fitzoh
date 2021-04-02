@@ -78,6 +78,5 @@ class ProfileFragment : Fragment() {
 
         tvKg.text = user?.userWeight
         tvName.text = user?.userName
-
     }
 }

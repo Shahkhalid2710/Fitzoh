@@ -1,6 +1,5 @@
 package com.applocum.fitzoh.ui.bottomnavigation.activities
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +8,6 @@ import androidx.fragment.app.Fragment
 import com.applocum.fitzoh.*
 import com.applocum.fitzoh.ui.calender.activities.CalenderFragment
 import com.applocum.fitzoh.ui.home.activities.HomeScreenFragment
-import com.applocum.fitzoh.ui.home.activities.LiveSessionActivity
 import com.applocum.fitzoh.ui.packages.activities.PackagesFragment
 import com.applocum.fitzoh.ui.profile.activities.ProfileFragment
 import com.applocum.fitzoh.ui.trainer.activities.TrainerFragment

@@ -2,7 +2,6 @@ package com.applocum.fitzoh.ui.otpscreen.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.applocum.fitzoh.ui.goal.activities.GoalSettingActivity

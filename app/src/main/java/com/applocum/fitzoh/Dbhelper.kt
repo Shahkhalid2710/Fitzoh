@@ -2,7 +2,6 @@ package com.applocum.fitzoh
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -1015,7 +1014,7 @@ class Dbhelper(context: Context) :
         cursor.close()
         return counsellor
     }
-    
+
     fun getallCounselloers(): ArrayList<Counsellor> {
         val db = this.readableDatabase
         val query = "select * from counsellor"
