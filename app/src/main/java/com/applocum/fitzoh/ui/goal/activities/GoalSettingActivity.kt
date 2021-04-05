@@ -29,10 +29,8 @@ class GoalSettingActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         calculateBMI()
         val dbhelper = Dbhelper(this)
         tvkg.text = "" + minrange() + "-" + maxrange() + "kg"
-
         ivBack.setOnClickListener {
-            val intent = Intent(this, OTPActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, OTPActivity::class.java))
         }
         etSelectFitnessgoal.setOnClickListener(this)
 
@@ -90,8 +88,6 @@ class GoalSettingActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
                 this.startActivity(intent)
             }
         }
-
-
     }
 
     override fun onClick(v: View?) {
@@ -228,5 +224,4 @@ class GoalSettingActivity : AppCompatActivity(), View.OnClickListener, PopupMenu
         }
      return true
     }
-
 }

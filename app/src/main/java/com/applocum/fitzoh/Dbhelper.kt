@@ -7,7 +7,20 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import com.applocum.fitzoh.ui.calender.models.Progress
 import com.applocum.fitzoh.ui.goal.models.Goal
-import com.applocum.fitzoh.ui.home.models.*
+import com.applocum.fitzoh.ui.home.blog.models.Blog
+import com.applocum.fitzoh.ui.home.counsellor.models.Counsellor
+import com.applocum.fitzoh.ui.home.createcalender.models.SessionCategory
+import com.applocum.fitzoh.ui.home.createcalender.models.Sessionbooking
+import com.applocum.fitzoh.ui.home.fitnesstest.models.FitnessTest
+import com.applocum.fitzoh.ui.home.fitnesstest.models.ListOfTest
+import com.applocum.fitzoh.ui.home.fitzohvideolibrary.models.Categories
+import com.applocum.fitzoh.ui.home.fitzohvideolibrary.models.Category
+import com.applocum.fitzoh.ui.home.fitzohvideolibrary.models.CategoryRaw
+import com.applocum.fitzoh.ui.home.nutrition.models.NutritionMeal
+import com.applocum.fitzoh.ui.home.trainer.models.Slotbooking
+import com.applocum.fitzoh.ui.home.trainer.models.Trainer
+import com.applocum.fitzoh.ui.home.wholestichealthandwellness.models.Packages
+import com.applocum.fitzoh.ui.home.workout.models.Workout
 import com.applocum.fitzoh.ui.signup.models.User
 
 @Suppress("NAME_SHADOWING")
@@ -275,7 +288,7 @@ class Dbhelper(context: Context) :
 
 
 
-   fun sessionBooking(sessionbooking:Sessionbooking,userid:Int,packageid:Int,counsellorid:Int,trainerid:Int,sessionCategoryid:Int)
+   fun sessionBooking(sessionbooking: Sessionbooking, userid:Int, packageid:Int, counsellorid:Int, trainerid:Int, sessionCategoryid:Int)
     {
         val db=this.writableDatabase
         val cv=ContentValues()
@@ -367,10 +380,12 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
                 if (cursor.moveToFirst()) {
                     do {
-                        sessionCategory = SessionCategory(
-                            cursor.getString(cursor.getColumnIndex(KEY_SESSION_CATEGORY_IMAGE)),
-                            cursor.getString(cursor.getColumnIndex(KEY_SESSION_CATEGORY_NAME)),
-                            cursor.getInt(cursor.getColumnIndex(KEY_SESSION_CATEGORY_STATUS)))
+                        sessionCategory =
+                            SessionCategory(
+                                cursor.getString(cursor.getColumnIndex(KEY_SESSION_CATEGORY_IMAGE)),
+                                cursor.getString(cursor.getColumnIndex(KEY_SESSION_CATEGORY_NAME)),
+                                cursor.getInt(cursor.getColumnIndex(KEY_SESSION_CATEGORY_STATUS))
+                            )
 
                         val a = cursor.getInt(cursor.getColumnIndex(KEY_SESSION_CATEGORY_ID))
                         sessionCategory.id = a
@@ -412,7 +427,8 @@ class Dbhelper(context: Context) :
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERLANGUAGES)),
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERABOUT)),
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS)),
-                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS)))
+                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS))
+                    )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_TRAINER_ID))
                     trainer.id = a
                     mList.add(trainer)
@@ -472,7 +488,8 @@ class Dbhelper(context: Context) :
                       cursor.getString(cursor.getColumnIndex(KEY_TRAINERLANGUAGES)),
                       cursor.getString(cursor.getColumnIndex(KEY_TRAINERABOUT)),
                       cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS)),
-                      cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS)))
+                      cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS))
+                  )
                   val a = cursor.getInt(cursor.getColumnIndex(KEY_TRAINER_ID))
                   trainer.id = a
                   mListtrainer.add(trainer)
@@ -501,7 +518,8 @@ class Dbhelper(context: Context) :
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERLANGUAGES)),
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERABOUT)),
                         cursor.getString(cursor.getColumnIndex(KEY_TRAINERSESSIONS)),
-                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS)))
+                        cursor.getInt(cursor.getColumnIndex(KEY_TRAINERSTATUS))
+                    )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_TRAINER_ID))
                     trainer.id = a
                     mList.add(trainer)
@@ -535,10 +553,11 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    basicPackages = Packages(
-                        cursor.getString(cursor.getColumnIndex(KEY_BASIC_PACKAGE_MONTH)),
-                        cursor.getString(cursor.getColumnIndex(KEY_BASIC_PACKAGE_PRICE))
-                    )
+                    basicPackages =
+                        Packages(
+                            cursor.getString(cursor.getColumnIndex(KEY_BASIC_PACKAGE_MONTH)),
+                            cursor.getString(cursor.getColumnIndex(KEY_BASIC_PACKAGE_PRICE))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_BASIC_PACKAGE_ID))
                     basicPackages.id = a
                     mList.add(basicPackages)
@@ -571,10 +590,11 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    basicPackages = Packages(
-                        cursor.getString(cursor.getColumnIndex(KEY_STANDARD_PACKAGE_MONTH)),
-                        cursor.getString(cursor.getColumnIndex(KEY_STANDARD_PACKAGE_PRICE))
-                    )
+                    basicPackages =
+                        Packages(
+                            cursor.getString(cursor.getColumnIndex(KEY_STANDARD_PACKAGE_MONTH)),
+                            cursor.getString(cursor.getColumnIndex(KEY_STANDARD_PACKAGE_PRICE))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_STANDARD_PACKAGE_ID))
                     basicPackages.id = a
                     mList.add(basicPackages)
@@ -608,10 +628,11 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    basicPackages = Packages(
-                        cursor.getString(cursor.getColumnIndex(KEY_PREMIUM_PACKAGE_MONTH)),
-                        cursor.getString(cursor.getColumnIndex(KEY_PREMIUM_PACKAGE_PRICE))
-                    )
+                    basicPackages =
+                        Packages(
+                            cursor.getString(cursor.getColumnIndex(KEY_PREMIUM_PACKAGE_MONTH)),
+                            cursor.getString(cursor.getColumnIndex(KEY_PREMIUM_PACKAGE_PRICE))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_PREMIUM_PACKAGE_ID))
                     basicPackages.id = a
                     mList.add(basicPackages)
@@ -662,16 +683,18 @@ class Dbhelper(context: Context) :
         val db = this.readableDatabase
         val query = "select * from slotbooking"
         val cursor = db.rawQuery(query,null)
-        var slotbooking:Slotbooking? = Slotbooking()
+        var slotbooking: Slotbooking? =
+            Slotbooking()
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    slotbooking = Slotbooking(
-                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_DATE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_STARTTIME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_SLOT_ENDTIME))
-                    )
+                    slotbooking =
+                        Slotbooking(
+                            cursor.getString(cursor.getColumnIndex(KEY_SLOT_DATE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_SLOT_STARTTIME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_SLOT_ENDTIME))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_SLOT_ID))
                     slotbooking.id = a
                 } while (cursor.moveToNext())
@@ -682,7 +705,7 @@ class Dbhelper(context: Context) :
         return slotbooking
     }
 
-    fun fitnesstest(fitnessTest: FitnessTest,id: Int) {
+    fun fitnesstest(fitnessTest: FitnessTest, id: Int) {
         val db = this.writableDatabase
         val cv = ContentValues()
         cv.put(KEY_FITNESS_TEST_DATE,fitnessTest.fDate)
@@ -705,12 +728,13 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    fitnessTest = FitnessTest(
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_DATE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_TIME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_RESULT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_COMMENT))
-                    )
+                    fitnessTest =
+                        FitnessTest(
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_DATE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_TIME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_RESULT)),
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_TEST_COMMENT))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_FITNESS_TEST_ID))
                     fitnessTest.id = a
                     mList.add(fitnessTest)
@@ -745,9 +769,11 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    nutritionMeal = NutritionMeal(
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NAME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_TIME)))
+                    nutritionMeal =
+                        NutritionMeal(
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NAME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_TIME))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_NUTRITION_MEAL_ID))
                     nutritionMeal.id = a
                     mList.add(nutritionMeal)
@@ -758,7 +784,7 @@ class Dbhelper(context: Context) :
         cursor.close()
         return mList
     }
-    fun updatenutritionMeal(nutritionMeal: NutritionMeal,id: Int)
+    fun updatenutritionMeal(nutritionMeal: NutritionMeal, id: Int)
     {
         val db = this.writableDatabase
         val cv = ContentValues()
@@ -770,10 +796,11 @@ class Dbhelper(context: Context) :
         db.update(TABLE_NUTRITION_MEAL,cv, "$KEY_NUTRITION_MEAL_ID=$id",null)
         db.close()
     }
-    fun deletenutritionmeal(id: Int):NutritionMeal
+    fun deletenutritionmeal(id: Int): NutritionMeal
     {
         val db=this.writableDatabase
-        val nutritionMeal=NutritionMeal()
+        val nutritionMeal=
+            NutritionMeal()
         db.delete(TABLE_NUTRITION_MEAL, "$KEY_NUTRITION_MEAL_ID=$id", null)
         db.close()
         return nutritionMeal
@@ -789,12 +816,14 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    nutritionMeal = NutritionMeal(
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NAME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_TIME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_FOOD)),
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NO_OF_SERVING)),
-                        cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_SERVING_SIZE)))
+                    nutritionMeal =
+                        NutritionMeal(
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NAME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_TIME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_FOOD)),
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_NO_OF_SERVING)),
+                            cursor.getString(cursor.getColumnIndex(KEY_NUTRITION_MEAL_SERVING_SIZE))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_NUTRITION_MEAL_ID))
                     nutritionMeal.id = a
                     mList.add(nutritionMeal)
@@ -894,9 +923,10 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    category = Category(
-                        cursor.getString(cursor.getColumnIndex(KEY_MAIN_CATEGORY_NAME))
-                    )
+                    category =
+                        Category(
+                            cursor.getString(cursor.getColumnIndex(KEY_MAIN_CATEGORY_NAME))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_MAIN_CATEGORY_ID))
                     category.id = a
                     mList.add(category)
@@ -964,12 +994,13 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    listOfTest = ListOfTest(
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_NAME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_IMAGE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_ABOUT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_VIDEO))
-                    )
+                    listOfTest =
+                        ListOfTest(
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_NAME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_IMAGE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_ABOUT)),
+                            cursor.getString(cursor.getColumnIndex(KEY_FITNESS_LIST_VIDEO))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_FITNESS_LIST_ID))
                     listOfTest.id = a
                     mList.add(listOfTest)
@@ -988,33 +1019,6 @@ class Dbhelper(context: Context) :
         db.close()
     }
 
-    fun getcounsellor(): Counsellor {
-        val db = this.readableDatabase
-        val query = "select * from counsellor where counsellorid= 1"
-        val cursor = db.rawQuery(query, null)
-        var counsellor = Counsellor()
-
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                do {
-                    counsellor = Counsellor(
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORNAME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORIMAGE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLOREXPERIENCE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORLANGUAGES)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORABOUT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORPRICE))
-                    )
-                    val a = cursor.getInt(cursor.getColumnIndex(KEY_COUNSELLOR_ID))
-                    counsellor.id = a
-                } while (cursor.moveToNext())
-            }
-        }
-        db.close()
-        cursor.close()
-        return counsellor
-    }
-
     fun getallCounselloers(): ArrayList<Counsellor> {
         val db = this.readableDatabase
         val query = "select * from counsellor"
@@ -1026,14 +1030,15 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    counsellor = Counsellor(
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORNAME)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORIMAGE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLOREXPERIENCE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORLANGUAGES)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORABOUT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORPRICE))
-                    )
+                    counsellor =
+                        Counsellor(
+                            cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORNAME)),
+                            cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORIMAGE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_COUNSELLOREXPERIENCE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORLANGUAGES)),
+                            cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORABOUT)),
+                            cursor.getString(cursor.getColumnIndex(KEY_COUNSELLORPRICE))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_COUNSELLOR_ID))
                     counsellor.id = a
                     mList.add(counsellor)
@@ -1078,9 +1083,10 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    categoryRaw = CategoryRaw(
-                        cursor.getString(cursor.getColumnIndex(KEY_MAIN_CATEGORY_NAME))
-                    )
+                    categoryRaw =
+                        CategoryRaw(
+                            cursor.getString(cursor.getColumnIndex(KEY_MAIN_CATEGORY_NAME))
+                        )
                     val a = cursor.getInt(cursor.getColumnIndex(KEY_MAIN_CATEGORY_ID))
                     categoryRaw.id=a
                     mList.add(categoryRaw)
@@ -1103,10 +1109,12 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    categories = Categories(
-                        cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_IMAGE)),
-                        cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_ABOUT)),
-                        cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_VIDEO)))
+                    categories =
+                        Categories(
+                            cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_IMAGE)),
+                            cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_ABOUT)),
+                            cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_VIDEO))
+                        )
                     mListCategory.add(categories)
                     Log.d("videooooo","--->"+cursor.getString(cursor.getColumnIndex(KEY_SUB_CATEGORY_VIDEO)))
                 } while (cursor.moveToNext())
@@ -1127,21 +1135,22 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    categories = Categories(
-                        cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_IMAGE
-                            )
-                        ), cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_ABOUT
-                            )
-                        ), cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_VIDEO
+                    categories =
+                        Categories(
+                            cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_IMAGE
+                                )
+                            ), cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_ABOUT
+                                )
+                            ), cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_VIDEO
+                                )
                             )
                         )
-                    )
                     mListCategory.add(categories)
 
                 } while (cursor.moveToNext())
@@ -1162,21 +1171,22 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    categories = Categories(
-                        cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_IMAGE
-                            )
-                        ), cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_ABOUT
-                            )
-                        ), cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_VIDEO
+                    categories =
+                        Categories(
+                            cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_IMAGE
+                                )
+                            ), cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_ABOUT
+                                )
+                            ), cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_VIDEO
+                                )
                             )
                         )
-                    )
                     mListCategory.add(categories)
 
                 } while (cursor.moveToNext())
@@ -1197,21 +1207,22 @@ class Dbhelper(context: Context) :
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 do {
-                    categories = Categories(
-                        cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_IMAGE
-                            )
-                        ), cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_ABOUT
-                            )
-                        ), cursor.getString(
-                            cursor.getColumnIndex(
-                                KEY_SUB_CATEGORY_VIDEO
+                    categories =
+                        Categories(
+                            cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_IMAGE
+                                )
+                            ), cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_ABOUT
+                                )
+                            ), cursor.getString(
+                                cursor.getColumnIndex(
+                                    KEY_SUB_CATEGORY_VIDEO
+                                )
                             )
                         )
-                    )
                     mListCategory.add(categories)
                 } while (cursor.moveToNext())
             }

@@ -10,7 +10,6 @@ import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.calender.models.Progress
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_about_trainer.ivBack
-import kotlinx.android.synthetic.main.activity_edit_profile.*
 import kotlinx.android.synthetic.main.activity_progress_details_activty.*
 import kotlinx.android.synthetic.main.activity_progress_details_activty.btnSubmit
 import java.util.ArrayList
@@ -27,7 +26,6 @@ class ProgressDetailsActivty : AppCompatActivity() {
         ivBack.setOnClickListener {
             finish()
         }
-
         progress= intent.getSerializableExtra("progress") as Progress
         val weight=progress.uWeight
         val height=progress.uHeight
@@ -56,24 +54,17 @@ class ProgressDetailsActivty : AppCompatActivity() {
         etArm.setOnClickListener {
             selectArm()
         }
-
-
-
         btnSubmit.setOnClickListener {
             val progress=Progress(etHeight.text.toString(),etHeight.text.toString(),etbodyfat.text.toString(),etChest.text.toString(),etArm.text.toString())
             dbhelper.progress(progress,id)
             val snackbar = Snackbar.make(llprogress, "Succesfully update", Snackbar.LENGTH_LONG)
             snackbar.show()
             finish()
-            /*val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.llprogress,CalenderFragment())
-            transaction.commit()*/
         }
     }
     private fun selectweight() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Weight")
-
         val lables: MutableList<String> = ArrayList()
         lables.add("50")
         lables.add("51")
@@ -105,10 +96,8 @@ class ProgressDetailsActivty : AppCompatActivity() {
         lables.add("78")
         lables.add("79")
         lables.add("80")
-
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-            //    Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etWeight.setText(lables[which]).toString()
         }
         val dialog = builder.create()
@@ -117,7 +106,6 @@ class ProgressDetailsActivty : AppCompatActivity() {
     private fun selectbodyfat() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Weight")
-
         val lables: MutableList<String> = ArrayList()
         lables.add("15")
         lables.add("16")
@@ -143,17 +131,14 @@ class ProgressDetailsActivty : AppCompatActivity() {
 
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-            //    Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etbodyfat.setText(lables[which]).toString()
         }
         val dialog = builder.create()
         dialog.show()
     }
-
     private fun selectChest() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Weight")
-
         val lables: MutableList<String> = ArrayList()
         lables.add("15")
         lables.add("16")
@@ -176,10 +161,8 @@ class ProgressDetailsActivty : AppCompatActivity() {
         lables.add("33")
         lables.add("34")
         lables.add("35")
-
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-            //    Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etChest.setText(lables[which]).toString()
         }
         val dialog = builder.create()
@@ -188,7 +171,6 @@ class ProgressDetailsActivty : AppCompatActivity() {
     private fun selectArm() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Weight")
-
         val lables: MutableList<String> = ArrayList()
         lables.add("8")
         lables.add("9")
@@ -208,11 +190,8 @@ class ProgressDetailsActivty : AppCompatActivity() {
         lables.add("23")
         lables.add("24")
         lables.add("25")
-
-
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-            //    Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etArm.setText(lables[which]).toString()
         }
         val dialog = builder.create()
@@ -221,7 +200,6 @@ class ProgressDetailsActivty : AppCompatActivity() {
     private fun selectheight() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Choose Height")
-
         val lables: MutableList<String> = ArrayList()
         lables.add("170")
         lables.add("171")
@@ -241,10 +219,8 @@ class ProgressDetailsActivty : AppCompatActivity() {
         lables.add("185")
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-            //  Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etHeight.setText(lables[which]).toString()
         }
-
         val dialog = builder.create()
         dialog.show()
     }

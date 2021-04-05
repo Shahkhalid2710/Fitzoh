@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.applocum.fitzoh.Dbhelper
 import com.applocum.fitzoh.ui.otpscreen.activities.OTPActivity
@@ -46,18 +45,12 @@ class SignInActivity : AppCompatActivity() {
         }
 
         btnContinue.setOnClickListener {
-
             val email=etEmailNo.text.toString()
-
             if (checkemail(email)) {
                 val random = Random()
                 val generatedPassword = format("%04d", random.nextInt(10000))
 
-
                 val user = dbhelper.signin(email)
-
-                Log.d("EMaillll","---->--"+user?.userEmail.isNullOrBlank())
-                Log.d("EMaillll","---->"+user?.userEmail.isNullOrEmpty())
                 if (user?.userEmail.isNullOrEmpty()) {
                     FancyToast.makeText(this, "Email don't match", FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show()
 
@@ -72,7 +65,6 @@ class SignInActivity : AppCompatActivity() {
                     editor.apply()
                     editor.commit()
 
-
                     FancyToast.makeText(this, "Successful", FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show()
                     val intent = Intent(this, OTPActivity::class.java)
                     intent.putExtra("digit",generatedPassword)
@@ -81,8 +73,6 @@ class SignInActivity : AppCompatActivity() {
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     this.startActivity(intent)
                     finish()
-
-
                 }
             }
 
@@ -100,9 +90,6 @@ class SignInActivity : AppCompatActivity() {
             snackbar.show()
             return false
         }
-
         return true
     }
-
-
 }

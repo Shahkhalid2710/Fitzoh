@@ -55,7 +55,6 @@ class SpalshScreen : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             }
-
         },1000)
     }
 }

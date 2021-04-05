@@ -27,14 +27,9 @@ class ViewPagerAdapter(context: Context,images: IntArray) :PagerAdapter(){
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
 
         val itemView = layoutInflater.inflate(R.layout.raw_image_xml, container, false)
-
-
         val imageView: ImageView =
             itemView.findViewById<View>(R.id.imageview) as ImageView
-
-
         imageView.setImageResource(mimages[position])
-
         Objects.requireNonNull(container).addView(itemView)
         return itemView
     }

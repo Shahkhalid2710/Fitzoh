@@ -22,7 +22,6 @@ class ViewPagerFragmentAdapter(var context: Context, fm:FragmentManager):Fragmen
     {
         list.add(fragment)
         titlelist.add(title)
-
     }
     override fun getPageTitle(position: Int): CharSequence? {
         return titlelist[position]

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:id="@+id/llslotbooking"
-    tools:context=".ui.home.activities.SlotBookingFragment">
+    tools:context=".ui.home.trainer.activities.SlotBookingFragment">
 
     <TextView
         android:id="@+id/tvChooseyourSlot"

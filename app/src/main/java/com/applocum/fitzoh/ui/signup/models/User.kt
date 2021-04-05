@@ -21,5 +21,4 @@ class User(var name :String?="", private var email:String?="",
     var userdDailyActivity=dailyactivity
     var userMealType=mealtype
     var userCurrentBodyFat=currentbodyfat
-
 }

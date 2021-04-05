@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.applocum.fitzoh.R
 import com.applocum.fitzoh.ui.calender.models.Exercise
-import com.applocum.fitzoh.ui.home.activities.CheckWorkOutActivity
+import com.applocum.fitzoh.ui.home.workout.activities.CheckWorkOutActivity
 import kotlinx.android.synthetic.main.raw_exercise_xml.view.*
 
 class RecyclerAdapterExercise(context: Context,list:ArrayList<Exercise>,private var cellClickListener:CellClickListener) :RecyclerView.Adapter<RecyclerAdapterExercise.ExerciseHolder>(){
@@ -34,7 +34,8 @@ class RecyclerAdapterExercise(context: Context,list:ArrayList<Exercise>,private 
             cellClickListener.onCellClickistener(exercise,position)
         }
         holder.itemView.btnStart.setOnClickListener {
-            val intent=Intent(mContext,CheckWorkOutActivity::class.java)
+            val intent=Intent(mContext,
+                CheckWorkOutActivity::class.java)
             mContext.startActivity(intent)
         }
 

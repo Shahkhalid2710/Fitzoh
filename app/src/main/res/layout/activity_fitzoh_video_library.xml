@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        tools:context=".ui.home.activities.FitzohVideoLibraryActivity">
+        tools:context=".ui.home.fitzohvideolibrary.activities.FitzohVideoLibraryActivity">
 
 
         <RelativeLayout

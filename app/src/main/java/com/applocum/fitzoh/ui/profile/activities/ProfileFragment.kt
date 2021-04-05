@@ -1,7 +1,6 @@
 package com.applocum.fitzoh.ui.profile.activities
 
 import android.content.Context.MODE_PRIVATE
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -34,7 +33,7 @@ class ProfileFragment : Fragment() {
                     .setTitle("Sign out?")
                     .setMessage("Are you sure you want to Sign Out?")
                     .setNegativeButton("Cancel", null)
-                    .setPositiveButton("Sign out", DialogInterface.OnClickListener { dialog, which ->
+                    .setPositiveButton("Sign out") { _, _ ->
                         sharedPreferences=requireActivity().getSharedPreferences("mypref",MODE_PRIVATE)
                         editor=sharedPreferences.edit()
                         editor.clear()
@@ -44,34 +43,27 @@ class ProfileFragment : Fragment() {
                             MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
-
-                    }).create().show()
+                    }.create().show()
             }
         }
 
         v.cvweightbmi.setOnClickListener {
-            val intent=Intent(activity,EditProfileActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,EditProfileActivity::class.java))
         }
 
         v.tvEditProfile.setOnClickListener {
-            val intent=Intent(activity,EditProfileActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,EditProfileActivity::class.java))
         }
 
         v.rlPurchase.setOnClickListener {
-            val intent=Intent(activity,HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
-
         return v
-
     }
 
     override fun onResume() {
         super.onResume()
         val dbhelper= activity?.let { Dbhelper(it) }
-
         sharedPreferences=requireActivity().getSharedPreferences("mypref", AppCompatActivity.MODE_PRIVATE)
         val email=sharedPreferences.getString("email","")
         val user= email?.let { dbhelper?.signin(it) }

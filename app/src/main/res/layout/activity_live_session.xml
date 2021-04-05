@@ -12,7 +12,7 @@
         android:background="@color/white"
         android:orientation="vertical"
         android:id="@+id/lllivesession"
-        tools:context=".ui.home.activities.LiveSessionActivity">
+        tools:context=".ui.home.livesession.activities.LiveSessionActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"

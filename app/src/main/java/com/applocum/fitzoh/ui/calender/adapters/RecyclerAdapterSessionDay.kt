@@ -20,7 +20,6 @@ class RecyclerAdapterSessionDay(context: Context,list:ArrayList<SessionDay>,priv
        val v=LayoutInflater.from(mContext).inflate(R.layout.raw_sessionday_xml,parent,false)
         return SessionHolder(v)
     }
-
     override fun getItemCount(): Int {
         return mList.size
     }

@@ -3,7 +3,6 @@ package com.applocum.fitzoh.ui.calender.activities
 import android.app.Dialog
 import android.content.Intent
 import android.content.SharedPreferences
-import android.net.Uri
 import android.os.Bundle
 import android.util.DisplayMetrics
 import androidx.fragment.app.Fragment
@@ -21,23 +20,21 @@ import com.applocum.fitzoh.ui.calender.adapters.RecyclerAdapterSessionDay
 import com.applocum.fitzoh.ui.calender.models.Diet
 import com.applocum.fitzoh.ui.calender.models.Exercise
 import com.applocum.fitzoh.ui.calender.models.SessionDay
-import com.applocum.fitzoh.ui.home.activities.CheckWorkOutActivity
-import com.applocum.fitzoh.ui.home.activities.StrengthSessionActivity
+import com.applocum.fitzoh.ui.home.workout.activities.CheckWorkOutActivity
+import com.applocum.fitzoh.ui.home.stregthsession.activities.StrengthSessionActivity
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import kotlinx.android.synthetic.main.custom_xml.*
 import kotlinx.android.synthetic.main.custom_xml.ivCancel
 import kotlinx.android.synthetic.main.custom_youtube_video.*
-import kotlinx.android.synthetic.main.fragment_basic_package.view.*
 import kotlinx.android.synthetic.main.fragment_calender.*
 import kotlinx.android.synthetic.main.fragment_calender.view.*
 import kotlinx.android.synthetic.main.fragment_calender.view.ivvideo
 import kotlinx.android.synthetic.main.fragment_calender.view.tvName
 
 class CalenderFragment : Fragment() {
-    var mListDiet:ArrayList<Diet> = ArrayList()
-    var mListExercise:ArrayList<Exercise> = ArrayList()
-    var mListSessionDay:ArrayList<SessionDay> = ArrayList()
+    private var mListDiet:ArrayList<Diet> = ArrayList()
+    private var mListExercise:ArrayList<Exercise> = ArrayList()
+    private var mListSessionDay:ArrayList<SessionDay> = ArrayList()
     private lateinit var sharedPreferences : SharedPreferences
 
     override fun onCreateView(
@@ -45,7 +42,6 @@ class CalenderFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val v= inflater.inflate(R.layout.fragment_calender, container, false)
-
         val diet1=Diet("Breakfast","Boiled Egg","5 Medium",0,"Kiwi Fruit","2 Fruits",0)
         val diet2=Diet("Lunch","Boiled Egg","5 Medium",0,"Kiwi Fruit","2 Fruits",0)
         val diet3=Diet("Snacks","Boiled Egg","5 Medium",0,"Kiwi Fruit","2 Fruits",0)
@@ -89,7 +85,8 @@ class CalenderFragment : Fragment() {
         v.rvSesionday.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false )
         v.rvSesionday.adapter= activity?.let { RecyclerAdapterSessionDay(it,mListSessionDay,object:RecyclerAdapterSessionDay.CellClickListener{
             override fun onCellClickistener(myobject: SessionDay, position: Int) {
-                val intent=Intent(activity,StrengthSessionActivity::class.java)
+                val intent=Intent(activity,
+                    StrengthSessionActivity::class.java)
                 intent.putExtra("sessionday",myobject)
                 intent.putExtra("position",position)
                 startActivity(intent)
@@ -98,10 +95,8 @@ class CalenderFragment : Fragment() {
         sharedPreferences= activity?.getSharedPreferences("mypref",AppCompatActivity.MODE_PRIVATE)!!
         val email=sharedPreferences.getString("email","")
         val userid=sharedPreferences.getInt("id",0)
-
         val dbhelper= activity?.let { Dbhelper(it) }
         val progress=dbhelper?.getProgress(userid)
-
         val user= email?.let { dbhelper?.signin(it) }
         v.tvName.text = user?.userName
         v.cvprogress.setOnClickListener {
@@ -112,10 +107,8 @@ class CalenderFragment : Fragment() {
         v.ivvideo.setOnClickListener {
             v.ivplaystop.visibility=View.GONE
             val metrics: DisplayMetrics = requireActivity().resources.displayMetrics
-
             val width = metrics.widthPixels
             val height = metrics.heightPixels
-
             val dialog = Dialog(requireContext())
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.custom_youtube_video)
@@ -128,15 +121,12 @@ class CalenderFragment : Fragment() {
                     youTubePlayer.loadVideo(videoId, 0f)
                 }
             })
-
             dialog.ivCancel.setOnClickListener {
                 v.ivplaystop.visibility=View.VISIBLE
                 dialog.cancel()
             }
-
             dialog.show()
         }
-
         return v
     }
 
@@ -151,6 +141,5 @@ class CalenderFragment : Fragment() {
         tvbodyfatvalue.text = progress?.uBodyfat
         tvarmvalue.text = progress?.uArm
         tvChestvalue.text =progress?.uChest
-
     }
 }

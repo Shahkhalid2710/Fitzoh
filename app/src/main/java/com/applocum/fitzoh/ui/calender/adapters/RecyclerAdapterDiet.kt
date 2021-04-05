@@ -19,7 +19,6 @@ class RecyclerAdapterDiet(context: Context,list:ArrayList<Diet>,private var cell
         val v=LayoutInflater.from(mContext).inflate(R.layout.raw_diet_xml,parent,false)
         return DietHolder(v)
     }
-
     override fun getItemCount(): Int {
         return mList.size
     }
@@ -34,7 +33,6 @@ class RecyclerAdapterDiet(context: Context,list:ArrayList<Diet>,private var cell
         holder.itemView.setOnClickListener{
             cellClickListener.onCellClickistener(diet,position)
         }
-
     }
     interface CellClickListener
     {

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:id="@+id/llfoodlayout"
-    tools:context=".ui.home.activities.AddFoodItemActivity">
+    tools:context=".ui.home.nutrition.activities.AddFoodItemActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"

@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context=".ui.home.activities.NutritionistCounsellorsActivity">
+    tools:context=".ui.home.wholestichealthandwellness.activities.NutritionistCounsellorsActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"

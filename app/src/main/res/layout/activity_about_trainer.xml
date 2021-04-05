@@ -15,7 +15,7 @@
         android:id="@+id/llabouttrainer"
         android:nestedScrollingEnabled="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".ui.home.activities.AboutTrainerActivity">
+        tools:context=".ui.home.trainer.activities.AboutTrainerActivity">
 
         <RelativeLayout
             android:layout_width="match_parent"

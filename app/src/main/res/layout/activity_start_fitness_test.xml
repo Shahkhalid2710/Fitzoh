@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:id="@+id/testlayout"
     android:orientation="vertical"
-    tools:context=".ui.home.activities.StartFitnessTestActivity">
+    tools:context=".ui.home.fitnesstest.activities.StartFitnessTestActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"

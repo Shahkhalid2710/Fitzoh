@@ -22,54 +22,38 @@ class PackagesFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_packages, container, false)
 
         v.ivanomika.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
+
         v.ivonlinetraining.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
+
         v.ivOnlineCounsellor.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
         v.ivStrength.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
+
         v.ivYoga.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
+
         v.ivMeditation.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
+
         v.ivedurance.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
+
         v.cvmealpackage.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
         v.cvConsultations.setOnClickListener {
-            val intent= Intent(activity,
-                HolisticHealthTransferActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(activity,HolisticHealthTransferActivity::class.java))
         }
-
-
-
-
 
         return v
     }

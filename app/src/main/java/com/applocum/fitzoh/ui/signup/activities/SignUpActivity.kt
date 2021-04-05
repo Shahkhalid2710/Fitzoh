@@ -158,7 +158,6 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
             etmealType.setText(options[selectedItem])
         }
         builder.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
-         //   Toast.makeText(this, "" + options[selectedItem], Toast.LENGTH_SHORT).show()
             etmealType.setText(options[selectedItem])
             dialogInterface.dismiss()
         }
@@ -207,7 +206,6 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
 
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-        //    Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etweight.setText(lables[which]).toString()
         }
         val dialog = builder.create()
@@ -237,7 +235,6 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
         lables.add("185")
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, lables)
         builder.setAdapter(dataAdapter) { _, which ->
-          //  Toast.makeText(this, "" + lables[which], Toast.LENGTH_LONG).show()
             etheight.setText(lables[which]).toString()
         }
 
@@ -257,7 +254,6 @@ class SignUpActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener{
             etgender.setText(options[selectedItem])
         }
         builder.setPositiveButton("Ok") { dialogInterface: DialogInterface, _: Int ->
-       //  Toast.makeText(this, "" + options[selectedItem], Toast.LENGTH_SHORT).show()
             etgender.setText(options[selectedItem])
             dialogInterface.dismiss()
         }
